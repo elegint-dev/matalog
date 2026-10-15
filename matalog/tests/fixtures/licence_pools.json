@@ -1,0 +1,17 @@
+[
+ {
+  "name": "auto_generated_pool_download-trial",
+  "quota": 524288000,
+  "used_bytes": 331798548
+ },
+ {
+  "name": "auto_generated_pool_forwarder",
+  "quota": 1048576,
+  "used_bytes": 0
+ },
+ {
+  "name": "auto_generated_pool_free",
+  "quota": 524288000,
+  "used_bytes": 0
+ }
+]

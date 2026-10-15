@@ -1,0 +1,103 @@
+{
+ "spl": "| walklex index=\"matalog_json\" type=field | eval field=ltrim(field) | stats count by field",
+ "match": [
+  "^\\| walklex index=\\\"?matalog_json\\\"? type=field"
+ ],
+ "job": {
+  "sid": "1791942042.104",
+  "scanCount": 0,
+  "eventCount": 25,
+  "resultCount": 22,
+  "runDuration": 0.079
+ },
+ "results": [
+  {
+   "field": "_indextime",
+   "count": "1"
+  },
+  {
+   "field": "_subsecond",
+   "count": "1"
+  },
+  {
+   "field": "arn:aws:iam",
+   "count": "1"
+  },
+  {
+   "field": "date_hour",
+   "count": "1"
+  },
+  {
+   "field": "date_mday",
+   "count": "1"
+  },
+  {
+   "field": "date_minute",
+   "count": "1"
+  },
+  {
+   "field": "date_month",
+   "count": "1"
+  },
+  {
+   "field": "date_second",
+   "count": "1"
+  },
+  {
+   "field": "date_wday",
+   "count": "1"
+  },
+  {
+   "field": "date_year",
+   "count": "1"
+  },
+  {
+   "field": "date_zone",
+   "count": "1"
+  },
+  {
+   "field": "heap:1:rwx-:unknown",
+   "count": "1"
+  },
+  {
+   "field": "heap:4:rwx-:unknown",
+   "count": "1"
+  },
+  {
+   "field": "heap:8:rwx-:unknown",
+   "count": "1"
+  },
+  {
+   "field": "host",
+   "count": "2"
+  },
+  {
+   "field": "linecount",
+   "count": "1"
+  },
+  {
+   "field": "punct",
+   "count": "1"
+  },
+  {
+   "field": "sekurlsa",
+   "count": "1"
+  },
+  {
+   "field": "source",
+   "count": "2"
+  },
+  {
+   "field": "sourcetype",
+   "count": "2"
+  },
+  {
+   "field": "timeendpos",
+   "count": "1"
+  },
+  {
+   "field": "timestartpos",
+   "count": "1"
+  }
+ ]
+}

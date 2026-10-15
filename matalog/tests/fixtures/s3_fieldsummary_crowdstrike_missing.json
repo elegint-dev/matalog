@@ -1,0 +1,20 @@
+{
+ "earliest": 1791898800,
+ "job": {
+  "eventCount": 0,
+  "resultCount": 0,
+  "runDuration": 0.057,
+  "scanCount": 276,
+  "sid": "1791941864.83"
+ },
+ "latest": 1791899700,
+ "match": [
+  "crowdstrike:events:sensor",
+  "NOT event_simpleName=\\*",
+  "head 2000",
+  "fieldsummary"
+ ],
+ "results": [],
+ "sample_ratio": 1,
+ "spl": "search index=\"matalog_json\" sourcetype=\"crowdstrike:events:sensor\" NOT event_simpleName=* | head 2000 | eval matalog_n=1 | fieldsummary maxvals=100"
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view template="pages/splunk_ui_app.html" type="html" isDashboard="False">
+    <label>Lookup</label>
+</view>

@@ -1,0 +1,156 @@
+{
+ "earliest": "-1d",
+ "job": {
+  "eventCount": 689,
+  "resultCount": 34,
+  "runDuration": 0.054,
+  "scanCount": 689,
+  "sid": "1791941580.46"
+ },
+ "latest": "now",
+ "match": [
+  "index=\"_internal\" sourcetype=\"splunkd\"",
+  "eval matalog_sv=case\\(isnull\\('component'\\)",
+  "stats count by matalog_sv"
+ ],
+ "results": [
+  {
+   "count": "488",
+   "matalog_sv": "Metrics"
+  },
+  {
+   "count": "99",
+   "matalog_sv": "PeriodicHealthReporter"
+  },
+  {
+   "count": "27",
+   "matalog_sv": "RegisterPackageHandler"
+  },
+  {
+   "count": "10",
+   "matalog_sv": "Shutdown"
+  },
+  {
+   "count": "8",
+   "matalog_sv": "DatabaseDirectoryManager"
+  },
+  {
+   "count": "8",
+   "matalog_sv": "DispatchArtifactReaper"
+  },
+  {
+   "count": "8",
+   "matalog_sv": "ExecProcessor"
+  },
+  {
+   "count": "7",
+   "matalog_sv": "SessionManager"
+  },
+  {
+   "count": "3",
+   "matalog_sv": "HotDBManager"
+  },
+  {
+   "count": "3",
+   "matalog_sv": "IndexWriter"
+  },
+  {
+   "count": "3",
+   "matalog_sv": "TailReader"
+  },
+  {
+   "count": "2",
+   "matalog_sv": "HttpClientRequest"
+  },
+  {
+   "count": "2",
+   "matalog_sv": "SpecFiles"
+  },
+  {
+   "count": "1",
+   "matalog_sv": "AdminManager"
+  },
+  {
+   "count": "1",
+   "matalog_sv": "CollectionCacheManager"
+  },
+  {
+   "count": "1",
+   "matalog_sv": "ConfigWatcher"
+  },
+  {
+   "count": "1",
+   "matalog_sv": "IndexProcessor"
+  },
+  {
+   "count": "1",
+   "matalog_sv": "IndexerIf"
+  },
+  {
+   "count": "1",
+   "matalog_sv": "IndexerService"
+  },
+  {
+   "count": "1",
+   "matalog_sv": "LMConfig"
+  },
+  {
+   "count": "1",
+   "matalog_sv": "LMSlaveInfo"
+  },
+  {
+   "count": "1",
+   "matalog_sv": "LMStackMgr"
+  },
+  {
+   "count": "1",
+   "matalog_sv": "LMTracker"
+  },
+  {
+   "count": "1",
+   "matalog_sv": "LatestIdataEndpoints"
+  },
+  {
+   "count": "1",
+   "matalog_sv": "ModularInputs"
+  },
+  {
+   "count": "1",
+   "matalog_sv": "MongodRunner"
+  },
+  {
+   "count": "1",
+   "matalog_sv": "PipelineComponent"
+  },
+  {
+   "count": "1",
+   "matalog_sv": "PubSubSvr"
+  },
+  {
+   "count": "1",
+   "matalog_sv": "SSLOptions"
+  },
+  {
+   "count": "1",
+   "matalog_sv": "ServerConfig"
+  },
+  {
+   "count": "1",
+   "matalog_sv": "ServerRoles"
+  },
+  {
+   "count": "1",
+   "matalog_sv": "TailingProcessor"
+  },
+  {
+   "count": "1",
+   "matalog_sv": "WatchedFile"
+  },
+  {
+   "count": "1",
+   "matalog_sv": "loader"
+  }
+ ],
+ "sample_ratio": 100,
+ "spl": "search index=\"_internal\" sourcetype=\"splunkd\" | eval matalog_sv=case(isnull('component'), \"__missing__\", mvcount('component')>1, \"__multi__\".urldecode(\"%1F\").mvjoin(mvsort(mvdedup('component')), urldecode(\"%1F\")), 'component'==\"\", \"__empty__\", true(), 'component') | stats count by matalog_sv | sort 0 -count"
+}

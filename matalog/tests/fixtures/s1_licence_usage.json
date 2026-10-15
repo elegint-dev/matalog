@@ -1,0 +1,57 @@
+{
+ "captured_slot": 1791928800,
+ "earliest": 1791842100,
+ "job": {
+  "eventCount": 12,
+  "resultCount": 6,
+  "runDuration": 0.052000000000000005,
+  "scanCount": 12,
+  "sid": "1791941952.96"
+ },
+ "latest": 1791928500,
+ "match": [
+  "license_usage\\.log",
+  "stats sum\\(b\\) as b max\\(_time\\) as last_time by idx st$"
+ ],
+ "note": "Licensed bytes by index and sourcetype over the source_day window.",
+ "results": [
+  {
+   "b": "38130908",
+   "idx": "matalog_json",
+   "last_time": "1791926111.888",
+   "st": "OktaIM2:log"
+  },
+  {
+   "b": "31434510",
+   "idx": "matalog_json",
+   "last_time": "1791926111.889",
+   "st": "aws:cloudtrail"
+  },
+  {
+   "b": "253718738",
+   "idx": "matalog_json",
+   "last_time": "1791926232.888",
+   "st": "crowdstrike:events:sensor"
+  },
+  {
+   "b": "1698134",
+   "idx": "matalog_json",
+   "last_time": "1791925989.898",
+   "st": "gws:reports:admin"
+  },
+  {
+   "b": "4843848",
+   "idx": "matalog_json",
+   "last_time": "1791926171.892",
+   "st": "gws:reports:drive"
+  },
+  {
+   "b": "1972410",
+   "idx": "matalog_json",
+   "last_time": "1791926171.892",
+   "st": "gws:reports:login"
+  }
+ ],
+ "sample_ratio": 1,
+ "spl": "search index=_internal source=*license_usage.log* type=Usage | stats sum(b) as b max(_time) as last_time by idx st"
+}

@@ -1,0 +1,531 @@
+[
+ {
+  "acl": {
+   "app": "search",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "actions": "",
+   "alert.track": false,
+   "alert_comparator": "",
+   "alert_condition": "",
+   "alert_threshold": "",
+   "alert_type": "always",
+   "cron_schedule": "",
+   "description": "",
+   "disabled": false,
+   "dispatch.earliest_time": "",
+   "is_scheduled": false,
+   "realtime_schedule": true,
+   "search": "| rest services/data/indexes datatype=all \n| search disabled!=1 AND bucketMerging=1 \n| dedup title \n| fields title bucketMerging bucketMerge.minMergeSizeMB bucketMerge.maxMergeSizeMB bucketMerge.maxMergeTimeSpanSecs bucketMerge.minMergeCount bucketMerge.maxMergeCount"
+  },
+  "name": "Bucket Merge Retrieve Conf Settings"
+ },
+ {
+  "acl": {
+   "app": "search",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "actions": "",
+   "alert.track": false,
+   "alert_comparator": "",
+   "alert_condition": "",
+   "alert_threshold": "",
+   "alert_type": "always",
+   "cron_schedule": "",
+   "description": "",
+   "disabled": false,
+   "dispatch.earliest_time": "",
+   "is_scheduled": false,
+   "realtime_schedule": true,
+   "search": "| rest services/data/indexes datatype=all \n| search disabled!=1 AND allowBulkDataMove=1 \n| dedup title \n| fields title allowBulkDataMove remotePath"
+  },
+  "name": "Bulk Data Move Retrieve Conf Settings"
+ },
+ {
+  "acl": {
+   "app": "search",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "actions": "",
+   "alert.track": false,
+   "alert_comparator": "",
+   "alert_condition": "",
+   "alert_threshold": "",
+   "alert_type": "always",
+   "cron_schedule": "",
+   "description": "",
+   "disabled": false,
+   "dispatch.earliest_time": "-1d",
+   "is_scheduled": false,
+   "realtime_schedule": true,
+   "search": "error OR failed OR severe OR ( sourcetype=access_* ( 404 OR 500 OR 503 ) )"
+  },
+  "name": "Errors in the last 24 hours"
+ },
+ {
+  "acl": {
+   "app": "search",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "actions": "",
+   "alert.track": false,
+   "alert_comparator": "",
+   "alert_condition": "",
+   "alert_threshold": "",
+   "alert_type": "always",
+   "cron_schedule": "",
+   "description": "",
+   "disabled": false,
+   "dispatch.earliest_time": "-1h",
+   "is_scheduled": false,
+   "realtime_schedule": true,
+   "search": "error OR failed OR severe OR ( sourcetype=access_* ( 404 OR 500 OR 503 ) )"
+  },
+  "name": "Errors in the last hour"
+ },
+ {
+  "acl": {
+   "app": "splunk-rolling-upgrade",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "actions": "outputtelemetry",
+   "alert.track": false,
+   "alert_comparator": "",
+   "alert_condition": "",
+   "alert_threshold": "",
+   "alert_type": "always",
+   "cron_schedule": "0 3 * * *",
+   "description": "",
+   "disabled": false,
+   "dispatch.earliest_time": "-1d",
+   "is_scheduled": true,
+   "realtime_schedule": true,
+   "search": "index=\"_internal\" sourcetype=\"splunk_idx_upgrade_upgrader_script\" telemetry_id=* telemetry_tot_peers=* telemetry_status=* telemetry_deployment_type=* telemetry_site=* telemetry_reason=* telemetry_from_version=* telemetry_to_version=* \n| table telemetry_id, telemetry_deployment_type, telemetry_site, telemetry_tot_peers, telemetry_status, telemetry_reason, telemetry_from_version, telemetry_to_version, _time \n| stats count as data.count by telemetry_id, telemetry_deployment_type, telemetry_site, telemetry_tot_peers, telemetry_status, telemetry_reason, telemetry_from_version, telemetry_to_version, _time \n| rename telemetry_id as data.upgrade_id, telemetry_deployment_type as data.deployment_type, telemetry_site as data.site_name, telemetry_tot_peers as data.tot_peers, _time as data.last_update, telemetry_status as data.upgrade_status, telemetry_reason as data.reason, telemetry_from_version as data.from_version, telemetry_to_version as data.to_version \n| makejson data.* output=event"
+  },
+  "name": "IDXC Upgrade Telemetry: Execution statistics"
+ },
+ {
+  "acl": {
+   "app": "splunk_instrumentation",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "actions": "",
+   "alert.track": false,
+   "alert_comparator": "",
+   "alert_condition": "",
+   "alert_threshold": "",
+   "alert_type": "always",
+   "cron_schedule": "",
+   "description": "",
+   "disabled": false,
+   "dispatch.earliest_time": "",
+   "is_scheduled": false,
+   "realtime_schedule": true,
+   "search": "index=_internal source=*metrics.log* TERM(group=tcpin_connections) (TERM(connectionType=cooked) OR TERM(connectionType=cookedSSL)) fwdType=* guid=* | rename sourceIp as forwarderHost | eval connectionType=case(fwdType==\"uf\" or fwdType==\"lwf\" or fwdType==\"full\", fwdType, 1==1,\"Splunk fwder\") | eval version=if(isnull(version),\"pre 4.2\",version) |  bin _time span=1d | stats sum(kb) as kb, latest(connectionType) as connectionType, latest(arch) as arch, latest(os) as os, latest(version) as version, latest(protocolLevel) as protocolLevel, latest(forwarderHost) as forwarderHost by guid _time| eval protocolLevel=if(isnull(protocolLevel), \"no info\", tostring(protocolLevel)) | stats estdc(forwarderHost) as numHosts estdc(guid) as numInstances `instrumentation_distribution_values(kb)` by connectionType arch os version _time protocolLevel| eval data=\"{\\\"hosts\\\":\"+tostring(numHosts)+\",\\\"instances\\\":\"+tostring(numInstances)+\",\\\"architecture\\\":\\\"\"+arch+\"\\\",\\\"os\\\":\\\"\"+os+\"\\\",\\\"splunkVersion\\\":\\\"\"+version+\"\\\",\\\"type\\\":\\\"\"+connectionType+\"\\\", \\\"protocolLevel\\\":\\\"\"+protocolLevel+\"\\\", \\\"bytes\\\":{\" + `instrumentation_distribution_strings(\"kb\",1024,0)` + \"}}\" | eval date=strftime(_time, \"%Y-%m-%d\") | fields _time date data"
+  },
+  "name": "instrumentation.deployment.forwarders"
+ },
+ {
+  "acl": {
+   "app": "splunk_instrumentation",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "actions": "",
+   "alert.track": false,
+   "alert_comparator": "",
+   "alert_condition": "",
+   "alert_threshold": "",
+   "alert_type": "always",
+   "cron_schedule": "",
+   "description": "",
+   "disabled": false,
+   "dispatch.earliest_time": "",
+   "is_scheduled": false,
+   "realtime_schedule": true,
+   "search": "index=_introspection sourcetype=splunk_disk_objects component::Partitions \n| bin _time span=1d \n| stats latest(data.free) as partitionFree, latest(data.capacity) as partitionCapacity by host data.fs_type data.mount_point _time \n| eval partitionUtilized=round(1-partitionFree/partitionCapacity,2) \n| eval partitions=\"{\\\"utilization\\\":\"+`instrumentation_number_format(partitionUtilized,1,2)`+\",\\\"capacity\\\":\"+`instrumentation_number_format(partitionCapacity,1048576,0)`+\",\\\"fileSystem\\\":\\\"\"+'data.fs_type' + \"\\\"}\" \n| stats delim=\",\" values(partitions) as partitions by host _time \n| rename _time as date \n| mvcombine partitions \n| rename date as _time \n| join type=left host _time [ \n    search index=_introspection sourcetype=splunk_resource_usage component::Hostwide \n    | eval cpuUsage = 'data.cpu_system_pct' + 'data.cpu_user_pct' \n    | rename data.mem_used as memUsage \n    | bin _time span=1d \n    | stats latest(data.cpu_count) as coreCount, \n            latest(data.virtual_cpu_count) as virtualCoreCount, \n            latest(data.mem) as memAvailable, \n            latest(data.splunk_version) as splunkVersion, \n            latest(data.cpu_arch) as cpuArch, \n            latest(data.os_name) as osName, \n            latest(data.os_name_ext) as osNameExt, \n            latest(data.os_version) as osVersion, \n            `instrumentation_distribution_values(cpuUsage)`, \n            `instrumentation_distribution_values(memUsage)`, \n            latest(data.instance_guid) as guid \n        by host _time \n    ] \n| fillnull value=\"null\" coreCount virtualCoreCount memAvailable \n| eval splunkVersion=coalesce(\"\\\"\"+splunkVersion+\"\\\"\", \"null\"), \n       cpuArch=coalesce(\"\\\"\"+cpuArch+\"\\\"\", \"null\"), \n       osName=coalesce(\"\\\"\"+osName + \"\\\"\", \"null\"), \n       osNameExt=coalesce(\"\\\"\"+osNameExt+\"\\\"\", \"null\"), \n       osVersion=coalesce(\"\\\"\"+osVersion+\"\\\"\", \"null\"), \n       guid=coalesce(\"\\\"\"+guid+\"\\\"\", \"null\") \n| eval data = \"{\\\"guid\\\":\"+guid+\",\\\"host\\\":\\\"\"+replace(host,\"\\\"\", \"\\\\\\\"\")+\"\\\",\\\"partitions\\\": \" + coalesce(\"[\" + partitions + \"]\", \"null\") + \",\\\"cpu\\\":{\\\"architecture\\\":\"+cpuArch+\",\\\"coreCount\\\":\" + tostring(coreCount)+ \",\\\"virtualCoreCount\\\":\"+tostring(virtualCoreCount)+\",\\\"utilization\\\":{\" + `instrumentation_distribution_strings(\"cpuUsage\",.01,2)` + \"}},\\\"memory\\\":\"+\"{\\\"capacity\\\":\"+ `instrumentation_number_format(memAvailable,1048576,0)`+\",\\\"utilization\\\":{\" + `instrumentation_distribution_strings(\"memUsage\",1/memAvailable,2)` + \"}},\\\"os\\\":\"+osName+\",\\\"osExt\\\":\"+osNameExt + \",\\\"osVersion\\\":\"+osVersion+\",\\\"splunkVersion\\\":\"+splunkVersion+\"}\" \n| eval date=strftime(_time, \"%Y-%m-%d\") \n| fields _time date data"
+  },
+  "name": "instrumentation.deployment.node"
+ },
+ {
+  "acl": {
+   "app": "splunk_instrumentation",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "actions": "",
+   "alert.track": false,
+   "alert_comparator": "",
+   "alert_condition": "",
+   "alert_threshold": "",
+   "alert_type": "always",
+   "cron_schedule": "",
+   "description": "",
+   "disabled": false,
+   "dispatch.earliest_time": "",
+   "is_scheduled": false,
+   "realtime_schedule": true,
+   "search": "NOT() | append [search index=_telemetry type=RolloverSummary | eval date=strftime(_time-43200, \"%Y-%m-%d\") | eval licenseIDs=coalesce(replace(replace(replace(replace(licenseGuids,\"\\[\",\"[\\\"\"),\"\\]\",\"\\\"]\"),\",\",\"\\\",\\\"\"),\" \", \"\"),\"null\"), subgroup_id=coalesce(subgroupId, \"Production\"), group_id=coalesce(\"\\\"\"+licenseGroup+\"\\\"\", \"null\"), lmGuid=coalesce(\"\\\"\"+guid+\"\\\"\", \"null\"), productType=coalesce(\"\\\"\"+productType+\"\\\"\", \"null\"), type_id=if(substr(stack,1,16)=\"fixed-sourcetype\", \"fixed-sourcetype\",stack) | stats max(_time) as lastTime latest(stacksz) as stack_quota, latest(poolsz) as pool_quota, sum(b) as consumption by pool stack host lmGuid licenseIDs type_id group_id subgroup_id productType date | rename stack as stack_id | eval pool=\"{\\\"quota\\\":\" + pool_quota+\",\\\"consumption\\\":\"+consumption+\"}\" | stats delim=\",\" values(pool) as pools, max(lastTime) as lastTime max(stack_quota) as stack_quota sum(consumption) as stack_consumption by stack_id group_id subgroup_id type_id lmGuid host licenseIDs productType date | mvcombine pools | eval _raw=\"{\\\"component\\\":\\\"licensing.stack\\\",\\\"data\\\":{\\\"host\\\":\\\"\"+host+\"\\\",\\\"guid\\\":\"+lmGuid+\",\\\"name\\\":\\\"\"+replace(stack_id,\"\\\"\", \"\\\\\\\"\")+\"\\\",\\\"type\\\":\\\"\" + type_id + \"\\\",\\\"subgroup\\\":\\\"\" + subgroup_id + \"\\\",\\\"product\\\":\"+productType+\",\\\"quota\\\":\" + stack_quota+\",\\\"consumption\\\":\"+stack_consumption+\",\\\"pools\\\":[\"+pools+\"],\\\"licenseIDs\\\":\"+licenseIDs+\"}, \\\"date\\\":\\\"\"+date+\"\\\",\\\"visibility\\\":\\\"anonymous,license\\\"}\", _time=lastTime]"
+  },
+  "name": "instrumentation.licenseUsage"
+ },
+ {
+  "acl": {
+   "app": "splunk_instrumentation",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "actions": "",
+   "alert.track": false,
+   "alert_comparator": "",
+   "alert_condition": "",
+   "alert_threshold": "",
+   "alert_type": "always",
+   "cron_schedule": "",
+   "description": "",
+   "disabled": false,
+   "dispatch.earliest_time": "",
+   "is_scheduled": false,
+   "realtime_schedule": true,
+   "search": "index=_internal TERM(group=thruput) TERM(name=index_thruput) source=*metrics.log* | bin _time span=30s | stats sum(kb) as kb sum(instantaneous_kbps) as instantaneous_kbps by host _time | bin _time span=1d | stats sum(kb) as totalKB `instrumentation_distribution_values(instantaneous_kbps)` by host _time | eval data=\"{\\\"host\\\":\\\"\"+host+\"\\\",\\\"thruput\\\":{\\\"total\\\":\" + tostring(round(totalKB*1024)) + \",\" + `instrumentation_distribution_strings(\"instantaneous_kbps\",1024,0)`+\"}}\" | eval date=strftime(_time, \"%Y-%m-%d\") | fields _time date data"
+  },
+  "name": "instrumentation.performance.indexing"
+ },
+ {
+  "acl": {
+   "app": "splunk_instrumentation",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "actions": "",
+   "alert.track": false,
+   "alert_comparator": "",
+   "alert_condition": "",
+   "alert_threshold": "",
+   "alert_type": "always",
+   "cron_schedule": "",
+   "description": "",
+   "disabled": false,
+   "dispatch.earliest_time": "",
+   "is_scheduled": false,
+   "realtime_schedule": true,
+   "search": "index=_audit sourcetype=audittrail TERM(action=search) TERM(info=completed) total_run_time=* | eval search_et=if(search_et=\"N/A\", 0, search_et) | eval search_lt=if(search_lt=\"N/A\", exec_time, min(exec_time,search_lt)) | eval timerange=search_lt-search_et | bin _time span=1d | stats latest(searched_buckets) as searched_buckets latest(total_slices) as total_slices latest(scan_count) as scan_count latest(timerange) as timerange latest(total_run_time) as runtime by search_id _time | stats `instrumentation_distribution_values(runtime)`, `instrumentation_distribution_values(searched_buckets)`, `instrumentation_distribution_values(total_slices)`, `instrumentation_distribution_values(scan_count)`, `instrumentation_distribution_values(timerange)` count as numSearches by _time | eval data=\"{\\\"searches\\\":\"+tostring(numSearches)+\",\\\"latency\\\":{\"+`instrumentation_distribution_strings(\"runtime\",1,2)`+\"},\\\"buckets\\\":{\"+`instrumentation_distribution_strings(\"searched_buckets\",1,2)`+\"},\\\"slices\\\":{\"+`instrumentation_distribution_strings(\"total_slices\",1,2)`+\"},\\\"scanCount\\\":{\"+`instrumentation_distribution_strings(\"scan_count\",1,2)`+\"},\\\"dayRange\\\":{\"+`instrumentation_distribution_strings(\"timerange\",1/86400,2)`+\"}}\" | eval date=strftime(_time, \"%Y-%m-%d\") | fields _time date data"
+  },
+  "name": "instrumentation.performance.search"
+ },
+ {
+  "acl": {
+   "app": "splunk_instrumentation",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "actions": "outputtelemetry",
+   "alert.track": false,
+   "alert_comparator": "greater than",
+   "alert_condition": "",
+   "alert_threshold": "0",
+   "alert_type": "number of events",
+   "cron_schedule": "0 3 * * *",
+   "description": "",
+   "disabled": false,
+   "dispatch.earliest_time": "-1d",
+   "is_scheduled": true,
+   "realtime_schedule": true,
+   "search": "index=_internal ( \n        (source=*/var/log/splunk/metrics.log* group=version_control name=stats) OR \n        (sourcetype=splunkd_access uri=\"/services/configs/conf-server/_reload\")) \n                [| rest /services/server/status splunk_server=local | return 1 host=splunk_server] \n                | eval status=coalesce(status, \"X\") \n                | stats latest(bytes) as bytes, \n                        latest(tracked_file_count) as tracked_file_count, \n                        latest(total_commits) as total_commits, \n                        count(eval(sourcetype=\"splunkd_access\")) as count \n                        by status \n                | eval repo = if(isnull(total_commits), null(), json_object(\"bytes\", bytes, \"tracked_file_count\", tracked_file_count, \"total_commits\", total_commits)), \n                        endpoint = if(isnotnull(total_commits), null(), json_object(status, count)) \n                | fields repo, endpoint \n                | mvcombine endpoint \n                | eval endpoint=if(mvcount(endpoint)=0, null(), mv_to_json_array(endpoint, true())) \n                | stats latest(repo) AS repository_snapshot, latest(endpoint) AS reload_rest_endpoint \n        | appendcols \n                [| rest splunk_server=local /services/server/info \n                | fields versionControlEnabled \n                | rename versionControlEnabled as enabled] \n        | makejson output=data"
+  },
+  "name": "instrumentation.usage.versionControl.report"
+ },
+ {
+  "acl": {
+   "app": "search",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "actions": "",
+   "alert.track": false,
+   "alert_comparator": "",
+   "alert_condition": "",
+   "alert_threshold": "",
+   "alert_type": "always",
+   "cron_schedule": "",
+   "description": "",
+   "disabled": false,
+   "dispatch.earliest_time": "-31d",
+   "is_scheduled": false,
+   "realtime_schedule": true,
+   "search": "index=_internal source=*license_usage.log* type=\"Usage\" | eval h=if(len(h)=0 OR isnull(h),\"(SQUASHED)\",h) | eval s=if(len(s)=0 OR isnull(s),\"(SQUASHED)\",s) | eval idx=if(len(idx)=0 OR isnull(idx),\"(UNKNOWN)\",idx) | bin _time span=1d | stats sum(b) as b by _time, pool, s, st, h, idx"
+  },
+  "name": "License Usage Data Cube"
+ },
+ {
+  "acl": {
+   "app": "matalog",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "actions": "",
+   "alert.track": false,
+   "alert_comparator": "",
+   "alert_condition": "",
+   "alert_threshold": "",
+   "alert_type": "always",
+   "cron_schedule": "",
+   "description": "The profiler's cost per run against its budget.",
+   "disabled": false,
+   "dispatch.earliest_time": "",
+   "is_scheduled": false,
+   "realtime_schedule": true,
+   "search": "| inputlookup matalog_runs | table run_id searches_issued events_scanned search_seconds wall_seconds budget_exhausted"
+  },
+  "name": "matalog cost per run"
+ },
+ {
+  "acl": {
+   "app": "matalog",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "actions": "",
+   "alert.track": false,
+   "alert_comparator": "",
+   "alert_condition": "",
+   "alert_threshold": "",
+   "alert_type": "always",
+   "cron_schedule": "",
+   "description": "A field's history from the summary index: coverage, cardinality and stratum events per committed run. The rows of every stratum of the source are summed, so a level=source row of a stratified source reads as its rollup. Tokens: source_key, field_name, mode (discovery or profile).",
+   "disabled": false,
+   "dispatch.earliest_time": "0",
+   "is_scheduled": false,
+   "realtime_schedule": true,
+   "search": "search index=matalog_profiles kind=field mode=\"$mode$\" source_key=\"$source_key$\" field_name=\"$field_name$\" [search index=matalog_profiles kind=commit | stats max(attempt) as attempt by run_id | fields run_id attempt] | stats sum(count) as count sum(events_in_stratum) as events max(distinct) as distinct by _time run_id | eval coverage=round(count/events, 4) | timechart span=1h cont=false max(coverage) as coverage max(distinct) as distinct max(events) as events"
+  },
+  "name": "matalog drift chart"
+ },
+ {
+  "acl": {
+   "app": "matalog",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "actions": "",
+   "alert.track": false,
+   "alert_comparator": "",
+   "alert_condition": "",
+   "alert_threshold": "",
+   "alert_type": "always",
+   "cron_schedule": "",
+   "description": "The history of one measured field row (a stratum row, or the level=source row of an unstratified source), per committed run. Tokens: field_key, mode (discovery or profile).",
+   "disabled": false,
+   "dispatch.earliest_time": "0",
+   "is_scheduled": false,
+   "realtime_schedule": true,
+   "search": "search index=matalog_profiles kind=field mode=\"$mode$\" field_key=\"$field_key$\" [search index=matalog_profiles kind=commit | stats max(attempt) as attempt by run_id | fields run_id attempt] | timechart span=1h cont=false max(coverage) as coverage max(distinct) as distinct max(events_in_stratum) as events"
+  },
+  "name": "matalog drift chart by field_key"
+ },
+ {
+  "acl": {
+   "app": "matalog",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "actions": "",
+   "alert.track": false,
+   "alert_comparator": "",
+   "alert_condition": "",
+   "alert_threshold": "",
+   "alert_type": "always",
+   "cron_schedule": "",
+   "description": "Job 1. The same field per stratum of each sourcetype. Token: field_name.",
+   "disabled": false,
+   "dispatch.earliest_time": "",
+   "is_scheduled": false,
+   "realtime_schedule": true,
+   "search": "| inputlookup matalog_fields where field_name=\"$field_name$\" level=\"stratum\""
+  },
+  "name": "matalog job 1 drill to strata"
+ },
+ {
+  "acl": {
+   "app": "matalog",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "actions": "",
+   "alert.track": false,
+   "alert_comparator": "",
+   "alert_condition": "",
+   "alert_threshold": "",
+   "alert_type": "always",
+   "cron_schedule": "",
+   "description": "Job 1. Knowledge objects that reference a field name. Token: field_name.",
+   "disabled": false,
+   "dispatch.earliest_time": "",
+   "is_scheduled": false,
+   "realtime_schedule": true,
+   "search": "| inputlookup matalog_usage where field_name=\"$field_name$\""
+  },
+  "name": "matalog job 1 full usage list"
+ },
+ {
+  "acl": {
+   "app": "matalog",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "actions": "",
+   "alert.track": false,
+   "alert_comparator": "",
+   "alert_condition": "",
+   "alert_threshold": "",
+   "alert_type": "always",
+   "cron_schedule": "",
+   "description": "Job 1. Every sourcetype that carries a field, with coverage, cardinality, freshness, sample values and origin. Token: field_name.",
+   "disabled": false,
+   "dispatch.earliest_time": "",
+   "is_scheduled": false,
+   "realtime_schedule": true,
+   "search": "| inputlookup matalog_fields where field_name=\"$field_name$\" level=\"source\""
+  },
+  "name": "matalog job 1 look up a field"
+ },
+ {
+  "acl": {
+   "app": "matalog",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "actions": "",
+   "alert.track": false,
+   "alert_comparator": "",
+   "alert_condition": "",
+   "alert_threshold": "",
+   "alert_type": "always",
+   "cron_schedule": "",
+   "description": "Job 2. The field list of one source, grouped by stratum. Token: source_key.",
+   "disabled": false,
+   "dispatch.earliest_time": "",
+   "is_scheduled": false,
+   "realtime_schedule": true,
+   "search": "| inputlookup matalog_fields where source_key=\"$source_key$\" | sort 0 stratum_value, field_name"
+  },
+  "name": "matalog job 2 browse a source"
+ },
+ {
+  "acl": {
+   "app": "matalog",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "actions": "",
+   "alert.track": false,
+   "alert_comparator": "",
+   "alert_condition": "",
+   "alert_threshold": "",
+   "alert_type": "always",
+   "cron_schedule": "",
+   "description": "Job 2. Volume, freshness, last human search and stratum key of one source. Token: source_key.",
+   "disabled": false,
+   "dispatch.earliest_time": "",
+   "is_scheduled": false,
+   "realtime_schedule": true,
+   "search": "| inputlookup matalog_sources where source_key=\"$source_key$\""
+  },
+  "name": "matalog job 2 source header"
+ },
+ {
+  "acl": {
+   "app": "matalog",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "actions": "",
+   "alert.track": false,
+   "alert_comparator": "",
+   "alert_condition": "",
+   "alert_threshold": "",
+   "alert_type": "always",
+   "cron_schedule": "",
+   "description": "Job 5. Sources by licensed daily volume with the days since the last human search.",
+   "disabled": false,
+   "dispatch.earliest_time": "",
+   "is_scheduled": false,
+   "realtime_schedule": true,
+   "search": "| inputlookup matalog_sources | eval days_idle=round((now()-coalesce(last_human_search_time,0))/86400) | sort 0 - daily_bytes"
+  },
+  "name": "matalog job 5 find waste"
+ },
+ {
+  "acl": {
+   "app": "search",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "actions": "",
+   "alert.track": false,
+   "alert_comparator": "",
+   "alert_condition": "",
+   "alert_threshold": "",
+   "alert_type": "always",
+   "cron_schedule": "",
+   "description": "",
+   "disabled": false,
+   "dispatch.earliest_time": "",
+   "is_scheduled": false,
+   "realtime_schedule": true,
+   "search": "| rest timeout=600 splunk_server=local /servicesNS/-/-/saved/searches add_orphan_field=yes count=0 \n| search orphan=1 disabled=0 is_scheduled=1 \n| eval status = if(disabled = 0, \"enabled\", \"disabled\") \n| fields title eai:acl.owner eai:acl.app eai:acl.sharing orphan status is_scheduled cron_schedule next_scheduled_time next_scheduled_time actions \n| rename title AS \"search name\" eai:acl.owner AS owner eai:acl.app AS app eai:acl.sharing AS sharing"
+  },
+  "name": "Orphaned scheduled searches"
+ },
+ {
+  "acl": {
+   "app": "splunk-rolling-upgrade",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "actions": "outputtelemetry",
+   "alert.track": false,
+   "alert_comparator": "",
+   "alert_condition": "",
+   "alert_threshold": "",
+   "alert_type": "always",
+   "cron_schedule": "0 3 * * *",
+   "description": "",
+   "disabled": false,
+   "dispatch.earliest_time": "-1d",
+   "is_scheduled": true,
+   "realtime_schedule": true,
+   "search": "index=\"_internal\" (sourcetype=\"splunk_shc_upgrade_upgrader_script\" OR sourcetype=\"splunk_shc_upgrade_completion_script\" OR sourcetype=\"splunk_shc_upgrade_rest_endpoints\") telemetry_id=* telemetry_peers=* telemetry_status=* telemetry_deployment_type=* telemetry_reason=* telemetry_from_version=* telemetry_to_version=* \n| table telemetry_id telemetry_peers telemetry_status telemetry_deployment_type telemetry_reason telemetry_from_version telemetry_to_version _time \n| eval encrypted_peer_names=substr(sha256(telemetry_peers),0,12) \n| stats count AS data.count by telemetry_id, encrypted_peer_names, telemetry_status, telemetry_deployment_type, telemetry_reason, telemetry_from_version, telemetry_to_version, _time \n| rename telemetry_id as data.upgrade_id, encrypted_peer_names as data.encrypted_peer_names, telemetry_status as data.upgrade_status, telemetry_deployment_type as data.deployment_type, _time as data.last_update, telemetry_reason as data.reason, telemetry_from_version as data.from_version, telemetry_to_version as data.to_version \n| makejson data.* output=event"
+  },
+  "name": "SHC Upgrade Telemetry: Execution statistics"
+ }
+]

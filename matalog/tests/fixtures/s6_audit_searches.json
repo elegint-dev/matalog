@@ -1,0 +1,1160 @@
+{
+ "earliest": 1789351200,
+ "job": {
+  "eventCount": 8127,
+  "resultCount": 190,
+  "runDuration": 0.149,
+  "scanCount": 29837,
+  "sid": "1791941623.51"
+ },
+ "latest": 1791943200,
+ "match": [
+  "index=_audit",
+  "action=search",
+  "stats max\\(_time\\) as last_time by user app search"
+ ],
+ "results": [
+  {
+   "app": "search",
+   "last_time": "1791941578.826035",
+   "search": "'search index=matalog_profiles | stats count min(_time) max(_time) by kind sourcetype | export add_timestamp=f add_offset=t format=json segmentation=none'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791941458.829244",
+   "search": "'search index=_audit action=search (info=granted OR info=completed) | stats count by info user app provenance | sort - count | export add_timestamp=f add_offset=t format=json segmentation=none'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791933792.468738",
+   "search": "'search index=matalog_profiles | delete | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791933792.464608",
+   "search": "'| tstats count where index=matalog_profiles | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791933764.855758",
+   "search": "'search index=matalog_profiles | delete | stats sum(deleted) AS deleted | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791932862.465484",
+   "search": "'search index=_internal source=*license_usage.log* type=Usage | stats sum(b) as b count by idx st'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791930972.461366",
+   "search": "'| metadata type=sourcetypes index=matalog_json'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791930386.017306",
+   "search": "'search index=matalog_profiles | stats count sum(eval(len(_raw))) as raw_bytes'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791930386.016205",
+   "search": "'search index=_internal source=*license_usage.log* type=Usage idx=matalog_profiles | stats sum(b) as b count by idx st'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791929536.008628",
+   "search": "'search index=_internal sourcetype=splunkd | head 2000 | eval matalog_n=1 | fieldsummary maxvals=100'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791929536.007695",
+   "search": "'search index=matalog_json sourcetype=\"crowdstrike:events:sensor\" event_simpleName=\"FileDeleteInfo\" | head 2000 | eval matalog_n=1 | fieldsummary maxvals=100'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791929536.007167",
+   "search": "'| tstats count max(_time) as last_time where index=* by index sourcetype'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791929536.006650",
+   "search": "'search index=_internal source=*license_usage.log* type=Usage | stats sum(b) as b by idx st'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791929536.006086",
+   "search": "'search index=_internal sourcetype=splunkd | head 100000 | eval matalog_n=1 | fieldsummary maxvals=100'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791929536.005510",
+   "search": "'search index=_audit action=search info=completed | head 50 | table _time user app search_id search apiStartTime apiEndTime total_run_time event_count scan_count savedsearch_name provenance'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791929536.004942",
+   "search": "'| metadata type=sourcetypes index=_internal'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791929536.004370",
+   "search": "'search index=matalog_json sourcetype=\"crowdstrike:events:sensor\" event_simpleName=\"ProcessRollup2\" | head 2000 | eval matalog_n=1 | fieldsummary maxvals=100'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791929536.003681",
+   "search": "'search index=matalog_json sourcetype=\"crowdstrike:events:sensor\" | head 100000 | eval matalog_n=1 | fieldsummary maxvals=100'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791929536.002874",
+   "search": "'search index=matalog_json sourcetype=\"crowdstrike:events:sensor\" | eval matalog_sv=case(isnull(event_simpleName), \"__missing__\", mvcount(event_simpleName)>1, \"__multi__\", event_simpleName==\"\", \"__empty__\", true(), event_simpleName) | stats count by matalog_sv | sort -count'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791929476.014589",
+   "search": "'search index=summary | stats count sum(eval(len(_raw))) as raw_bytes by sourcetype source'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791928635.890658",
+   "search": "'search index=summary sourcetype=stash | stats count sum(eval(len(_raw))) as bytes'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791928635.888279",
+   "search": "'search index=_internal source=*license_usage.log* type=Usage idx=summary | stats sum(b) as b count by idx st'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791928576.001973",
+   "search": "'search index=summary sourcetype=stash probe=H | eval n=mvcount(top_values), z=mvzip(top_values,top_counts) | table _time field_name n z sample_values coverage empty'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791928576.000748",
+   "search": "'search index=summary sourcetype=stash probe=L | stats count dc(field_name) as fields by batch'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791928546.029590",
+   "search": "'| makeresults format=json data=\"[{\\\"r\\\":\\\"10/13/2026 14:00:00 +0000, kind=\\\\\\\"field\\\\\\\", run_id=\\\\\\\"20261013T2100Z\\\\\\\", attempt=\\\\\\\"1\\\\\\\", field_name=\\\\\\\"CallStackModuleNames\\\\\\\", top_values=\\\\\\\"a\\\\\\\\\\\\\\\\b\\\\\\\\\\\\\\\\c\\\\\\\", top_values=\\\\\\\"say \\\\\\\\\\\\\\\"hi\\\\\\\\\\\\\\\"\\\\\\\", top_values=\\\\\\\"plain\\\\\\\", top_values=\\\\\\\"with, comma\\\\\\\", top_values=\\\\\\\"eq=sign\\\\\\\", top_values=\\\\\\\"new\\\\nline\\\\\\\", top_values=\\\\\\\"zz\\\\\\\", top_counts=\\\\\\\"3\\\\\\\", top_counts=\\\\\\\"2\\\\\\\", top_counts=\\\\\\\"1\\\\\\\", top_counts=\\\\\\\"1\\\\\\\", top_counts=\\\\\\\"1\\\\\\\", top_counts=\\\\\\\"1\\\\\\\", top_counts=\\\\\\\"1\\\\\\\", coverage=\\\\\\\"0.5\\\\\\\", empty=\\\\\\\"\\\\\\\", probe=\\\\\\\"H\\\\\\\"\\\"},{\\\"r\\\":\\\"10/13/2026 14:00:00 +0000, kind=\\\\\\\"field\\\\\\\", run_id=\\\\\\\"20261013T2100Z\\\\\\\", attempt=\\\\\\\"1\\\\\\\", field_name=\\\\\\\"second\\\\\\\", top_values=\\\\\\\"x\\\\\\\", top_counts=\\\\\\\"9\\\\\\\", sample_values=\\\\\\\"only\\\\\\\", coverage=\\\\\\\"1\\\\\\\", empty=\\\\\\\"\\\\\\\", probe=\\\\\\\"H\\\\\\\"\\\"}]\" | eval _raw=r | fields - r | collect index=summary sourcetype=stash'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791928515.852776",
+   "search": "'| makeresults format=json data=\"[{\\\"t\\\":1791900000,\\\"r\\\":\\\"kind=\\\\\\\"field\\\\\\\", probe=\\\\\\\"F\\\\\\\", field_name=\\\\\\\"one\\\\\\\", top_values=\\\\\\\"a\\\\\\\", top_values=\\\\\\\"b\\\\\\\"\\\"},{\\\"t\\\":1791900000,\\\"r\\\":\\\"kind=\\\\\\\"field\\\\\\\", probe=\\\\\\\"F\\\\\\\", field_name=\\\\\\\"two\\\\\\\", top_values=\\\\\\\"c\\\\\\\"\\\"}]\" | eval _time=t, _raw=r | fields - t r | collect index=summary sourcetype=stash spool=false file=probe_F.stash'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791928515.850877",
+   "search": "'| makeresults format=json data=\"[{\\\"t\\\":1791900000,\\\"kind\\\":\\\"field\\\",\\\"probe\\\":\\\"G\\\",\\\"field_name\\\":\\\"one\\\",\\\"top_values\\\":[\\\"a\\\",\\\"b\\\"]},{\\\"t\\\":1791900000,\\\"kind\\\":\\\"field\\\",\\\"probe\\\":\\\"G\\\",\\\"field_name\\\":\\\"two\\\",\\\"top_values\\\":[\\\"c\\\"]}]\" | eval _time=t, top_values=json_array_to_mv(top_values) | fields - t _raw | collect index=summary sourcetype=stash spool=false file=probe_G.stash'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791928486.006312",
+   "search": "'search index=summary sourcetype=stash probe=E | eval n=mvcount(top_values), first=mvindex(top_values,0), last=mvindex(top_values,-1), z=mvzip(top_values,top_counts) | table _time sourcetype _raw field_name n first last z sample_values coverage empty'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791928486.004844",
+   "search": "'search index=summary sourcetype=stash probe=D | eval n=mvcount(top_values), first=mvindex(top_values,0), last=mvindex(top_values,-1), z=mvzip(top_values,top_counts) | table _time sourcetype _raw field_name n first last z sample_values coverage empty'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791928486.002207",
+   "search": "'| makeresults format=json data=\"[{\\\"t\\\":1791900000,\\\"r\\\":\\\"kind=\\\\\\\"field\\\\\\\", run_id=\\\\\\\"20261013T2100Z\\\\\\\", attempt=\\\\\\\"1\\\\\\\", field_name=\\\\\\\"CallStackModuleNames\\\\\\\", top_values=\\\\\\\"a\\\\\\\\\\\\\\\\b\\\\\\\\\\\\\\\\c\\\\\\\", top_values=\\\\\\\"say \\\\\\\\\\\\\\\"hi\\\\\\\\\\\\\\\"\\\\\\\", top_values=\\\\\\\"plain\\\\\\\", top_values=\\\\\\\"with, comma\\\\\\\", top_values=\\\\\\\"eq=sign\\\\\\\", top_values=\\\\\\\"new\\\\nline\\\\\\\", top_values=\\\\\\\"zz\\\\\\\", top_counts=\\\\\\\"3\\\\\\\", top_counts=\\\\\\\"2\\\\\\\", top_counts=\\\\\\\"1\\\\\\\", top_counts=\\\\\\\"1\\\\\\\", top_counts=\\\\\\\"1\\\\\\\", top_counts=\\\\\\\"1\\\\\\\", top_counts=\\\\\\\"1\\\\\\\", coverage=\\\\\\\"0.5\\\\\\\", empty=\\\\\\\"\\\\\\\", probe=\\\\\\\"E\\\\\\\"\\\"},{\\\"t\\\":1791900000,\\\"r\\\":\\\"kind=\\\\\\\"field\\\\\\\", run_id=\\\\\\\"20261013T2100Z\\\\\\\", attempt=\\\\\\\"1\\\\\\\", field_name=\\\\\\\"second\\\\\\\", top_values=\\\\\\\"x\\\\\\\", top_counts=\\\\\\\"9\\\\\\\", sample_values=\\\\\\\"only\\\\\\\", coverage=\\\\\\\"1\\\\\\\", empty=\\\\\\\"\\\\\\\", probe=\\\\\\\"E\\\\\\\"\\\"}]\" | eval _time=t, _raw=r | fields - t r | collect index=summary sourcetype=stash'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791928486.000163",
+   "search": "'search index=summary sourcetype=stash probe=D | head 1 | table sourcetype _raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791928459.942161",
+   "search": "'| makeresults format=json data=\"[{\\\"kind\\\":\\\"field\\\",\\\"run_id\\\":\\\"20261013T2100Z\\\",\\\"attempt\\\":1,\\\"field_name\\\":\\\"CallStackModuleNames\\\",\\\"top_values\\\":[\\\"a\\\\\\\\b\\\\\\\\c\\\",\\\"say \\\\\\\"hi\\\\\\\"\\\",\\\"plain\\\",\\\"with, comma\\\",\\\"eq=sign\\\",\\\"new\\\\nline\\\",\\\"zz\\\"],\\\"top_counts\\\":[\\\"3\\\",\\\"2\\\",\\\"1\\\",\\\"1\\\",\\\"1\\\",\\\"1\\\",\\\"1\\\"],\\\"sample_values\\\":[],\\\"coverage\\\":0.5,\\\"empty\\\":\\\"\\\",\\\"t\\\":1791900000},{\\\"kind\\\":\\\"field\\\",\\\"run_id\\\":\\\"20261013T2100Z\\\",\\\"attempt\\\":1,\\\"field_name\\\":\\\"second\\\",\\\"top_values\\\":[\\\"x\\\"],\\\"top_counts\\\":[\\\"9\\\"],\\\"sample_values\\\":[\\\"only\\\"],\\\"coverage\\\":1,\\\"empty\\\":\\\"\\\",\\\"t\\\":1791900000}]\" | eval _time=t, probe=\"D\" | eval top_values=json_array_to_mv(top_values) | eval top_counts=json_array_to_mv(top_counts) | eval sample_values=json_array_to_mv(sample_values) | fields - _raw t | collect index=summary sourcetype=stash output_format=hec'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791928426.005941",
+   "search": "'search index=summary sourcetype=stash probe=C | eval n=mvcount(top_values), first=mvindex(top_values,0), last=mvindex(top_values,-1), z=mvzip(top_values,top_counts) | table _time _raw field_name n first last z sample_values coverage'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791928426.002543",
+   "search": "'| makeresults format=json data=\"[{\\\"t\\\":1791900000,\\\"kind\\\":\\\"field\\\",\\\"run_id\\\":\\\"20261013T2100Z\\\",\\\"attempt\\\":1,\\\"field_name\\\":\\\"CallStackModuleNames\\\",\\\"top_values\\\":[\\\"a\\\\\\\\b\\\\\\\\c\\\",\\\"say \\\\\\\"hi\\\\\\\"\\\",\\\"plain\\\",\\\"with, comma\\\",\\\"eq=sign\\\",\\\"new\\\\nline\\\",\\\"zz\\\"],\\\"top_counts\\\":[\\\"3\\\",\\\"2\\\",\\\"1\\\",\\\"1\\\",\\\"1\\\",\\\"1\\\",\\\"1\\\"],\\\"sample_values\\\":[],\\\"coverage\\\":0.5},{\\\"t\\\":1791900000,\\\"kind\\\":\\\"field\\\",\\\"run_id\\\":\\\"20261013T2100Z\\\",\\\"attempt\\\":1,\\\"field_name\\\":\\\"second\\\",\\\"top_values\\\":[\\\"x\\\"],\\\"top_counts\\\":[\\\"9\\\"],\\\"sample_values\\\":[\\\"only\\\"],\\\"coverage\\\":1}]\" | eval _time=t | eval top_values=json_array_to_mv(top_values) | eval top_counts=json_array_to_mv(top_counts) | eval sample_values=json_array_to_mv(sample_values) | fields - _raw t | collect index=summary sourcetype=stash marker=\"probe=C\"'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791928395.841679",
+   "search": "'search index=summary sourcetype=stash probe=B | table _time _raw kind run_id attempt field_name top_values top_counts coverage flag empty'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791928395.839483",
+   "search": "'| makeresults format=json data=\"[{\\\"t\\\":1791900000,\\\"kind\\\":\\\"field\\\",\\\"run_id\\\":\\\"20261013T2100Z\\\",\\\"attempt\\\":1,\\\"field_name\\\":\\\"CallStackModuleNames\\\",\\\"top_values\\\":[\\\"a\\\\\\\\b\\\\\\\\c\\\",\\\"say \\\\\\\"hi\\\\\\\"\\\",\\\"plain\\\",\\\"with, comma\\\",\\\"eq=sign\\\",\\\"new\\\\nline\\\"],\\\"top_counts\\\":[\\\"3\\\",\\\"2\\\",\\\"1\\\",\\\"1\\\",\\\"1\\\",\\\"1\\\"],\\\"coverage\\\":0.5,\\\"flag\\\":1,\\\"empty\\\":\\\"\\\"},{\\\"t\\\":1791900000,\\\"kind\\\":\\\"field\\\",\\\"run_id\\\":\\\"20261013T2100Z\\\",\\\"attempt\\\":1,\\\"field_name\\\":\\\"second\\\",\\\"top_values\\\":[\\\"x\\\"],\\\"top_counts\\\":[\\\"9\\\"],\\\"coverage\\\":1,\\\"flag\\\":0,\\\"empty\\\":\\\"\\\"}]\" | eval _time=t | fields - _raw t | collect index=summary sourcetype=stash marker=\"probe=B\"'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791928366.006872",
+   "search": "'search index=summary sourcetype=stash kind=field | table _time _raw kind run_id attempt field_name top_values top_counts coverage flag empty'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791928366.004925",
+   "search": "'| makeresults format=json data=\"[{\\\"_time\\\":1791900000,\\\"kind\\\":\\\"field\\\",\\\"run_id\\\":\\\"20261013T2100Z\\\",\\\"attempt\\\":1,\\\"field_name\\\":\\\"CallStackModuleNames\\\",\\\"top_values\\\":[\\\"a\\\\\\\\b\\\\\\\\c\\\",\\\"say \\\\\\\"hi\\\\\\\"\\\",\\\"plain\\\",\\\"with, comma\\\",\\\"eq=sign\\\"],\\\"top_counts\\\":[\\\"3\\\",\\\"2\\\",\\\"1\\\",\\\"1\\\",\\\"1\\\"],\\\"coverage\\\":0.5,\\\"flag\\\":1,\\\"empty\\\":\\\"\\\"},{\\\"_time\\\":1791900000,\\\"kind\\\":\\\"field\\\",\\\"run_id\\\":\\\"20261013T2100Z\\\",\\\"attempt\\\":1,\\\"field_name\\\":\\\"second\\\",\\\"top_values\\\":[\\\"x\\\"],\\\"top_counts\\\":[\\\"9\\\"],\\\"coverage\\\":1,\\\"flag\\\":0,\\\"empty\\\":\\\"\\\"}]\" | collect index=summary sourcetype=stash'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791928366.001615",
+   "search": "'search index=summary sourcetype=stash | table _time _raw kind run_id attempt field_name top_values top_counts coverage flag empty'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791928335.992581",
+   "search": "'search index=_internal source=*license_usage.log* type=Usage | stats sum(b) as b by idx st | sort -b | head 8'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791928335.991436",
+   "search": "'search index=_audit action=search info=completed | head 2 | table _time user app search_id search apiStartTime apiEndTime total_run_time event_count scan_count savedsearch_name provenance'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791928126.001059",
+   "search": "'search index=matalog_json sourcetype=\"crowdstrike:events:sensor\" | head 200 | eval matalog_n=1 | fieldsummary maxvals=5 | export add_timestamp=f add_offset=t format=json segmentation=none'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791927375.995408",
+   "search": "'search index=matalog_json sourcetype=aws:cloudtrail | head 1000 | fieldsummary maxvals=3 | head 1 | export add_timestamp=f add_offset=t format=json segmentation=none'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926416.003141",
+   "search": "'search index=matalog_json sourcetype=\"crowdstrike:events:sensor\" | stats max(_time) AS t'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926416.001155",
+   "search": "'| walklex index=matalog_json type=all | stats count'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926415.994672",
+   "search": "'search index=matalog_json sourcetype=\"crowdstrike:events:sensor\" | fieldsummary maxvals=10'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926295.993772",
+   "search": "'| dbinspect index=matalog_json | stats count sum(eventCount) AS events by state | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926295.993339",
+   "search": "'| walklex index=matalog_json type=fieldvalue | rex field=term \"^(?<f>[^:]+)::(?<v>.*)$\" | stats sum(count) AS events dc(v) AS cardinality by f'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926295.992703",
+   "search": "'| walklex index=matalog_json type=field | stats dc(source) AS buckets sum(distinct_values) AS cardinality by field'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926266.007974",
+   "search": "'search index=reach sourcetype=\"crowdstrike:events:sensor\" event_simpleName=\"FileDeleteInfo\"'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926266.006672",
+   "search": "'search index=matalog_json sourcetype=\"crowdstrike:events:sensor\" TERM(SyntheticProcessRollup2)'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926266.005435",
+   "search": "'search index=matalog_json sourcetype=\"crowdstrike:events:sensor\" event_simpleName=\"FileDeleteInfo\"'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926266.004730",
+   "search": "'search index=_internal sourcetype=splunkd component=TcpOutputProc'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926266.003603",
+   "search": "'search index=matalog_json sourcetype=\"OktaIM2:log\" outcome.result=\"SUCCESS\"'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926266.002026",
+   "search": "'search index=matalog_json sourcetype=\"crowdstrike:events:sensor\" event_simpleName=\"SyntheticProcessRollup2\"'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926265.999385",
+   "search": "'search index=matalog_json sourcetype=\"crowdstrike:events:sensor\" ParentBaseFileName=\"cmd.exe\"'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926236.006199",
+   "search": "'search index=_internal sourcetype=\"splunkd\" | fieldsummary maxvals=10'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926236.005428",
+   "search": "'search index=_internal sourcetype=\"splunkd\" component=\"DispatchArtifactReaper\" | head 2000 | fieldsummary maxvals=10'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926236.004733",
+   "search": "'search index=_internal sourcetype=\"splunkd\" component=\"SessionManager\" | head 2000 | fieldsummary maxvals=10'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926236.004043",
+   "search": "'search index=_internal sourcetype=\"splunkd\" component=\"Metrics\" | head 2000 | fieldsummary maxvals=10'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926236.003252",
+   "search": "'search index=_internal sourcetype=\"splunkd\" TERM(DispatchArtifactReaper) component=\"DispatchArtifactReaper\" | head 2000 | fieldsummary maxvals=10'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926236.002542",
+   "search": "'search index=_internal sourcetype=\"splunkd\" TERM(Metrics) component=\"Metrics\" | head 2000 | fieldsummary maxvals=10'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926236.000125",
+   "search": "'search index=_internal sourcetype=\"splunkd\" | stats count by component | sort -count | head 5'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926235.999078",
+   "search": "'search index=_internal sourcetype=\"splunkd\" component=\"PeriodicHealthReporter\" | head 2000 | fieldsummary maxvals=10'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926235.995957",
+   "search": "'search index=_internal sourcetype=\"splunkd\" TERM(PeriodicHealthReporter) component=\"PeriodicHealthReporter\" | head 2000 | fieldsummary maxvals=10'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926235.994518",
+   "search": "'search index=_internal sourcetype=\"splunkd\" component=\"RegisterPackageHandler\" | head 2000 | fieldsummary maxvals=10'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926235.992443",
+   "search": "'search index=_internal sourcetype=\"splunkd\" TERM(SessionManager) component=\"SessionManager\" | head 2000 | fieldsummary maxvals=10'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926235.989785",
+   "search": "'search index=_internal sourcetype=\"splunkd\" TERM(RegisterPackageHandler) component=\"RegisterPackageHandler\" | head 2000 | fieldsummary maxvals=10'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926206.001577",
+   "search": "'search index=matalog_json sourcetype=\"crowdstrike:events:sensor\" event_simpleName=\"ProcessRollup2\" | head 2000 | fieldsummary maxvals=10'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926206.000657",
+   "search": "'search index=matalog_json sourcetype=\"crowdstrike:events:sensor\" TERM(DmpFileWritten) event_simpleName=\"DmpFileWritten\" | head 2000 | fieldsummary maxvals=10'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926206.000087",
+   "search": "'| tstats count where index=matalog_json sourcetype=\"aws:cloudtrail\"'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926205.999763",
+   "search": "'search index=matalog_json sourcetype=\"aws:cloudtrail\" | fieldsummary maxvals=10'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926205.999426",
+   "search": "'search index=matalog_json sourcetype=\"crowdstrike:events:sensor\" TERM(ProcessHandleOpDetectInfo) event_simpleName=\"ProcessHandleOpDetectInfo\" | head 2000 | fieldsummary maxvals=10'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926205.998695",
+   "search": "'search index=matalog_json sourcetype=\"aws:cloudtrail\" | stats count by eventName | sort -count | head 5'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926205.998307",
+   "search": "'| walklex index=_internal type=field | stats dc(source) AS buckets sum(distinct_values) AS cardinality by field'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926205.997325",
+   "search": "'search index=matalog_json sourcetype=\"crowdstrike:events:sensor\" TERM(ProcessRollup2) event_simpleName=\"ProcessRollup2\" | head 2000 | fieldsummary maxvals=10'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926205.996950",
+   "search": "'search index=matalog_json sourcetype=\"crowdstrike:events:sensor\" event_simpleName=\"DmpFileWritten\" | head 2000 | fieldsummary maxvals=10'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926205.996544",
+   "search": "'search index=matalog_json sourcetype=\"crowdstrike:events:sensor\" TERM(FileDeleteInfo) event_simpleName=\"FileDeleteInfo\" | head 2000 | fieldsummary maxvals=10'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926205.996093",
+   "search": "'| tstats count where index=_internal sourcetype=\"splunkd\"'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926205.995631",
+   "search": "'search index=matalog_json sourcetype=\"crowdstrike:events:sensor\" TERM(SyntheticProcessRollup2) event_simpleName=\"SyntheticProcessRollup2\" | head 2000 | fieldsummary maxvals=10'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926205.994965",
+   "search": "'search index=matalog_json sourcetype=\"crowdstrike:events:sensor\" event_simpleName=\"FileDeleteInfo\" | head 2000 | fieldsummary maxvals=10'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926205.994397",
+   "search": "'search index=matalog_json sourcetype=\"aws:cloudtrail\" eventName=\"ConsoleLogin\" | head 2000 | fieldsummary maxvals=10'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926205.994061",
+   "search": "'| tstats count where index=matalog_json sourcetype=\"crowdstrike:events:sensor\"'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926205.992713",
+   "search": "'search index=matalog_json sourcetype=\"crowdstrike:events:sensor\" event_simpleName=\"ProcessHandleOpDetectInfo\" | head 2000 | fieldsummary maxvals=10'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926205.990349",
+   "search": "'search index=matalog_json sourcetype=\"crowdstrike:events:sensor\" event_simpleName=\"SyntheticProcessRollup2\" | head 2000 | fieldsummary maxvals=10'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926205.989972",
+   "search": "'search index=matalog_json sourcetype=\"aws:cloudtrail\" TERM(ConsoleLogin) eventName=\"ConsoleLogin\" | head 2000 | fieldsummary maxvals=10'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926205.989251",
+   "search": "'search index=matalog_json sourcetype=\"crowdstrike:events:sensor\" | stats count by event_simpleName | sort -count | head 5'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926175.998910",
+   "search": "'| tstats count where index=_internal splunkd component sourcetype=\"\"'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926175.996642",
+   "search": "'| tstats count where index=matalog_json'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926148.305944",
+   "search": "'| walklex index=_internal splunkd component type=field | stats dc(source) AS buckets sum(distinct_values) AS cardinality by field'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926148.053941",
+   "search": "'| tstats count where index=matalog_json aws:cloudtrail eventName sourcetype=\"\"'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926147.875403",
+   "search": "'| tstats count where index=matalog_json crowdstrike:events:sensor event_simpleName sourcetype=\"\"'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926146.005583",
+   "search": "'| tstats count where index=matalog_json | export add_timestamp=f add_offset=t format=json segmentation=none'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926146.001828",
+   "search": "'| tstats count where index=matalog_json by sourcetype | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926146.000210",
+   "search": "'search index=matalog_json sourcetype!=crowdstrike* | eval ok=if(match(_raw,\"^\\{.*\\}$\"), \"json\",\"broken\") | stats count by sourcetype ok linecount | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926145.997861",
+   "search": "'search index=matalog_json sourcetype=aws:cloudtrail | where NOT match(_raw,\"^\\{.*\\}$\") | head 2 | eval r=substr(_raw,1,200) | table r | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926026.008780",
+   "search": "'search index=matalog_json sourcetype=gws:reports:admin | stats count by linecount | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926026.007172",
+   "search": "'search index=_internal sourcetype=splunkd component=DateParserVerbose OR component=AggregatorMiningProcessor earliest=-10m | stats count by component | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791926026.005104",
+   "search": "'search index=matalog_json sourcetype=gws:reports:admin | stats count min(_time) AS first max(_time) AS last dc(id.uniqueQualifier) AS dc_id dc(actor.email) AS dc_actor | eval first=strftime(first,\"%F %T\"), last=strftime(last,\"%F %T\") | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791925515.988265",
+   "search": "'search index=reach | table _time sourcetype source _raw | export add_timestamp=f add_offset=t format=json segmentation=none'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791925515.987238",
+   "search": "'| tstats count where index=_internal OR index=_audit OR index=_introspection by index sourcetype | sort -count | head 15 | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924555.994646",
+   "search": "'search index=reach sourcetype=crowdstrike:events:sensor FileDeleteInfo'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924555.993879",
+   "search": "'search index=_internal sourcetype=splunkd Metrics'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924555.992970",
+   "search": "'search index=reach sourcetype=crowdstrike:events:sensor TERM(FileDeleteInfo)'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924555.991629",
+   "search": "'search index=reach sourcetype=crowdstrike:events:sensor event_simpleName=FileDeleteInfo'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924555.991040",
+   "search": "'| walklex index=reach type=term prefix=FileDeleteInfo | table term count | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924555.990344",
+   "search": "'search index=_internal sourcetype=splunkd component=TcpOutputProc | head 100'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924555.989539",
+   "search": "'search index=_internal sourcetype=splunkd'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924555.988568",
+   "search": "'search index=_internal sourcetype=splunkd component=Metrics'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924525.998404",
+   "search": "'search index=reach sourcetype=crowdstrike:events:sensor event_simpleName=FileDeleteInfo | head 2'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924525.997081",
+   "search": "'search index=reach sourcetype=crowdstrike:events:sensor event_simpleName=ProcessRollup2'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924525.991166",
+   "search": "'search index=reach sourcetype=crowdstrike:events:sensor'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924495.999323",
+   "search": "'search index=reach sourcetype=crowdstrike:events:sensor | stats count by event_simpleName | sort -count | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924495.998699",
+   "search": "search index=reach sourcetype=crowdstrike:events:sensor event_simpleName=\\",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924495.998078",
+   "search": "'search index=reach sourcetype=crowdstrike:events:sensor event_simpleName=\"DmpFileWritten\" | fieldsummary | stats count AS fields | eval event_simpleName=\"DmpFileWritten\"'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924495.996793",
+   "search": "'search index=reach sourcetype=crowdstrike:events:sensor event_simpleName=\"FileDeleteInfo\" | fieldsummary | stats count AS fields | eval event_simpleName=\"FileDeleteInfo\"'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924495.996123",
+   "search": "'search index=reach sourcetype=crowdstrike:events:sensor event_simpleName=\"ProcessHandleOpDetectInfo\" | fieldsummary | stats count AS fields | eval event_simpleName=\"ProcessHandleOpDetectInfo\"'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924495.994555",
+   "search": "'search index=reach sourcetype=crowdstrike:events:sensor event_simpleName=\"ProcessRollup2\" | fieldsummary | stats count AS fields | eval event_simpleName=\"ProcessRollup2\"'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924495.992826",
+   "search": "'search index=reach sourcetype=crowdstrike:events:sensor event_simpleName=\"SyntheticProcessRollup2\" | fieldsummary | stats count AS fields | eval event_simpleName=\"SyntheticProcessRollup2\"'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924405.991319",
+   "search": "'search index=_internal | fieldsummary | stats count AS fields | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924375.991481",
+   "search": "search index=reach sourcetype=\\",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924375.991112",
+   "search": "'search index=reach sourcetype=\"gws:reports:drive\" | fieldsummary | stats count AS fields | eval sourcetype=\"gws:reports:drive\", events=2'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924375.990658",
+   "search": "'search index=reach sourcetype=\"gws:reports:login\" | fieldsummary | stats count AS fields | eval sourcetype=\"gws:reports:login\", events=1'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924375.990121",
+   "search": "'search index=reach sourcetype=\"OktaIM2:log\" | fieldsummary | stats count AS fields | eval sourcetype=\"OktaIM2:log\", events=5'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924375.989239",
+   "search": "'search index=reach sourcetype=\"crowdstrike:events:sensor\" | fieldsummary | stats count AS fields | eval sourcetype=\"crowdstrike:events:sensor\", events=43'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924375.988840",
+   "search": "'search index=reach sourcetype=\"gws:reports:admin\" | fieldsummary | stats count AS fields | eval sourcetype=\"gws:reports:admin\", events=1'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924375.988327",
+   "search": "'search index=reach sourcetype=\"aws:cloudtrail\" | fieldsummary | stats count AS fields | eval sourcetype=\"aws:cloudtrail\", events=21'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924286.000457",
+   "search": "'| tstats count where index=_internal by date_hour | stats sum(count) AS events | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924285.998782",
+   "search": "'| tstats count where index=_internal by sourcetype punct | stats sum(count) AS events dc(punct) AS values dc(sourcetype) AS sourcetypes | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924285.997378",
+   "search": "'| tstats count where index=_internal by punct | stats sum(count) AS events dc(punct) AS values | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924285.994558",
+   "search": "'| walklex index=_internal type=fieldvalue prefix=punct:: | stats sum(count) AS events dc(term) AS values | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924195.991376",
+   "search": "'| tstats count where index=_internal by sourcetype | stats count | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924195.990126",
+   "search": "'search index=_internal | fieldsummary | stats count | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924165.987109",
+   "search": "'| walklex index=_internal type=fieldvalue prefix=sourcetype:: | stats count | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924165.986729",
+   "search": "'| walklex index=_internal type=term | stats count | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924165.986239",
+   "search": "'| walklex index=_internal type=all | stats count | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924135.990491",
+   "search": "'| walklex index=_internal type=fieldvalue | stats count | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924135.990107",
+   "search": "'| walklex index=_internal type=field | stats dc(source) AS buckets | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924135.989639",
+   "search": "'| dbinspect index=_internal | stats count sum(eventCount) AS events sum(sizeOnDiskMB) AS mb by state | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791924135.989114",
+   "search": "'| walklex index=_internal type=field | stats count | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791923896.002040",
+   "search": "'| walklex index=reach type=fieldvalue | stats count | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791923896.001329",
+   "search": "'| walklex index=reach type=all | head 3 | export add_timestamp=f add_offset=t format=json segmentation=none'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791923896.000557",
+   "search": "'| walklex index=reach type=all | stats count | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791923895.999565",
+   "search": "'| walklex index=reach type=field | stats count | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791923895.998364",
+   "search": "'| walklex index=reach type=fieldvalue | rex field=term \"^(?<f>[^:]+)::(?<v>.*)$\" | stats sum(count) AS events dc(v) AS cardinality by f | sort -events | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791923895.996201",
+   "search": "'| walklex index=reach type=term | stats count | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791923895.994473",
+   "search": "'| walklex index=reach type=fieldvalue | head 3 | export add_timestamp=f add_offset=t format=json segmentation=none'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791923895.992251",
+   "search": "'| walklex index=reach type=fieldvalue | stats sum(count) AS events dc(term) AS cardinality by field | sort -events | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791923715.989589",
+   "search": "'search index=reach sourcetype=crowdstrike:events:sensor | head 1 | table _raw | export add_timestamp=f add_offset=t format=json segmentation=none'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791923715.988429",
+   "search": "'| walklex index=reach type=term | head 5 | export add_timestamp=f add_offset=t format=json segmentation=none'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791923715.987736",
+   "search": "'| walklex index=reach type=field | head 3 | export add_timestamp=f add_offset=t format=json segmentation=none'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791923686.001062",
+   "search": "'| tstats count where index=reach by PREFIX(event_simpleName=) | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791923686.000573",
+   "search": "'| tstats count where index=reach by sourcetype | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791923686.000142",
+   "search": "'| tstats count where index=reach by event_simpleName | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791923685.999609",
+   "search": "'| walklex index=reach type=field | search field=sourcetype | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791923685.998762",
+   "search": "'| tstats count where index=reach by eventName | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791923685.997955",
+   "search": "'| walklex index=reach type=field | stats dc(bucket) AS buckets sum(count) AS events dc(term) AS cardinality by field | sort -events | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791923685.997263",
+   "search": "'| dbinspect index=reach | table bucketId state eventCount | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791923685.996879",
+   "search": "'search index=reach | fieldsummary | eval coverage=round(count/73*100,0) | table field count coverage distinct_count | sort -count | head 40 | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791923685.996296",
+   "search": "'search index=reach | fieldsummary | stats count | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791923685.992845",
+   "search": "'| walklex index=reach type=field | head 15 | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791923655.992100",
+   "search": "'| eventcount summarize=false index=* index=_* | where count>0 | table index count | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791923655.991353",
+   "search": "'| metadata type=sourcetypes index=* | eval lastTime=strftime(lastTime,\"%F %T\") | table sourcetype totalCount lastTime | export add_timestamp=f add_offset=t format=csv segmentation=raw'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791822205.068885",
+   "search": "'search index=reach | head 500 | export add_timestamp=f add_offset=t format=json segmentation=none'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791781543.543659",
+   "search": "'search index=* | head 20'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1791781423.532662",
+   "search": "'search index=* | stats count by sourcetype, host'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1790277932.411024",
+   "search": "'search index=reach sourcetype=\"crowdstrike:events:sensor\" | head 30 | export add_timestamp=f add_offset=t format=json segmentation=none'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1790277902.413986",
+   "search": "'search index=reach sourcetype=\"crowdstrike:events:sensor\" | rex field=_raw \"\\\"event_simpleName\\\":\\\"(?<esn>[^\\\"]+)\\\"\" | stats count by esn | export add_timestamp=f add_offset=t format=json segmentation=none'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1790277872.419321",
+   "search": "'search index=reach sourcetype=\"aws:cloudtrail\" | head 1 | export add_timestamp=f add_offset=t format=json segmentation=none'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1790277872.418949",
+   "search": "'search index=reach sourcetype=\"crowdstrike:events:sensor\" | head 1 | export add_timestamp=f add_offset=t format=json segmentation=none'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1790277872.418554",
+   "search": "'search index=reach sourcetype=\"gws:reports:drive\" | head 1 | export add_timestamp=f add_offset=t format=json segmentation=none'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1790277872.418161",
+   "search": "'search index=reach sourcetype=\"OktaIM2:log\" | head 1 | export add_timestamp=f add_offset=t format=json segmentation=none'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1790277872.417351",
+   "search": "'search index=reach sourcetype=\"gws:reports:admin\" | head 1 | export add_timestamp=f add_offset=t format=json segmentation=none'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1790277872.416868",
+   "search": "'search index=reach sourcetype=\"gws:reports:login\" | head 1 | export add_timestamp=f add_offset=t format=json segmentation=none'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1790225977.659970",
+   "search": "'| tstats count where index=reach by sourcetype | export add_timestamp=f add_offset=t format=json segmentation=none'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1790224987.653223",
+   "search": "'search index=reach | head 3 | table _time | export add_timestamp=f add_offset=t format=json segmentation=none'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1790224957.658867",
+   "search": "'search index=reach sourcetype=aws:cloudtrail sourceIPAddress=203.0.113.207 | export add_timestamp=f add_offset=t format=json segmentation=none'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1790223937.643911",
+   "search": "'search index=reach sourcetype=\"gws:reports:admin\" | head 1 | table _raw | export add_timestamp=f add_offset=t format=json segmentation=none'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1790223937.643228",
+   "search": "'search index=reach sourcetype=\"crowdstrike:events:sensor\" | head 1 | table _raw | export add_timestamp=f add_offset=t format=json segmentation=none'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1790223937.642520",
+   "search": "'search index=reach sourcetype=\"OktaIM2:log\" | head 1 | table _raw | export add_timestamp=f add_offset=t format=json segmentation=none'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1790223937.641292",
+   "search": "'search index=reach sourcetype=\"gws:reports:drive\" | head 1 | table _raw | export add_timestamp=f add_offset=t format=json segmentation=none'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1790223937.640587",
+   "search": "'search index=reach sourcetype=\"gws:reports:login\" | head 1 | table _raw | export add_timestamp=f add_offset=t format=json segmentation=none'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1790223907.642724",
+   "search": "'search index=reach sourcetype=aws:cloudtrail | head 1 | table sourceIPAddress, eventName, userIdentity.arn | export add_timestamp=f add_offset=t format=json segmentation=none'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1790222827.632750",
+   "search": "'| tstats count where index=reach | export add_timestamp=f add_offset=t format=json segmentation=none'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1790222797.613654",
+   "search": "'| tstats count where index=reach sourcetype=\"OktaIM2:log\" | export add_timestamp=f add_offset=t format=json segmentation=none'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1790222797.610006",
+   "search": "'| tstats count where index=reach sourcetype=\"gws:reports:drive\" | export add_timestamp=f add_offset=t format=json segmentation=none'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1790222797.605293",
+   "search": "'| tstats count where index=reach sourcetype=\"aws:cloudtrail\" | export add_timestamp=f add_offset=t format=json segmentation=none'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1790222797.604205",
+   "search": "'| tstats count where index=reach sourcetype=\"gws:reports:login\" | export add_timestamp=f add_offset=t format=json segmentation=none'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1790222797.588925",
+   "search": "'| tstats count where index=reach sourcetype=\"crowdstrike:events:sensor\" | export add_timestamp=f add_offset=t format=json segmentation=none'",
+   "user": "admin"
+  },
+  {
+   "app": "search",
+   "last_time": "1790222797.584103",
+   "search": "'| tstats count where index=reach sourcetype=\"gws:reports:admin\" | export add_timestamp=f add_offset=t format=json segmentation=none'",
+   "user": "admin"
+  }
+ ],
+ "sample_ratio": 1,
+ "spl": "search index=_audit action=search (info=granted OR info=completed) search=* NOT user IN (\"svc_matalog\", \"splunk-system-user\") NOT app IN (\"matalog\") | stats max(_time) as last_time by user app search | where match(search, \"(?i)(index|sourcetype)\\s*(=|in\\s*\\()\") | sort 0 - last_time | head 50000"
+}

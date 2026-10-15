@@ -1,0 +1,36 @@
+{
+ "captured_slot": 1791928800,
+ "earliest": null,
+ "job": {
+  "eventCount": 0,
+  "resultCount": 2,
+  "runDuration": 0.019,
+  "scanCount": 0,
+  "sid": "md_1791941952.93"
+ },
+ "latest": null,
+ "match": [
+  "^\\| metadata type=sourcetypes index=\"summary\"$"
+ ],
+ "note": "metadata type=sourcetypes for index summary.",
+ "results": [
+  {
+   "firstTime": "1791900000",
+   "lastTime": "1791900000",
+   "recentTime": "1791929526",
+   "sourcetype": "matalog_probe",
+   "totalCount": "5",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1791900000",
+   "lastTime": "1791928459",
+   "recentTime": "1791930738",
+   "sourcetype": "stash",
+   "totalCount": "448",
+   "type": "sourcetypes"
+  }
+ ],
+ "sample_ratio": 1,
+ "spl": "| metadata type=sourcetypes index=\"summary\""
+}

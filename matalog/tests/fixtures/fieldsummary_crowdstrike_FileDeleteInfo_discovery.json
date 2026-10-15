@@ -1,0 +1,405 @@
+{
+ "earliest": "0",
+ "job": {
+  "eventCount": 2000,
+  "resultCount": 39,
+  "runDuration": 0.079,
+  "scanCount": 2768,
+  "sid": "1791929524.949"
+ },
+ "latest": "now",
+ "match": [
+  "crowdstrike:events:sensor",
+  "event_simpleName=\"FileDeleteInfo\"",
+  "head 2000",
+  "fieldsummary"
+ ],
+ "results": [
+  {
+   "count": "2000",
+   "distinct_count": "1",
+   "field": "ConfigBuild",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[{\"value\":\"1007.3.0015406.1\",\"count\":2000}]"
+  },
+  {
+   "count": "2000",
+   "distinct_count": "1",
+   "field": "ConfigStateHash",
+   "is_exact": "1",
+   "max": "1172426367",
+   "mean": "1172426367",
+   "min": "1172426367",
+   "numeric_count": "2000",
+   "stdev": "210.53384110191064",
+   "values": "[{\"value\":\"1172426367\",\"count\":2000}]"
+  },
+  {
+   "count": "2000",
+   "distinct_count": "500",
+   "field": "ContextProcessId",
+   "is_exact": "0",
+   "max": "999233493",
+   "mean": "547701235.737",
+   "min": "101128549",
+   "numeric_count": "2000",
+   "stdev": "256992569.8933856",
+   "values": "[{\"value\":\"101128549\",\"count\":1},{\"value\":\"101867261\",\"count\":1},{\"value\":\"102427906\",\"count\":1},{\"value\":\"102629974\",\"count\":1},{\"value\":\"102779928\",\"count\":1},{\"value\":\"103049093\",\"count\":1},{\"value\":\"103174412\",\"count\":1},{\"value\":\"103740248\",\"count\":1},{\"value\":\"104183005\",\"count\":1},{\"value\":\"106397926\",\"count\":1},{\"value\":\"107219068\",\"count\":1},{\"value\":\"107600386\",\"count\":1},{\"value\":\"107782616\",\"count\":1},{\"value\":\"108105128\",\"count\":1},{\"value\":\"108225631\",\"count\":1},{\"value\":\"108798092\",\"count\":1},{\"value\":\"109241260\",\"count\":1},{\"value\":\"109288368\",\"count\":1},{\"value\":\"109741974\",\"count\":1},{\"value\":\"110174039\",\"count\":1},{\"value\":\"110212826\",\"count\":1},{\"value\":\"110306409\",\"count\":1},{\"value\":\"110907046\",\"count\":1},{\"value\":\"112816981\",\"count\":1},{\"value\":\"113137558\",\"count\":1},{\"value\":\"113216456\",\"count\":1},{\"value\":\"113365331\",\"count\":1},{\"value\":\"113829475\",\"count\":1},{\"value\":\"114766172\",\"count\":1},{\"value\":\"114817142\",\"count\":1},{\"value\":\"115038241\",\"count\":1},{\"value\":\"115066394\",\"count\":1},{\"value\":\"115367510\",\"count\":1},{\"value\":\"115487915\",\"count\":1},{\"value\":\"115904820\",\"count\":1},{\"value\":\"116258862\",\"count\":1},{\"value\":\"116392252\",\"count\":1},{\"value\":\"116526989\",\"count\":1},{\"value\":\"116733167\",\"count\":1},{\"value\":\"116827293\",\"count\":1},{\"value\":\"117039774\",\"count\":1},{\"value\":\"117088472\",\"count\":1},{\"value\":\"118181437\",\"count\":1},{\"value\":\"118698783\",\"count\":1},{\"value\":\"118878213\",\"count\":1},{\"value\":\"119120614\",\"count\":1},{\"value\":\"119290883\",\"count\":1},{\"value\":\"119645893\",\"count\":1},{\"value\":\"120002032\",\"count\":1},{\"value\":\"120472115\",\"count\":1},{\"value\":\"121490770\",\"count\":1},{\"value\":\"121795267\",\"count\":1},{\"value\":\"121870076\",\"count\":1},{\"value\":\"122611730\",\"count\":1},{\"value\":\"122794829\",\"count\":1},{\"value\":\"123809984\",\"count\":1},{\"value\":\"123933777\",\"count\":1},{\"value\":\"124419924\",\"count\":1},{\"value\":\"124807197\",\"count\":1},{\"value\":\"125576686\",\"count\":1},{\"value\":\"126867927\",\"count\":1},{\"value\":\"127477586\",\"count\":1},{\"value\":\"128492994\",\"count\":1},{\"value\":\"128572634\",\"count\":1},{\"value\":\"129258151\",\"count\":1},{\"value\":\"130676573\",\"count\":1},{\"value\":\"130687702\",\"count\":1},{\"value\":\"131020575\",\"count\":1},{\"value\":\"132333906\",\"count\":1},{\"value\":\"132624997\",\"count\":1},{\"value\":\"132804233\",\"count\":1},{\"value\":\"133041790\",\"count\":1},{\"value\":\"134277948\",\"count\":1},{\"value\":\"134512429\",\"count\":1},{\"value\":\"134697262\",\"count\":1},{\"value\":\"134921762\",\"count\":1},{\"value\":\"135540484\",\"count\":1},{\"value\":\"135576574\",\"count\":1},{\"value\":\"135594588\",\"count\":1},{\"value\":\"136067174\",\"count\":1},{\"value\":\"136379675\",\"count\":1},{\"value\":\"136628536\",\"count\":1},{\"value\":\"137233826\",\"count\":1},{\"value\":\"137344915\",\"count\":1},{\"value\":\"137736080\",\"count\":1},{\"value\":\"137863312\",\"count\":1},{\"value\":\"137961762\",\"count\":1},{\"value\":\"138667409\",\"count\":1},{\"value\":\"138866872\",\"count\":1},{\"value\":\"139506016\",\"count\":1},{\"value\":\"139567015\",\"count\":1},{\"value\":\"140142158\",\"count\":1},{\"value\":\"140336432\",\"count\":1},{\"value\":\"140340639\",\"count\":1},{\"value\":\"140397360\",\"count\":1},{\"value\":\"140417783\",\"count\":1},{\"value\":\"140436173\",\"count\":1},{\"value\":\"140786589\",\"count\":1},{\"value\":\"140814304\",\"count\":1},{\"value\":\"141783130\",\"count\":1}]"
+  },
+  {
+   "count": "2000",
+   "distinct_count": "500",
+   "field": "ContextThreadId",
+   "is_exact": "0",
+   "max": "9999430832",
+   "mean": "5485673487.242",
+   "min": "1002849494",
+   "numeric_count": "2000",
+   "stdev": "2574997045.819132",
+   "values": "[{\"value\":\"1002849494\",\"count\":1},{\"value\":\"1005593227\",\"count\":1},{\"value\":\"1007143085\",\"count\":1},{\"value\":\"1018389173\",\"count\":1},{\"value\":\"1020182751\",\"count\":1},{\"value\":\"1029126052\",\"count\":1},{\"value\":\"1040260911\",\"count\":1},{\"value\":\"1040517877\",\"count\":1},{\"value\":\"1066232985\",\"count\":1},{\"value\":\"1070423657\",\"count\":1},{\"value\":\"1081485962\",\"count\":1},{\"value\":\"1082366184\",\"count\":1},{\"value\":\"1087537844\",\"count\":1},{\"value\":\"1104717504\",\"count\":1},{\"value\":\"1105206554\",\"count\":1},{\"value\":\"1106703903\",\"count\":1},{\"value\":\"1107974092\",\"count\":1},{\"value\":\"1117805749\",\"count\":1},{\"value\":\"1124757329\",\"count\":1},{\"value\":\"1129083227\",\"count\":1},{\"value\":\"1130031078\",\"count\":1},{\"value\":\"1132795257\",\"count\":1},{\"value\":\"1136669085\",\"count\":1},{\"value\":\"1136726895\",\"count\":1},{\"value\":\"1138334013\",\"count\":1},{\"value\":\"1142604017\",\"count\":1},{\"value\":\"1151968073\",\"count\":1},{\"value\":\"1159168730\",\"count\":1},{\"value\":\"1161236252\",\"count\":1},{\"value\":\"1169478158\",\"count\":1},{\"value\":\"1174689567\",\"count\":1},{\"value\":\"1177193750\",\"count\":1},{\"value\":\"1177540627\",\"count\":1},{\"value\":\"1177797536\",\"count\":1},{\"value\":\"1177838620\",\"count\":1},{\"value\":\"1178293364\",\"count\":1},{\"value\":\"1190204121\",\"count\":1},{\"value\":\"1197523357\",\"count\":1},{\"value\":\"1197682181\",\"count\":1},{\"value\":\"1202469898\",\"count\":1},{\"value\":\"1210383385\",\"count\":1},{\"value\":\"1212068929\",\"count\":1},{\"value\":\"1216323438\",\"count\":1},{\"value\":\"1224881661\",\"count\":1},{\"value\":\"1226106289\",\"count\":1},{\"value\":\"1230640087\",\"count\":1},{\"value\":\"1231709555\",\"count\":1},{\"value\":\"1241704679\",\"count\":1},{\"value\":\"1241761864\",\"count\":1},{\"value\":\"1246632222\",\"count\":1},{\"value\":\"1248759692\",\"count\":1},{\"value\":\"1251745482\",\"count\":1},{\"value\":\"1252865007\",\"count\":1},{\"value\":\"1253073563\",\"count\":1},{\"value\":\"1254565942\",\"count\":1},{\"value\":\"1258991069\",\"count\":1},{\"value\":\"1259118781\",\"count\":1},{\"value\":\"1262431379\",\"count\":1},{\"value\":\"1265357860\",\"count\":1},{\"value\":\"1267514686\",\"count\":1},{\"value\":\"1269194898\",\"count\":1},{\"value\":\"1272509581\",\"count\":1},{\"value\":\"1274503841\",\"count\":1},{\"value\":\"1279343742\",\"count\":1},{\"value\":\"1279838985\",\"count\":1},{\"value\":\"1282939492\",\"count\":1},{\"value\":\"1284907165\",\"count\":1},{\"value\":\"1295636485\",\"count\":1},{\"value\":\"1300898348\",\"count\":1},{\"value\":\"1304780422\",\"count\":1},{\"value\":\"1305464116\",\"count\":1},{\"value\":\"1308074690\",\"count\":1},{\"value\":\"1310223966\",\"count\":1},{\"value\":\"1311608060\",\"count\":1},{\"value\":\"1316268114\",\"count\":1},{\"value\":\"1322283429\",\"count\":1},{\"value\":\"1328939134\",\"count\":1},{\"value\":\"1335766588\",\"count\":1},{\"value\":\"1340826760\",\"count\":1},{\"value\":\"1343947295\",\"count\":1},{\"value\":\"1344032069\",\"count\":1},{\"value\":\"1344607582\",\"count\":1},{\"value\":\"1347923402\",\"count\":1},{\"value\":\"1352720745\",\"count\":1},{\"value\":\"1353716486\",\"count\":1},{\"value\":\"1354533453\",\"count\":1},{\"value\":\"1354855877\",\"count\":1},{\"value\":\"1357644910\",\"count\":1},{\"value\":\"1360706145\",\"count\":1},{\"value\":\"1363693292\",\"count\":1},{\"value\":\"1374254225\",\"count\":1},{\"value\":\"1387545634\",\"count\":1},{\"value\":\"1394236893\",\"count\":1},{\"value\":\"1394811445\",\"count\":1},{\"value\":\"1396877996\",\"count\":1},{\"value\":\"1397707103\",\"count\":1},{\"value\":\"1398000927\",\"count\":1},{\"value\":\"1399403371\",\"count\":1},{\"value\":\"1406229827\",\"count\":1},{\"value\":\"1411418398\",\"count\":1}]"
+  },
+  {
+   "count": "2000",
+   "distinct_count": "500",
+   "field": "ContextTimeStamp",
+   "is_exact": "0",
+   "max": "1660621252.942",
+   "mean": "1660619923.2556205",
+   "min": "1660618584.957",
+   "numeric_count": "2000",
+   "stdev": "765.455849366026",
+   "values": "[{\"value\":\"1660618777.645\",\"count\":3},{\"value\":\"1660619164.942\",\"count\":3},{\"value\":\"1660619471.942\",\"count\":3},{\"value\":\"1660620344.645\",\"count\":3},{\"value\":\"1660620378.957\",\"count\":3},{\"value\":\"1660620699.520\",\"count\":3},{\"value\":\"1660620822.645\",\"count\":3},{\"value\":\"1660621032.957\",\"count\":3},{\"value\":\"1660618605.520\",\"count\":2},{\"value\":\"1660618611.520\",\"count\":2},{\"value\":\"1660618633.942\",\"count\":2},{\"value\":\"1660618647.520\",\"count\":2},{\"value\":\"1660618671.942\",\"count\":2},{\"value\":\"1660618723.942\",\"count\":2},{\"value\":\"1660618757.957\",\"count\":2},{\"value\":\"1660618777.942\",\"count\":2},{\"value\":\"1660618812.520\",\"count\":2},{\"value\":\"1660618825.520\",\"count\":2},{\"value\":\"1660618828.520\",\"count\":2},{\"value\":\"1660618843.957\",\"count\":2},{\"value\":\"1660618869.957\",\"count\":2},{\"value\":\"1660618878.520\",\"count\":2},{\"value\":\"1660618884.645\",\"count\":2},{\"value\":\"1660618885.520\",\"count\":2},{\"value\":\"1660618904.645\",\"count\":2},{\"value\":\"1660618909.942\",\"count\":2},{\"value\":\"1660618931.645\",\"count\":2},{\"value\":\"1660618944.520\",\"count\":2},{\"value\":\"1660618944.957\",\"count\":2},{\"value\":\"1660618972.520\",\"count\":2},{\"value\":\"1660618972.645\",\"count\":2},{\"value\":\"1660618992.520\",\"count\":2},{\"value\":\"1660618998.942\",\"count\":2},{\"value\":\"1660619022.645\",\"count\":2},{\"value\":\"1660619042.957\",\"count\":2},{\"value\":\"1660619046.942\",\"count\":2},{\"value\":\"1660619050.957\",\"count\":2},{\"value\":\"1660619067.520\",\"count\":2},{\"value\":\"1660619068.645\",\"count\":2},{\"value\":\"1660619083.645\",\"count\":2},{\"value\":\"1660619105.645\",\"count\":2},{\"value\":\"1660619149.942\",\"count\":2},{\"value\":\"1660619179.942\",\"count\":2},{\"value\":\"1660619226.942\",\"count\":2},{\"value\":\"1660619248.645\",\"count\":2},{\"value\":\"1660619269.645\",\"count\":2},{\"value\":\"1660619287.957\",\"count\":2},{\"value\":\"1660619336.645\",\"count\":2},{\"value\":\"1660619341.645\",\"count\":2},{\"value\":\"1660619352.645\",\"count\":2},{\"value\":\"1660619358.957\",\"count\":2},{\"value\":\"1660619365.520\",\"count\":2},{\"value\":\"1660619378.520\",\"count\":2},{\"value\":\"1660619390.942\",\"count\":2},{\"value\":\"1660619413.957\",\"count\":2},{\"value\":\"1660619418.942\",\"count\":2},{\"value\":\"1660619436.942\",\"count\":2},{\"value\":\"1660619443.957\",\"count\":2},{\"value\":\"1660619444.957\",\"count\":2},{\"value\":\"1660619455.520\",\"count\":2},{\"value\":\"1660619472.957\",\"count\":2},{\"value\":\"1660619505.520\",\"count\":2},{\"value\":\"1660619519.520\",\"count\":2},{\"value\":\"1660619523.520\",\"count\":2},{\"value\":\"1660619544.645\",\"count\":2},{\"value\":\"1660619563.520\",\"count\":2},{\"value\":\"1660619645.942\",\"count\":2},{\"value\":\"1660619698.957\",\"count\":2},{\"value\":\"1660619731.645\",\"count\":2},{\"value\":\"1660619749.520\",\"count\":2},{\"value\":\"1660619754.520\",\"count\":2},{\"value\":\"1660619769.520\",\"count\":2},{\"value\":\"1660619814.645\",\"count\":2},{\"value\":\"1660619823.957\",\"count\":2},{\"value\":\"1660619825.942\",\"count\":2},{\"value\":\"1660619863.942\",\"count\":2},{\"value\":\"1660619903.520\",\"count\":2},{\"value\":\"1660619927.645\",\"count\":2},{\"value\":\"1660619934.645\",\"count\":2},{\"value\":\"1660619948.957\",\"count\":2},{\"value\":\"1660619953.520\",\"count\":2},{\"value\":\"1660619970.645\",\"count\":2},{\"value\":\"1660619985.942\",\"count\":2},{\"value\":\"1660619991.942\",\"count\":2},{\"value\":\"1660619992.645\",\"count\":2},{\"value\":\"1660619994.645\",\"count\":2},{\"value\":\"1660619996.520\",\"count\":2},{\"value\":\"1660619997.942\",\"count\":2},{\"value\":\"1660620000.645\",\"count\":2},{\"value\":\"1660620042.957\",\"count\":2},{\"value\":\"1660620059.520\",\"count\":2},{\"value\":\"1660620062.645\",\"count\":2},{\"value\":\"1660620071.645\",\"count\":2},{\"value\":\"1660620082.957\",\"count\":2},{\"value\":\"1660620107.520\",\"count\":2},{\"value\":\"1660620118.942\",\"count\":2},{\"value\":\"1660620144.645\",\"count\":2},{\"value\":\"1660620158.645\",\"count\":2},{\"value\":\"1660620182.957\",\"count\":2},{\"value\":\"1660620215.942\",\"count\":2}]"
+  },
+  {
+   "count": "2000",
+   "distinct_count": "1",
+   "field": "EffectiveTransmissionClass",
+   "is_exact": "1",
+   "max": "2",
+   "mean": "2",
+   "min": "2",
+   "numeric_count": "2000",
+   "stdev": "0",
+   "values": "[{\"value\":\"2\",\"count\":2000}]"
+  },
+  {
+   "count": "2000",
+   "distinct_count": "1",
+   "field": "Entitlements",
+   "is_exact": "1",
+   "max": "15",
+   "mean": "15",
+   "min": "15",
+   "numeric_count": "2000",
+   "stdev": "0",
+   "values": "[{\"value\":\"15\",\"count\":2000}]"
+  },
+  {
+   "count": "2000",
+   "distinct_count": "4",
+   "field": "TargetFileName",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[{\"value\":\"\\\\Device\\\\HarddiskVolume1\\\\Users\\\\Administrator\\\\AppData\\\\Local\\\\Temp\\\\lsass-comsvcs.dmp\",\"count\":521},{\"value\":\"\\\\Device\\\\HarddiskVolume1\\\\Windows\\\\Temp\\\\lsass_dump.dmp\",\"count\":516},{\"value\":\"\\\\Device\\\\HarddiskVolume1\\\\Windows\\\\Temp\\\\lsass-xordump.t1003.001.dmp\",\"count\":484},{\"value\":\"\\\\Device\\\\HarddiskVolume1\\\\Users\\\\Administrator\\\\AppData\\\\Local\\\\Temp\\\\lsass_588.dmp\",\"count\":479}]"
+  },
+  {
+   "count": "2000",
+   "distinct_count": "500",
+   "field": "TreeId",
+   "is_exact": "0",
+   "max": "99970564",
+   "mean": "54706508.5395",
+   "min": "10077091",
+   "numeric_count": "2000",
+   "stdev": "25591846.54839747",
+   "values": "[{\"value\":\"10077091\",\"count\":1},{\"value\":\"10108175\",\"count\":1},{\"value\":\"10110709\",\"count\":1},{\"value\":\"10122064\",\"count\":1},{\"value\":\"10174172\",\"count\":1},{\"value\":\"10214280\",\"count\":1},{\"value\":\"10223373\",\"count\":1},{\"value\":\"10273198\",\"count\":1},{\"value\":\"10310946\",\"count\":1},{\"value\":\"10341220\",\"count\":1},{\"value\":\"10408841\",\"count\":1},{\"value\":\"10456133\",\"count\":1},{\"value\":\"10471219\",\"count\":1},{\"value\":\"10507596\",\"count\":1},{\"value\":\"10601777\",\"count\":1},{\"value\":\"10612229\",\"count\":1},{\"value\":\"10633878\",\"count\":1},{\"value\":\"10719757\",\"count\":1},{\"value\":\"10829658\",\"count\":1},{\"value\":\"10923750\",\"count\":1},{\"value\":\"10990007\",\"count\":1},{\"value\":\"11066861\",\"count\":1},{\"value\":\"11132187\",\"count\":1},{\"value\":\"11153315\",\"count\":1},{\"value\":\"11231030\",\"count\":1},{\"value\":\"11303875\",\"count\":1},{\"value\":\"11313283\",\"count\":1},{\"value\":\"11397252\",\"count\":1},{\"value\":\"11451665\",\"count\":1},{\"value\":\"11457886\",\"count\":1},{\"value\":\"11495212\",\"count\":1},{\"value\":\"11518120\",\"count\":1},{\"value\":\"11536495\",\"count\":1},{\"value\":\"11624277\",\"count\":1},{\"value\":\"11653844\",\"count\":1},{\"value\":\"11657673\",\"count\":1},{\"value\":\"11683392\",\"count\":1},{\"value\":\"11690331\",\"count\":1},{\"value\":\"11715045\",\"count\":1},{\"value\":\"11764636\",\"count\":1},{\"value\":\"11771095\",\"count\":1},{\"value\":\"11815815\",\"count\":1},{\"value\":\"12071649\",\"count\":1},{\"value\":\"12081117\",\"count\":1},{\"value\":\"12083929\",\"count\":1},{\"value\":\"12168074\",\"count\":1},{\"value\":\"12188336\",\"count\":1},{\"value\":\"12197238\",\"count\":1},{\"value\":\"12256769\",\"count\":1},{\"value\":\"12281346\",\"count\":1},{\"value\":\"12285556\",\"count\":1},{\"value\":\"12316741\",\"count\":1},{\"value\":\"12386140\",\"count\":1},{\"value\":\"12443923\",\"count\":1},{\"value\":\"12499000\",\"count\":1},{\"value\":\"12570857\",\"count\":1},{\"value\":\"12583048\",\"count\":1},{\"value\":\"12605386\",\"count\":1},{\"value\":\"12885784\",\"count\":1},{\"value\":\"12886083\",\"count\":1},{\"value\":\"12888616\",\"count\":1},{\"value\":\"13045234\",\"count\":1},{\"value\":\"13091418\",\"count\":1},{\"value\":\"13135545\",\"count\":1},{\"value\":\"13143417\",\"count\":1},{\"value\":\"13339666\",\"count\":1},{\"value\":\"13378949\",\"count\":1},{\"value\":\"13382954\",\"count\":1},{\"value\":\"13418458\",\"count\":1},{\"value\":\"13434563\",\"count\":1},{\"value\":\"13449283\",\"count\":1},{\"value\":\"13479029\",\"count\":1},{\"value\":\"13528533\",\"count\":1},{\"value\":\"13588944\",\"count\":1},{\"value\":\"13625944\",\"count\":1},{\"value\":\"13634381\",\"count\":1},{\"value\":\"13758835\",\"count\":1},{\"value\":\"13809236\",\"count\":1},{\"value\":\"13827266\",\"count\":1},{\"value\":\"13958941\",\"count\":1},{\"value\":\"13981745\",\"count\":1},{\"value\":\"14033984\",\"count\":1},{\"value\":\"14087918\",\"count\":1},{\"value\":\"14098376\",\"count\":1},{\"value\":\"14132511\",\"count\":1},{\"value\":\"14231694\",\"count\":1},{\"value\":\"14250846\",\"count\":1},{\"value\":\"14252386\",\"count\":1},{\"value\":\"14255317\",\"count\":1},{\"value\":\"14290294\",\"count\":1},{\"value\":\"14296008\",\"count\":1},{\"value\":\"14482444\",\"count\":1},{\"value\":\"14558085\",\"count\":1},{\"value\":\"14571405\",\"count\":1},{\"value\":\"14579044\",\"count\":1},{\"value\":\"14597500\",\"count\":1},{\"value\":\"14604890\",\"count\":1},{\"value\":\"14644119\",\"count\":1},{\"value\":\"14709936\",\"count\":1},{\"value\":\"14710407\",\"count\":1}]"
+  },
+  {
+   "count": "2000",
+   "distinct_count": "500",
+   "field": "aid",
+   "is_exact": "0",
+   "numeric_count": "0",
+   "values": "[{\"value\":\"a24ac411a70b7202b44080d180c7fe89\",\"count\":102},{\"value\":\"97db854dc6c3c06697afc95898db8829\",\"count\":45},{\"value\":\"60308650a61f151e0536286b34f3c166\",\"count\":37},{\"value\":\"a489a66d6f73c7c98c6210d25010e4a6\",\"count\":32},{\"value\":\"70d8a73c23828d561f45e6d0cf02b0df\",\"count\":29},{\"value\":\"799730c57d5be35800b7719f70fa7057\",\"count\":29},{\"value\":\"9d2d134200472f4820abfb08e1145e43\",\"count\":22},{\"value\":\"04b781673c6a7a2310672862e3040917\",\"count\":17},{\"value\":\"e78d159f70943453a769c8a9d9413b5b\",\"count\":17},{\"value\":\"5bbadaef6d471d54766c253f92212389\",\"count\":15},{\"value\":\"835f9630f6c6b10f847b8a3241ba55c6\",\"count\":15},{\"value\":\"4ec028388626ff175528d0d89d9907d1\",\"count\":14},{\"value\":\"b45e291d1b531243a9b67cfbb2b821f4\",\"count\":14},{\"value\":\"49a4e715a977eb46467d8c7e4ca39380\",\"count\":13},{\"value\":\"366d8bd0e248c5df8903b96c233e159e\",\"count\":12},{\"value\":\"84b187111b287362e0e341e63ca04865\",\"count\":12},{\"value\":\"db744f9681d396b61d4747d3984c99d0\",\"count\":12},{\"value\":\"b4e297bb5149f21e6bd34a2885d0a8be\",\"count\":11},{\"value\":\"8b5c633b63994c363e702ad1d98843d8\",\"count\":10},{\"value\":\"174a01b62c4c209a013835e35d97e019\",\"count\":9},{\"value\":\"689546acdd03519ea1a9633039865381\",\"count\":9},{\"value\":\"7f03c319da1d73b57c4d976a52d9151b\",\"count\":9},{\"value\":\"051146772343373b999d022dce6e13c8\",\"count\":8},{\"value\":\"0715c1fa3a5e76003d7128a5903d4e68\",\"count\":8},{\"value\":\"0d319575487aed7ff922a318fe966f5b\",\"count\":8},{\"value\":\"9a1d22dee75faf54cb33f92027763003\",\"count\":8},{\"value\":\"bd5aa2f17a5a1e31e3544a257a291655\",\"count\":8},{\"value\":\"c825fd510ceb9e740d67f31be8185b9f\",\"count\":8},{\"value\":\"110f9647e8b8bee42a6d537605ade9d5\",\"count\":7},{\"value\":\"2520b7e94e2e073145a47542ec1e3806\",\"count\":7},{\"value\":\"498ed86d17f1a7dcd3b12df6ee18d07f\",\"count\":7},{\"value\":\"4ba5ae30ff4972b2878d4e25aac674a8\",\"count\":7},{\"value\":\"4febdf2dcf0d96911e9e3b754be0fb45\",\"count\":7},{\"value\":\"76b7b7fe9d61fb03b21222856d9ed8c0\",\"count\":7},{\"value\":\"7aa0577e69be1ac3c345490bfb5c6366\",\"count\":7},{\"value\":\"a4298436d330d2f26ace6ad95fcf8669\",\"count\":7},{\"value\":\"a788252ae96c3228d64dcb67dd94b112\",\"count\":7},{\"value\":\"d824641a573cfb286958d70ea078a700\",\"count\":7},{\"value\":\"ea5ec1920925d36115de7860522584d9\",\"count\":7},{\"value\":\"063d68077a96ad48098c4ceef29ecf9d\",\"count\":6},{\"value\":\"3c085d1cd2ce8661d7f5bc1f637ecec2\",\"count\":6},{\"value\":\"69707a91c12483719043601dccc9a538\",\"count\":6},{\"value\":\"896cd142a1ac0e16382c60eb7136d46a\",\"count\":6},{\"value\":\"bb8557a7f9c63f9a3e3cd9fc921aa7fe\",\"count\":6},{\"value\":\"bd4f152f8247e3c43b4a01ffb14e5bd8\",\"count\":6},{\"value\":\"cc422a189e621b7112dbb91e587f1a82\",\"count\":6},{\"value\":\"cc8d6d9530a7712f186b114b01dd4964\",\"count\":6},{\"value\":\"dc5d2fe5254fd89db3c3cc49a9ecb2ff\",\"count\":6},{\"value\":\"ea38aa2d2d0e54181a3ff351bcb0d880\",\"count\":6},{\"value\":\"ea51b8b8bfb83754c7ceb888f1f30600\",\"count\":6},{\"value\":\"f844c03702bf2027471e3ee092ea94ac\",\"count\":6},{\"value\":\"06dd2e10461fa2db7c7c7255f8e4fe99\",\"count\":5},{\"value\":\"23407cbe4a8d498e70227743964c30e4\",\"count\":5},{\"value\":\"512c6adae4e13d8c49f922de07a6776d\",\"count\":5},{\"value\":\"5db24a3e91037b752286d51584c555a5\",\"count\":5},{\"value\":\"7775a3319aa20b26bbf3d4eda6ffbd62\",\"count\":5},{\"value\":\"79bda75ae65f6c72adecb122a86ff1ac\",\"count\":5},{\"value\":\"eadbd60008c10b8a4569938fd14c6587\",\"count\":5},{\"value\":\"ee1e66b5e3267b61cceaa7b6db0a9ee4\",\"count\":5},{\"value\":\"f5ebc088dbb6df0780871afb99c1ce63\",\"count\":5},{\"value\":\"04f819ec6fe68460c2ab7140ac510a43\",\"count\":4},{\"value\":\"11067287276da43980a8729660bdefb6\",\"count\":4},{\"value\":\"39084b0e5343a7b27bec7cc0ea1d4a62\",\"count\":4},{\"value\":\"461e3fa5eaf494f5f033a42837e51bdb\",\"count\":4},{\"value\":\"52aa13df91b86f5f37e0a681676f960e\",\"count\":4},{\"value\":\"5d7e955926caaf871bc6477e7a003069\",\"count\":4},{\"value\":\"7a88904c094beb151fb948351efb1a70\",\"count\":4},{\"value\":\"8044394ce12a23759b7d2d94e17c6f72\",\"count\":4},{\"value\":\"912e0e229400b761c10fdaa392ba0178\",\"count\":4},{\"value\":\"924b1744c867c23de9dc9d10438e4dc7\",\"count\":4},{\"value\":\"a86b8d90a366cff4cebbb80984f44e64\",\"count\":4},{\"value\":\"a9596bddc13396757a41440140970075\",\"count\":4},{\"value\":\"b15e1c79ccdea1605495b92b3ccc6cb9\",\"count\":4},{\"value\":\"bb0041e5e037b5c38c37cf26d86c2f63\",\"count\":4},{\"value\":\"c27012f8a2a0ddcd46d078f927a9e897\",\"count\":4},{\"value\":\"cc2263d9cb623ec5bbb9483717441333\",\"count\":4},{\"value\":\"d162702879aaadf5ef4cf12cd68d8f06\",\"count\":4},{\"value\":\"d1a65f592b9ac3c5b348f9c67bd975da\",\"count\":4},{\"value\":\"00ec91c25dff5ac59c0a0f26f9b7cc54\",\"count\":3},{\"value\":\"0b804c63f31c7a9b6c978521d667ac06\",\"count\":3},{\"value\":\"13b87d3ffe27e91e8cb45090010c8abe\",\"count\":3},{\"value\":\"13e71cf2e0f5724b3974e14760f47684\",\"count\":3},{\"value\":\"17e19c74b700673deeb86cfc02d75749\",\"count\":3},{\"value\":\"188b5b0ae56255e5f59895801407c88f\",\"count\":3},{\"value\":\"1ecf809eedbf0bec3f217b49cfeabed3\",\"count\":3},{\"value\":\"2371bee78263ec2e3361c6674776225c\",\"count\":3},{\"value\":\"25a8e82498120a3e3df2b5e0545330d5\",\"count\":3},{\"value\":\"2713e677cbc6a1a79b55624e0e79c4aa\",\"count\":3},{\"value\":\"2a573cca83925877433d67ac3cde5d87\",\"count\":3},{\"value\":\"2d0080d1a317622315dd936e247f3227\",\"count\":3},{\"value\":\"32bb5aca3dadef7add0257713ba1a301\",\"count\":3},{\"value\":\"34fd961c3c0fda85d2b9112f01dcb3b3\",\"count\":3},{\"value\":\"379d022cbbdca4f4a1a0225965b774a3\",\"count\":3},{\"value\":\"3d89272747b7e0d7691f35b234c65dac\",\"count\":3},{\"value\":\"3fd8b9ba2d5cf3636b0f6a2cd6c1ab17\",\"count\":3},{\"value\":\"41eecf8ede25e97d70a3e32746a2bf24\",\"count\":3},{\"value\":\"456c7f61f24b238d6e87b7794d58fc48\",\"count\":3},{\"value\":\"489568e0d7f20ea94c134ba2bc9d7efb\",\"count\":3},{\"value\":\"48a82fbefa0f415377daa94b49e6ff45\",\"count\":3},{\"value\":\"4996d8e5e315377684765a84c475276a\",\"count\":3}]"
+  },
+  {
+   "count": "2000",
+   "distinct_count": "500",
+   "field": "aip",
+   "is_exact": "0",
+   "numeric_count": "0",
+   "values": "[{\"value\":\"10.189.255.171\",\"count\":62},{\"value\":\"56.51.49.176\",\"count\":52},{\"value\":\"10.10.7.25\",\"count\":30},{\"value\":\"10.52.112.145\",\"count\":28},{\"value\":\"10.89.211.149\",\"count\":26},{\"value\":\"10.72.53.164\",\"count\":15},{\"value\":\"10.139.34.216\",\"count\":14},{\"value\":\"10.60.67.29\",\"count\":14},{\"value\":\"10.34.48.107\",\"count\":12},{\"value\":\"10.55.205.229\",\"count\":12},{\"value\":\"10.61.8.194\",\"count\":12},{\"value\":\"10.140.39.64\",\"count\":10},{\"value\":\"10.230.71.126\",\"count\":9},{\"value\":\"10.72.179.98\",\"count\":9},{\"value\":\"168.200.186.164\",\"count\":7},{\"value\":\"188.113.118.248\",\"count\":7},{\"value\":\"26.231.150.213\",\"count\":7},{\"value\":\"10.159.51.17\",\"count\":6},{\"value\":\"10.64.40.250\",\"count\":6},{\"value\":\"215.240.89.8\",\"count\":6},{\"value\":\"40.73.45.61\",\"count\":6},{\"value\":\"10.10.227.37\",\"count\":5},{\"value\":\"10.115.222.252\",\"count\":5},{\"value\":\"10.127.27.178\",\"count\":5},{\"value\":\"10.33.122.187\",\"count\":5},{\"value\":\"10.36.194.182\",\"count\":5},{\"value\":\"10.6.117.10\",\"count\":5},{\"value\":\"10.75.161.248\",\"count\":5},{\"value\":\"10.78.201.254\",\"count\":5},{\"value\":\"209.245.5.178\",\"count\":5},{\"value\":\"10.104.83.103\",\"count\":4},{\"value\":\"10.128.183.130\",\"count\":4},{\"value\":\"10.141.184.41\",\"count\":4},{\"value\":\"10.172.14.135\",\"count\":4},{\"value\":\"10.177.141.239\",\"count\":4},{\"value\":\"10.189.101.170\",\"count\":4},{\"value\":\"10.216.73.70\",\"count\":4},{\"value\":\"10.221.144.98\",\"count\":4},{\"value\":\"10.221.146.56\",\"count\":4},{\"value\":\"10.223.220.151\",\"count\":4},{\"value\":\"10.23.6.57\",\"count\":4},{\"value\":\"10.43.87.40\",\"count\":4},{\"value\":\"10.55.50.146\",\"count\":4},{\"value\":\"10.59.147.126\",\"count\":4},{\"value\":\"10.69.123.157\",\"count\":4},{\"value\":\"109.157.220.24\",\"count\":4},{\"value\":\"143.182.228.118\",\"count\":4},{\"value\":\"26.143.128.194\",\"count\":4},{\"value\":\"26.190.145.137\",\"count\":4},{\"value\":\"10.113.234.102\",\"count\":3},{\"value\":\"10.12.179.4\",\"count\":3},{\"value\":\"10.136.18.93\",\"count\":3},{\"value\":\"10.142.242.173\",\"count\":3},{\"value\":\"10.16.181.199\",\"count\":3},{\"value\":\"10.163.93.218\",\"count\":3},{\"value\":\"10.188.149.27\",\"count\":3},{\"value\":\"10.188.179.242\",\"count\":3},{\"value\":\"10.2.0.252\",\"count\":3},{\"value\":\"10.202.94.198\",\"count\":3},{\"value\":\"10.209.219.179\",\"count\":3},{\"value\":\"10.22.57.217\",\"count\":3},{\"value\":\"10.222.5.172\",\"count\":3},{\"value\":\"10.227.142.107\",\"count\":3},{\"value\":\"10.242.14.138\",\"count\":3},{\"value\":\"10.246.120.209\",\"count\":3},{\"value\":\"10.253.2.15\",\"count\":3},{\"value\":\"10.28.153.42\",\"count\":3},{\"value\":\"10.37.92.230\",\"count\":3},{\"value\":\"10.39.208.94\",\"count\":3},{\"value\":\"10.43.86.99\",\"count\":3},{\"value\":\"10.59.165.180\",\"count\":3},{\"value\":\"10.83.174.71\",\"count\":3},{\"value\":\"10.86.154.144\",\"count\":3},{\"value\":\"151.181.212.105\",\"count\":3},{\"value\":\"174.235.146.66\",\"count\":3},{\"value\":\"182.251.181.59\",\"count\":3},{\"value\":\"206.127.228.229\",\"count\":3},{\"value\":\"215.239.38.244\",\"count\":3},{\"value\":\"33.156.20.19\",\"count\":3},{\"value\":\"34.50.80.186\",\"count\":3},{\"value\":\"4.219.78.190\",\"count\":3},{\"value\":\"47.119.59.175\",\"count\":3},{\"value\":\"73.117.32.126\",\"count\":3},{\"value\":\"1.96.14.161\",\"count\":2},{\"value\":\"10.1.51.51\",\"count\":2},{\"value\":\"10.1.79.152\",\"count\":2},{\"value\":\"10.101.108.251\",\"count\":2},{\"value\":\"10.110.62.72\",\"count\":2},{\"value\":\"10.115.123.128\",\"count\":2},{\"value\":\"10.119.48.107\",\"count\":2},{\"value\":\"10.121.103.231\",\"count\":2},{\"value\":\"10.125.5.46\",\"count\":2},{\"value\":\"10.136.173.53\",\"count\":2},{\"value\":\"10.139.1.186\",\"count\":2},{\"value\":\"10.141.124.106\",\"count\":2},{\"value\":\"10.146.59.138\",\"count\":2},{\"value\":\"10.147.109.179\",\"count\":2},{\"value\":\"10.150.129.168\",\"count\":2},{\"value\":\"10.151.102.109\",\"count\":2},{\"value\":\"10.153.227.124\",\"count\":2}]"
+  },
+  {
+   "count": "2000",
+   "distinct_count": "500",
+   "field": "cid",
+   "is_exact": "0",
+   "numeric_count": "0",
+   "values": "[{\"value\":\"a24ac411a70b7202b44080d180c7fe89\",\"count\":93},{\"value\":\"97db854dc6c3c06697afc95898db8829\",\"count\":60},{\"value\":\"60308650a61f151e0536286b34f3c166\",\"count\":46},{\"value\":\"799730c57d5be35800b7719f70fa7057\",\"count\":36},{\"value\":\"a489a66d6f73c7c98c6210d25010e4a6\",\"count\":29},{\"value\":\"70d8a73c23828d561f45e6d0cf02b0df\",\"count\":22},{\"value\":\"835f9630f6c6b10f847b8a3241ba55c6\",\"count\":22},{\"value\":\"4ec028388626ff175528d0d89d9907d1\",\"count\":18},{\"value\":\"84b187111b287362e0e341e63ca04865\",\"count\":18},{\"value\":\"9d2d134200472f4820abfb08e1145e43\",\"count\":16},{\"value\":\"49a4e715a977eb46467d8c7e4ca39380\",\"count\":14},{\"value\":\"7f03c319da1d73b57c4d976a52d9151b\",\"count\":14},{\"value\":\"db744f9681d396b61d4747d3984c99d0\",\"count\":14},{\"value\":\"0d319575487aed7ff922a318fe966f5b\",\"count\":13},{\"value\":\"366d8bd0e248c5df8903b96c233e159e\",\"count\":13},{\"value\":\"e78d159f70943453a769c8a9d9413b5b\",\"count\":13},{\"value\":\"3c085d1cd2ce8661d7f5bc1f637ecec2\",\"count\":12},{\"value\":\"b45e291d1b531243a9b67cfbb2b821f4\",\"count\":11},{\"value\":\"498ed86d17f1a7dcd3b12df6ee18d07f\",\"count\":10},{\"value\":\"5bbadaef6d471d54766c253f92212389\",\"count\":10},{\"value\":\"a4298436d330d2f26ace6ad95fcf8669\",\"count\":10},{\"value\":\"063d68077a96ad48098c4ceef29ecf9d\",\"count\":9},{\"value\":\"110f9647e8b8bee42a6d537605ade9d5\",\"count\":9},{\"value\":\"7aa0577e69be1ac3c345490bfb5c6366\",\"count\":9},{\"value\":\"bb8557a7f9c63f9a3e3cd9fc921aa7fe\",\"count\":9},{\"value\":\"f844c03702bf2027471e3ee092ea94ac\",\"count\":9},{\"value\":\"d1a65f592b9ac3c5b348f9c67bd975da\",\"count\":8},{\"value\":\"04b781673c6a7a2310672862e3040917\",\"count\":7},{\"value\":\"8b5c633b63994c363e702ad1d98843d8\",\"count\":7},{\"value\":\"9af919b9a06df75b53a6112cc747e48d\",\"count\":7},{\"value\":\"d824641a573cfb286958d70ea078a700\",\"count\":7},{\"value\":\"e8932945df2ea651f04fd26d36bc7452\",\"count\":7},{\"value\":\"ee1e66b5e3267b61cceaa7b6db0a9ee4\",\"count\":7},{\"value\":\"50bcc52134adfff10985809bea7a16d4\",\"count\":6},{\"value\":\"63b08b2365ca7f52a3ebbaaeabb9b1d0\",\"count\":6},{\"value\":\"7934af0787807b22f701ba5f356c78a3\",\"count\":6},{\"value\":\"8044394ce12a23759b7d2d94e17c6f72\",\"count\":6},{\"value\":\"eadbd60008c10b8a4569938fd14c6587\",\"count\":6},{\"value\":\"06e478d193842661baa6203d032aad55\",\"count\":5},{\"value\":\"3cbe37565f358910d14d37b3f52ab0e0\",\"count\":5},{\"value\":\"3fd8b9ba2d5cf3636b0f6a2cd6c1ab17\",\"count\":5},{\"value\":\"4febdf2dcf0d96911e9e3b754be0fb45\",\"count\":5},{\"value\":\"666d3560095cbe475e598fe24fe0da63\",\"count\":5},{\"value\":\"689546acdd03519ea1a9633039865381\",\"count\":5},{\"value\":\"76b7b7fe9d61fb03b21222856d9ed8c0\",\"count\":5},{\"value\":\"9a1d22dee75faf54cb33f92027763003\",\"count\":5},{\"value\":\"b7aebecda2e79178dba1f53c6e5f7892\",\"count\":5},{\"value\":\"bd5aa2f17a5a1e31e3544a257a291655\",\"count\":5},{\"value\":\"cc422a189e621b7112dbb91e587f1a82\",\"count\":5},{\"value\":\"cc8d6d9530a7712f186b114b01dd4964\",\"count\":5},{\"value\":\"d162702879aaadf5ef4cf12cd68d8f06\",\"count\":5},{\"value\":\"d37d51def2a22324326fb765e94807d7\",\"count\":5},{\"value\":\"d514ef1e48213802f4540f880f0455ea\",\"count\":5},{\"value\":\"f9e7e78fa87fcea7bc6573bcbc81ec2d\",\"count\":5},{\"value\":\"fb514802e5dcfe2e399df76a77e91139\",\"count\":5},{\"value\":\"06dd2e10461fa2db7c7c7255f8e4fe99\",\"count\":4},{\"value\":\"0b07921bd863139bc8fb08d99e1f5176\",\"count\":4},{\"value\":\"2520b7e94e2e073145a47542ec1e3806\",\"count\":4},{\"value\":\"2ac73c95aebc61a94f9da5968200a56f\",\"count\":4},{\"value\":\"360a3e7db10f812775bd5cdec008bb59\",\"count\":4},{\"value\":\"41eecf8ede25e97d70a3e32746a2bf24\",\"count\":4},{\"value\":\"471bc9dc48f8ccb29f2be4befe2e3ef2\",\"count\":4},{\"value\":\"4b9787149184e84ac3efc8f7e71d83e7\",\"count\":4},{\"value\":\"4f5fd1267bf3990b20d12087477be4ee\",\"count\":4},{\"value\":\"550dcea5431bb4e4c357f5ebf556b722\",\"count\":4},{\"value\":\"5c31bd07fa107d91ca065a3ab7f8a95c\",\"count\":4},{\"value\":\"79bda75ae65f6c72adecb122a86ff1ac\",\"count\":4},{\"value\":\"896cd142a1ac0e16382c60eb7136d46a\",\"count\":4},{\"value\":\"9d82c35ca922f91c27049325564c3f75\",\"count\":4},{\"value\":\"a9596bddc13396757a41440140970075\",\"count\":4},{\"value\":\"b4e297bb5149f21e6bd34a2885d0a8be\",\"count\":4},{\"value\":\"bb782df0183cf7c265917fb107ddbcee\",\"count\":4},{\"value\":\"bbabd3269d7190aba64f815c3139a4e6\",\"count\":4},{\"value\":\"bd4f152f8247e3c43b4a01ffb14e5bd8\",\"count\":4},{\"value\":\"ccdfb8eba9eef38213d1abb3b0a544bc\",\"count\":4},{\"value\":\"d5b75df5052afb0d32f7dc770c2d2dc1\",\"count\":4},{\"value\":\"ea5ec1920925d36115de7860522584d9\",\"count\":4},{\"value\":\"eae8eec584e6f520203b3c3b8e624f32\",\"count\":4},{\"value\":\"ebe1a34d4b6eeefb2327b80631127ccf\",\"count\":4},{\"value\":\"f5ebc088dbb6df0780871afb99c1ce63\",\"count\":4},{\"value\":\"f61d50abbb34e9751a62d0cbd4c6b402\",\"count\":4},{\"value\":\"f756ee1b7e2d3857f5a8281b2b289fab\",\"count\":4},{\"value\":\"00ec91c25dff5ac59c0a0f26f9b7cc54\",\"count\":3},{\"value\":\"0170471f3b7c06a11ac6da381caa7752\",\"count\":3},{\"value\":\"04e1f628294b7f58bf2cf40f760caef3\",\"count\":3},{\"value\":\"051146772343373b999d022dce6e13c8\",\"count\":3},{\"value\":\"0715c1fa3a5e76003d7128a5903d4e68\",\"count\":3},{\"value\":\"0ae9758a8f16b675f59439e9b2e8d3f4\",\"count\":3},{\"value\":\"0b804c63f31c7a9b6c978521d667ac06\",\"count\":3},{\"value\":\"174a01b62c4c209a013835e35d97e019\",\"count\":3},{\"value\":\"24104480e4af6fc1464100fa9fa50848\",\"count\":3},{\"value\":\"24e1df90bc42f116b602c42ec51802f8\",\"count\":3},{\"value\":\"2af647cc1a32468afa82fb75c1edc35e\",\"count\":3},{\"value\":\"2cf5a33e3a8a82382e76e385481fb13b\",\"count\":3},{\"value\":\"35099065fba430cd336aaac83b7aacdb\",\"count\":3},{\"value\":\"38f7f948d9f8378a990969f5745fe2e7\",\"count\":3},{\"value\":\"3e915d0324a4ed094b98ea00cc8b2742\",\"count\":3},{\"value\":\"41fa3cbff6ae50a7b9bf905424a059c7\",\"count\":3},{\"value\":\"44a019f522acc67deb504aa632c71488\",\"count\":3},{\"value\":\"465419d936c57ba4999f79b5282f5fc7\",\"count\":3}]"
+  },
+  {
+   "count": "2000",
+   "distinct_count": "1",
+   "field": "date_hour",
+   "is_exact": "1",
+   "max": "20",
+   "mean": "20",
+   "min": "20",
+   "numeric_count": "2000",
+   "stdev": "0",
+   "values": "[{\"value\":\"20\",\"count\":2000}]"
+  },
+  {
+   "count": "2000",
+   "distinct_count": "1",
+   "field": "date_mday",
+   "is_exact": "1",
+   "max": "13",
+   "mean": "13",
+   "min": "13",
+   "numeric_count": "2000",
+   "stdev": "0",
+   "values": "[{\"value\":\"13\",\"count\":2000}]"
+  },
+  {
+   "count": "2000",
+   "distinct_count": "45",
+   "field": "date_minute",
+   "is_exact": "1",
+   "max": "59",
+   "mean": "36.8445",
+   "min": "15",
+   "numeric_count": "2000",
+   "stdev": "12.72459340759831",
+   "values": "[{\"value\":\"29\",\"count\":61},{\"value\":\"48\",\"count\":57},{\"value\":\"21\",\"count\":56},{\"value\":\"28\",\"count\":55},{\"value\":\"44\",\"count\":55},{\"value\":\"35\",\"count\":53},{\"value\":\"15\",\"count\":52},{\"value\":\"30\",\"count\":52},{\"value\":\"50\",\"count\":52},{\"value\":\"46\",\"count\":51},{\"value\":\"22\",\"count\":50},{\"value\":\"38\",\"count\":50},{\"value\":\"39\",\"count\":50},{\"value\":\"53\",\"count\":50},{\"value\":\"47\",\"count\":49},{\"value\":\"55\",\"count\":49},{\"value\":\"19\",\"count\":48},{\"value\":\"23\",\"count\":47},{\"value\":\"37\",\"count\":47},{\"value\":\"52\",\"count\":47},{\"value\":\"26\",\"count\":46},{\"value\":\"27\",\"count\":46},{\"value\":\"45\",\"count\":46},{\"value\":\"54\",\"count\":46},{\"value\":\"42\",\"count\":45},{\"value\":\"20\",\"count\":44},{\"value\":\"58\",\"count\":44},{\"value\":\"24\",\"count\":43},{\"value\":\"31\",\"count\":43},{\"value\":\"34\",\"count\":43},{\"value\":\"49\",\"count\":43},{\"value\":\"43\",\"count\":42},{\"value\":\"17\",\"count\":41},{\"value\":\"51\",\"count\":40},{\"value\":\"56\",\"count\":38},{\"value\":\"32\",\"count\":37},{\"value\":\"40\",\"count\":36},{\"value\":\"25\",\"count\":33},{\"value\":\"33\",\"count\":33},{\"value\":\"36\",\"count\":33},{\"value\":\"16\",\"count\":32},{\"value\":\"41\",\"count\":31},{\"value\":\"57\",\"count\":31},{\"value\":\"18\",\"count\":29},{\"value\":\"59\",\"count\":24}]"
+  },
+  {
+   "count": "2000",
+   "distinct_count": "1",
+   "field": "date_month",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[{\"value\":\"october\",\"count\":2000}]"
+  },
+  {
+   "count": "2000",
+   "distinct_count": "60",
+   "field": "date_second",
+   "is_exact": "1",
+   "max": "59",
+   "mean": "29.06",
+   "min": "0",
+   "numeric_count": "2000",
+   "stdev": "17.25196264508922",
+   "values": "[{\"value\":\"49\",\"count\":51},{\"value\":\"31\",\"count\":46},{\"value\":\"14\",\"count\":44},{\"value\":\"20\",\"count\":43},{\"value\":\"9\",\"count\":42},{\"value\":\"11\",\"count\":41},{\"value\":\"41\",\"count\":41},{\"value\":\"7\",\"count\":41},{\"value\":\"25\",\"count\":40},{\"value\":\"40\",\"count\":39},{\"value\":\"17\",\"count\":38},{\"value\":\"56\",\"count\":38},{\"value\":\"54\",\"count\":37},{\"value\":\"15\",\"count\":36},{\"value\":\"37\",\"count\":36},{\"value\":\"2\",\"count\":35},{\"value\":\"26\",\"count\":35},{\"value\":\"28\",\"count\":35},{\"value\":\"29\",\"count\":35},{\"value\":\"3\",\"count\":35},{\"value\":\"44\",\"count\":35},{\"value\":\"16\",\"count\":34},{\"value\":\"18\",\"count\":34},{\"value\":\"19\",\"count\":34},{\"value\":\"23\",\"count\":34},{\"value\":\"4\",\"count\":34},{\"value\":\"50\",\"count\":34},{\"value\":\"6\",\"count\":34},{\"value\":\"1\",\"count\":33},{\"value\":\"32\",\"count\":33},{\"value\":\"5\",\"count\":33},{\"value\":\"53\",\"count\":33},{\"value\":\"59\",\"count\":33},{\"value\":\"21\",\"count\":32},{\"value\":\"45\",\"count\":32},{\"value\":\"8\",\"count\":32},{\"value\":\"22\",\"count\":31},{\"value\":\"30\",\"count\":31},{\"value\":\"36\",\"count\":31},{\"value\":\"42\",\"count\":31},{\"value\":\"43\",\"count\":31},{\"value\":\"46\",\"count\":31},{\"value\":\"13\",\"count\":30},{\"value\":\"34\",\"count\":30},{\"value\":\"55\",\"count\":30},{\"value\":\"58\",\"count\":30},{\"value\":\"47\",\"count\":29},{\"value\":\"10\",\"count\":28},{\"value\":\"12\",\"count\":28},{\"value\":\"33\",\"count\":28},{\"value\":\"48\",\"count\":28},{\"value\":\"52\",\"count\":28},{\"value\":\"24\",\"count\":27},{\"value\":\"38\",\"count\":27},{\"value\":\"57\",\"count\":27},{\"value\":\"27\",\"count\":26},{\"value\":\"0\",\"count\":25},{\"value\":\"35\",\"count\":24},{\"value\":\"39\",\"count\":24},{\"value\":\"51\",\"count\":23}]"
+  },
+  {
+   "count": "2000",
+   "distinct_count": "1",
+   "field": "date_wday",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[{\"value\":\"tuesday\",\"count\":2000}]"
+  },
+  {
+   "count": "2000",
+   "distinct_count": "1",
+   "field": "date_year",
+   "is_exact": "1",
+   "max": "2026",
+   "mean": "2026",
+   "min": "2026",
+   "numeric_count": "2000",
+   "stdev": "0",
+   "values": "[{\"value\":\"2026\",\"count\":2000}]"
+  },
+  {
+   "count": "2000",
+   "distinct_count": "1",
+   "field": "date_zone",
+   "is_exact": "1",
+   "max": "0",
+   "mean": "0",
+   "min": "0",
+   "numeric_count": "2000",
+   "stdev": "0",
+   "values": "[{\"value\":\"0\",\"count\":2000}]"
+  },
+  {
+   "count": "2000",
+   "distinct_count": "1",
+   "field": "event_platform",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[{\"value\":\"Win\",\"count\":2000}]"
+  },
+  {
+   "count": "2000",
+   "distinct_count": "1",
+   "field": "event_simpleName",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[{\"value\":\"FileDeleteInfo\",\"count\":2000}]"
+  },
+  {
+   "count": "0",
+   "distinct_count": "0",
+   "field": "eventtype",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[]"
+  },
+  {
+   "count": "2000",
+   "distinct_count": "1",
+   "field": "host",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[{\"value\":\"3ccd20e3a547\",\"count\":2000}]"
+  },
+  {
+   "count": "2000",
+   "distinct_count": "500",
+   "field": "id",
+   "is_exact": "0",
+   "numeric_count": "0",
+   "values": "[{\"value\":\"002544c3-d9eb-439e-e065-2793802fbf12\",\"count\":1},{\"value\":\"0068072c-6fb1-4358-d57d-da77ad42b352\",\"count\":1},{\"value\":\"008cdc03-a627-1972-fb5c-d696dfbd1a61\",\"count\":1},{\"value\":\"009c23d5-6cd8-558f-f06e-8cf4dbce37fb\",\"count\":1},{\"value\":\"00ba5c8e-cef8-8ef7-a839-8dc612bfbeff\",\"count\":1},{\"value\":\"00c0cd69-85ad-1f27-b11b-a1573dc1f3f2\",\"count\":1},{\"value\":\"00dfca94-7431-98d5-b54a-eeddc7de7f27\",\"count\":1},{\"value\":\"01621d51-a963-65f0-b9c8-354223464305\",\"count\":1},{\"value\":\"0181ef7f-f357-1bfd-1fa3-7837ea9bce0f\",\"count\":1},{\"value\":\"0185110f-d4c7-669c-666f-aea3ff21cd34\",\"count\":1},{\"value\":\"01a214c5-c474-563e-6170-e77d4ac81fec\",\"count\":1},{\"value\":\"01bd9e0c-175b-53dd-865c-138c4d76311e\",\"count\":1},{\"value\":\"01be86b1-eb0d-8883-93cb-8ad78b39786c\",\"count\":1},{\"value\":\"01dc9ddc-5cc8-6ec7-8af0-a52f3f693b70\",\"count\":1},{\"value\":\"01fedc9c-2e5e-3c34-2804-c3ab9f275652\",\"count\":1},{\"value\":\"01ff1f97-ee02-7ab7-cfef-a9c6aa78655c\",\"count\":1},{\"value\":\"02158ca2-227a-721f-4292-c498cef3c6d0\",\"count\":1},{\"value\":\"02208306-5c53-b146-12fd-fbf0d10476af\",\"count\":1},{\"value\":\"023afbca-c342-3fa8-2ce0-811486c16143\",\"count\":1},{\"value\":\"025a8c08-e6a6-4189-e479-6defefdbbabf\",\"count\":1},{\"value\":\"02a7dc05-ec80-048f-dd07-a2740e0e35b9\",\"count\":1},{\"value\":\"02fcaec2-7c79-2d51-8deb-48477e907262\",\"count\":1},{\"value\":\"03115329-8753-83db-ed91-1c6b280e4100\",\"count\":1},{\"value\":\"03813f5a-c0fe-7505-da28-c9677f3ebeec\",\"count\":1},{\"value\":\"039560ca-15ee-60aa-c735-f8cf0300651d\",\"count\":1},{\"value\":\"03d6a9f8-9d18-e6f3-8f93-3bcd6046dc1d\",\"count\":1},{\"value\":\"03d70fb1-4fd2-ade5-5829-532676e04b66\",\"count\":1},{\"value\":\"03decac9-9250-5e2f-1f8b-d29a6b6c6e4a\",\"count\":1},{\"value\":\"040290f2-28ed-a282-3657-1592e6822686\",\"count\":1},{\"value\":\"04042401-4831-3760-d866-9beb20c3e69e\",\"count\":1},{\"value\":\"044387d3-adc3-3178-7349-057c0658d838\",\"count\":1},{\"value\":\"048e4039-78cb-3665-350e-91375cc4e904\",\"count\":1},{\"value\":\"04e4a138-44ec-8523-5c54-555bb2e361cd\",\"count\":1},{\"value\":\"04f6adbc-6081-c79e-867b-83f8da8db5e3\",\"count\":1},{\"value\":\"0529a009-0ce5-7a19-c344-b04c4d180614\",\"count\":1},{\"value\":\"054a417a-e778-f70e-0d78-02843322aab1\",\"count\":1},{\"value\":\"05560f81-689b-f8ca-f32b-02bad645578d\",\"count\":1},{\"value\":\"056e3d9a-7e9e-d971-81f0-5ab969baf39b\",\"count\":1},{\"value\":\"058efc6a-ca13-3cda-b14a-2f1d76e9a6c4\",\"count\":1},{\"value\":\"059504c4-5fe8-baf1-9874-436624ec249a\",\"count\":1},{\"value\":\"05a75a50-da49-d4ac-159e-40a92bc9f896\",\"count\":1},{\"value\":\"05afa9bc-a054-1147-2034-8c4795c022aa\",\"count\":1},{\"value\":\"05c6aa49-6479-dba9-bdaa-fc596efbadcd\",\"count\":1},{\"value\":\"06161d7e-1b99-211f-87ac-46173fa513d3\",\"count\":1},{\"value\":\"065c238f-24a7-455a-be5d-9f4b72b1813e\",\"count\":1},{\"value\":\"06ab8de2-f112-5d56-4d23-4b7fa669163a\",\"count\":1},{\"value\":\"06b3c91e-77dc-743e-07d3-d10744d1f1f9\",\"count\":1},{\"value\":\"06d5a8a1-7d51-4e90-a8a0-93ada9514f3e\",\"count\":1},{\"value\":\"06dc1ac0-acb8-8122-0f11-ece06ae172cc\",\"count\":1},{\"value\":\"06de8626-78f3-b701-eb56-410327bae86f\",\"count\":1},{\"value\":\"06f287fc-008d-f460-4c7a-165d80e906cd\",\"count\":1},{\"value\":\"075dba84-fbea-0f18-0525-3c45c9f20478\",\"count\":1},{\"value\":\"077715ce-9ba5-b74e-70bc-8bfd1f44a13e\",\"count\":1},{\"value\":\"07a9ae88-b850-5638-6e2b-e1d8d3d0b88d\",\"count\":1},{\"value\":\"07c3e2a7-35a9-7745-1e5c-0a1110dc700e\",\"count\":1},{\"value\":\"07eb7fe6-9c56-1ace-f7a8-9fae6424dec6\",\"count\":1},{\"value\":\"07f2ddc1-6b9f-e441-c596-7878ef1cff27\",\"count\":1},{\"value\":\"081bf8d3-954d-a16c-f44b-1e129e656b4a\",\"count\":1},{\"value\":\"082ac7d0-13bc-9518-5c65-17a6f8c7a355\",\"count\":1},{\"value\":\"08373032-4267-bb4c-79b5-fb98be027f4d\",\"count\":1},{\"value\":\"08415979-aed2-61e0-a95d-783f1e979457\",\"count\":1},{\"value\":\"08512524-3d3c-eaef-d28a-03d889230c48\",\"count\":1},{\"value\":\"08c5c7ed-7127-ac08-fd5f-810c0cf41b90\",\"count\":1},{\"value\":\"08d412b8-0988-0c14-cc2d-a7bf75428933\",\"count\":1},{\"value\":\"08fbc715-50e5-a8e5-b2a9-f2127884ef49\",\"count\":1},{\"value\":\"08ff495e-6b66-c452-c38a-f9f37130bde2\",\"count\":1},{\"value\":\"090a5f58-ef9c-08f0-f8f7-a8e9a3dae2b4\",\"count\":1},{\"value\":\"090c5967-ef4e-3d0b-23a8-d95a9d901564\",\"count\":1},{\"value\":\"0916a106-8117-b8c5-b65c-8387ddbf4c41\",\"count\":1},{\"value\":\"0923da90-9a9f-d1d2-093a-7cec1a81a340\",\"count\":1},{\"value\":\"0979f740-1254-8315-fb20-befb3c4ad2cc\",\"count\":1},{\"value\":\"09f1b3d2-ee1e-5ff0-1c22-58ae976dc905\",\"count\":1},{\"value\":\"0a01ab86-d9d5-8503-940e-3e6d300725c3\",\"count\":1},{\"value\":\"0a6c033f-2038-c229-fa2a-c01ad48f37f4\",\"count\":1},{\"value\":\"0a9cbf9e-8435-8364-ef74-d47abd8db9e1\",\"count\":1},{\"value\":\"0aa7d1a1-bada-d1df-8b57-0791be3baf92\",\"count\":1},{\"value\":\"0ad1b1a4-5812-dfc4-2d26-744db51a02da\",\"count\":1},{\"value\":\"0b005dd8-d34c-9e5c-65d1-51ec214944f7\",\"count\":1},{\"value\":\"0b23b09f-0794-2157-b412-a5dfbcc216c9\",\"count\":1},{\"value\":\"0b345022-da0b-411c-a048-768255e4226b\",\"count\":1},{\"value\":\"0b36a498-0f16-8809-a234-49bb457f699f\",\"count\":1},{\"value\":\"0b6c4d8f-9c24-749f-20fa-6e249bbded08\",\"count\":1},{\"value\":\"0b82ad00-b592-aa63-ddb1-1e834b70c5d3\",\"count\":1},{\"value\":\"0baf3c5b-1553-ffa6-3199-b9c68c0f7ea3\",\"count\":1},{\"value\":\"0becf8bb-9dfb-f227-0479-5095d2fd241f\",\"count\":1},{\"value\":\"0bf748d4-743f-d3e2-8959-5aa3aa9880e1\",\"count\":1},{\"value\":\"0bf8d2e2-32c8-d215-064b-f4bc9e2a07ef\",\"count\":1},{\"value\":\"0bf9ee6d-4fbe-be39-6466-f65462c03c42\",\"count\":1},{\"value\":\"0bfedcd4-d4a3-2348-93b5-2c0ab5e6ea97\",\"count\":1},{\"value\":\"0c64ea23-6a0c-03b6-1cf4-d8dc1a0836ad\",\"count\":1},{\"value\":\"0c7c8cec-40cc-7e82-1725-f64e91643226\",\"count\":1},{\"value\":\"0c8f06d2-0d7b-4e93-c678-18784ae4515c\",\"count\":1},{\"value\":\"0c9eb6ea-0bba-104a-40cb-162607235055\",\"count\":1},{\"value\":\"0cbcef42-fca6-66ce-c7a7-dfa329f3045b\",\"count\":1},{\"value\":\"0cc09300-49f4-33aa-11cc-ea314be1d411\",\"count\":1},{\"value\":\"0d033e6a-4da2-5d63-eed2-09dd47730eb4\",\"count\":1},{\"value\":\"0d41003c-cd92-4adf-8c65-7173167f1341\",\"count\":1},{\"value\":\"0d4596f0-777c-d741-6cf7-86e314d9faae\",\"count\":1},{\"value\":\"0d51ba86-5ff2-01d1-585c-8e1de8377566\",\"count\":1},{\"value\":\"0d77f1ab-8b93-9f93-1f9c-a931288b8b56\",\"count\":1}]"
+  },
+  {
+   "count": "2000",
+   "distinct_count": "1",
+   "field": "index",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[{\"value\":\"matalog_json\",\"count\":2000}]"
+  },
+  {
+   "count": "2000",
+   "distinct_count": "1",
+   "field": "linecount",
+   "is_exact": "1",
+   "max": "1",
+   "mean": "1",
+   "min": "1",
+   "numeric_count": "2000",
+   "stdev": "0",
+   "values": "[{\"value\":\"1\",\"count\":2000}]"
+  },
+  {
+   "count": "2000",
+   "distinct_count": "1",
+   "field": "matalog_n",
+   "is_exact": "1",
+   "max": "1",
+   "mean": "1",
+   "min": "1",
+   "numeric_count": "2000",
+   "stdev": "0",
+   "values": "[{\"value\":\"1\",\"count\":2000}]"
+  },
+  {
+   "count": "2000",
+   "distinct_count": "1",
+   "field": "name",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[{\"value\":\"FileDeleteInfoV1\",\"count\":2000}]"
+  },
+  {
+   "count": "2000",
+   "distinct_count": "1",
+   "field": "punct",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[{\"value\":\"{\\\"\\\":\\\"\\\",\\\"\\\":\\\".\\\",\\\"\\\":\\\"\\\",\\\"\\\":\\\"\\\",\\\"\\\":\\\"\\\",\\\"\\\":\\\"...\\\",\\\"\\\":\\\"...\\\",\",\"count\":2000}]"
+  },
+  {
+   "count": "2000",
+   "distinct_count": "2",
+   "field": "source",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[{\"value\":\"/tmp/crowdstrike_events_sensor.jsonl.part004\",\"count\":1818},{\"value\":\"/tmp/crowdstrike_events_sensor.jsonl.part005\",\"count\":182}]"
+  },
+  {
+   "count": "2000",
+   "distinct_count": "1",
+   "field": "sourcetype",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[{\"value\":\"crowdstrike:events:sensor\",\"count\":2000}]"
+  },
+  {
+   "count": "2000",
+   "distinct_count": "1",
+   "field": "splunk_server",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[{\"value\":\"3ccd20e3a547\",\"count\":2000}]"
+  },
+  {
+   "count": "0",
+   "distinct_count": "0",
+   "field": "splunk_server_group",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[]"
+  },
+  {
+   "count": "0",
+   "distinct_count": "0",
+   "field": "tag",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[]"
+  },
+  {
+   "count": "0",
+   "distinct_count": "0",
+   "field": "tag::eventtype",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[]"
+  },
+  {
+   "count": "2000",
+   "distinct_count": "8",
+   "field": "timeendpos",
+   "is_exact": "1",
+   "max": "456",
+   "mean": "453.776",
+   "min": "449",
+   "numeric_count": "2000",
+   "stdev": "1.120022868344107",
+   "values": "[{\"value\":\"454\",\"count\":684},{\"value\":\"453\",\"count\":541},{\"value\":\"455\",\"count\":456},{\"value\":\"452\",\"count\":173},{\"value\":\"456\",\"count\":85},{\"value\":\"451\",\"count\":58},{\"value\":\"450\",\"count\":2},{\"value\":\"449\",\"count\":1}]"
+  },
+  {
+   "count": "2000",
+   "distinct_count": "500",
+   "field": "timestamp",
+   "is_exact": "0",
+   "max": "1791925170465",
+   "mean": "1791923840231.174",
+   "min": "1791922502151",
+   "numeric_count": "2000",
+   "stdev": "761762.7746971475",
+   "values": "[{\"value\":\"1791922502151\",\"count\":1},{\"value\":\"1791922503587\",\"count\":1},{\"value\":\"1791922505961\",\"count\":1},{\"value\":\"1791922508599\",\"count\":1},{\"value\":\"1791922510168\",\"count\":1},{\"value\":\"1791922511119\",\"count\":1},{\"value\":\"1791922512075\",\"count\":1},{\"value\":\"1791922513043\",\"count\":1},{\"value\":\"1791922514855\",\"count\":1},{\"value\":\"1791922518199\",\"count\":1},{\"value\":\"1791922519370\",\"count\":1},{\"value\":\"1791922519953\",\"count\":1},{\"value\":\"1791922520718\",\"count\":1},{\"value\":\"1791922520719\",\"count\":1},{\"value\":\"1791922522169\",\"count\":1},{\"value\":\"1791922522402\",\"count\":1},{\"value\":\"1791922523234\",\"count\":1},{\"value\":\"1791922523346\",\"count\":1},{\"value\":\"1791922524080\",\"count\":1},{\"value\":\"1791922524837\",\"count\":1},{\"value\":\"1791922525736\",\"count\":1},{\"value\":\"1791922526148\",\"count\":1},{\"value\":\"1791922526772\",\"count\":1},{\"value\":\"1791922528022\",\"count\":1},{\"value\":\"1791922528217\",\"count\":1},{\"value\":\"1791922528448\",\"count\":1},{\"value\":\"1791922530643\",\"count\":1},{\"value\":\"1791922531141\",\"count\":1},{\"value\":\"1791922532340\",\"count\":1},{\"value\":\"1791922532629\",\"count\":1},{\"value\":\"1791922533805\",\"count\":1},{\"value\":\"1791922534700\",\"count\":1},{\"value\":\"1791922534938\",\"count\":1},{\"value\":\"1791922536594\",\"count\":1},{\"value\":\"1791922537077\",\"count\":1},{\"value\":\"1791922538704\",\"count\":1},{\"value\":\"1791922541445\",\"count\":1},{\"value\":\"1791922542425\",\"count\":1},{\"value\":\"1791922544964\",\"count\":1},{\"value\":\"1791922545043\",\"count\":1},{\"value\":\"1791922545270\",\"count\":1},{\"value\":\"1791922545472\",\"count\":1},{\"value\":\"1791922549127\",\"count\":1},{\"value\":\"1791922550818\",\"count\":1},{\"value\":\"1791922550981\",\"count\":1},{\"value\":\"1791922551510\",\"count\":1},{\"value\":\"1791922553586\",\"count\":1},{\"value\":\"1791922554760\",\"count\":1},{\"value\":\"1791922556056\",\"count\":1},{\"value\":\"1791922556426\",\"count\":1},{\"value\":\"1791922557047\",\"count\":1},{\"value\":\"1791922559345\",\"count\":1},{\"value\":\"1791922563828\",\"count\":1},{\"value\":\"1791922564149\",\"count\":1},{\"value\":\"1791922564294\",\"count\":1},{\"value\":\"1791922567488\",\"count\":1},{\"value\":\"1791922567975\",\"count\":1},{\"value\":\"1791922569738\",\"count\":1},{\"value\":\"1791922571695\",\"count\":1},{\"value\":\"1791922575422\",\"count\":1},{\"value\":\"1791922578181\",\"count\":1},{\"value\":\"1791922581397\",\"count\":1},{\"value\":\"1791922582523\",\"count\":1},{\"value\":\"1791922585604\",\"count\":1},{\"value\":\"1791922588569\",\"count\":1},{\"value\":\"1791922589136\",\"count\":1},{\"value\":\"1791922591310\",\"count\":1},{\"value\":\"1791922591499\",\"count\":1},{\"value\":\"1791922591880\",\"count\":1},{\"value\":\"1791922593463\",\"count\":1},{\"value\":\"1791922593558\",\"count\":1},{\"value\":\"1791922594491\",\"count\":1},{\"value\":\"1791922598472\",\"count\":1},{\"value\":\"1791922598769\",\"count\":1},{\"value\":\"1791922600116\",\"count\":1},{\"value\":\"1791922603647\",\"count\":1},{\"value\":\"1791922604056\",\"count\":1},{\"value\":\"1791922606895\",\"count\":1},{\"value\":\"1791922607116\",\"count\":1},{\"value\":\"1791922609864\",\"count\":1},{\"value\":\"1791922612872\",\"count\":1},{\"value\":\"1791922618298\",\"count\":1},{\"value\":\"1791922619021\",\"count\":1},{\"value\":\"1791922619773\",\"count\":1},{\"value\":\"1791922622739\",\"count\":1},{\"value\":\"1791922624017\",\"count\":1},{\"value\":\"1791922625139\",\"count\":1},{\"value\":\"1791922625485\",\"count\":1},{\"value\":\"1791922627104\",\"count\":1},{\"value\":\"1791922628490\",\"count\":1},{\"value\":\"1791922628895\",\"count\":1},{\"value\":\"1791922629154\",\"count\":1},{\"value\":\"1791922631731\",\"count\":1},{\"value\":\"1791922633013\",\"count\":1},{\"value\":\"1791922634598\",\"count\":1},{\"value\":\"1791922640767\",\"count\":1},{\"value\":\"1791922641225\",\"count\":1},{\"value\":\"1791922641246\",\"count\":1},{\"value\":\"1791922641253\",\"count\":1},{\"value\":\"1791922642223\",\"count\":1}]"
+  },
+  {
+   "count": "2000",
+   "distinct_count": "8",
+   "field": "timestartpos",
+   "is_exact": "1",
+   "max": "443",
+   "mean": "440.776",
+   "min": "436",
+   "numeric_count": "2000",
+   "stdev": "1.120022868344107",
+   "values": "[{\"value\":\"441\",\"count\":684},{\"value\":\"440\",\"count\":541},{\"value\":\"442\",\"count\":456},{\"value\":\"439\",\"count\":173},{\"value\":\"443\",\"count\":85},{\"value\":\"438\",\"count\":58},{\"value\":\"437\",\"count\":2},{\"value\":\"436\",\"count\":1}]"
+  }
+ ],
+ "sample_ratio": 1,
+ "spl": "search index=matalog_json sourcetype=\"crowdstrike:events:sensor\" event_simpleName=\"FileDeleteInfo\" | head 2000 | eval matalog_n=1 | fieldsummary maxvals=100"
+}

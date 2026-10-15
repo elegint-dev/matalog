@@ -1,0 +1,175 @@
+[
+ {
+  "acl": {
+   "app": "search",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "definition": "rex \"search='(?<search>.*?)', autojoin\"",
+   "disabled": false
+  },
+  "name": "audit_rexsearch"
+ },
+ {
+  "acl": {
+   "app": "search",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "definition": "`audit_searchlocal(\"search_id!=rt_*\")`",
+   "disabled": false
+  },
+  "name": "audit_searchlocal"
+ },
+ {
+  "acl": {
+   "app": "search",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "args": "filter",
+   "definition": "search index=_audit action=search (id=* OR search_id=*) | eval search_id = if(isnull(search_id), id, search_id) | replace '*' with * in search_id | search $filter$",
+   "disabled": false
+  },
+  "name": "audit_searchlocal(1)"
+ },
+ {
+  "acl": {
+   "app": "matalog",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "args": "text",
+   "definition": "\"\"",
+   "disabled": false,
+   "iseval": true
+  },
+  "name": "comment(1)"
+ },
+ {
+  "acl": {
+   "app": "search",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "args": "text",
+   "definition": "\"\"",
+   "disabled": false,
+   "iseval": true
+  },
+  "name": "comment(1)"
+ },
+ {
+  "acl": {
+   "app": "splunk_instrumentation",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "args": "arg",
+   "definition": "rex field=predicate \"^(?<beforeStr>.*$arg$\\s*=\\s*)(?<value>\\S+)(?<afterStr>.*)\" | eval predicate=beforeStr.sha1(value).afterStr",
+   "disabled": false,
+   "iseval": false
+  },
+  "name": "hash_admission_rule_predicate(1)"
+ },
+ {
+  "acl": {
+   "app": "search",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "args": "perc, hist_rate, le",
+   "definition": "sort $le$\n| eventstats max($hist_rate$) as total_hist_rate, last($le$) as uppermost_bound, count as num_buckets\n| eval rank=exact($perc$)*total_hist_rate\n| streamstats current=f last($le$) as gr, last($hist_rate$) as last_hist_rate\n| eval gr=if(isnull(gr), 0, gr), last_hist_rate=if(isnull(last_hist_rate), 0, last_hist_rate)\n| where $hist_rate$ >= rank\n| head 1\n| eval res=case(lower(uppermost_bound) != \"+inf\" or num_buckets < 2, \"NaN\", lower($le$) == \"+inf\", gr, gr == 0 and $le$ <= 0, $le$, true(), exact(gr + ($le$-gr)*(rank - last_hist_rate) / ($hist_rate$ - last_hist_rate)))\n| fields res\n| rename res as \"histperc\"",
+   "disabled": false,
+   "iseval": false
+  },
+  "name": "histperc(3)"
+ },
+ {
+  "acl": {
+   "app": "search",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "args": "perc, hist_rate, le, groupby",
+   "definition": "sort $groupby$, $le$\n| eventstats max($hist_rate$) as total_hist_rate, last($le$) as uppermost_bound, count as num_buckets by $groupby$\n| eval rank=exact($perc$)*total_hist_rate\n| streamstats current=f last($le$) as gr, last($hist_rate$) as last_hist_rate by $groupby$\n| eval gr=if(isnull(gr), 0, gr), last_hist_rate=if(isnull(last_hist_rate), 0, last_hist_rate)\n| where $hist_rate$ >= rank\n| dedup $groupby$\n| eval res=case(lower(uppermost_bound) != \"+inf\" or num_buckets < 2, \"NaN\", lower($le$) == \"+inf\", gr, gr == 0 and $le$ <= 0, $le$, true(), exact(gr + ($le$-gr)*(rank - last_hist_rate) / ($hist_rate$ - last_hist_rate)))\n| fields $groupby$, res\n| rename res as \"histperc\"",
+   "disabled": false,
+   "iseval": false
+  },
+  "name": "histperc(4)"
+ },
+ {
+  "acl": {
+   "app": "splunk_instrumentation",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "args": "name,multiplier,round_digits",
+   "definition": "\"\\\"avg\\\":\"+`instrumentation_number_format($name$_avg,$multiplier$,$round_digits$)` + \",\" + \"\\\"min\\\":\"+`instrumentation_number_format($name$_min,$multiplier$,$round_digits$)` + \",\" + \"\\\"max\\\":\"+`instrumentation_number_format($name$_max,$multiplier$,$round_digits$)` + \",\" + \"\\\"p10\\\":\"+`instrumentation_number_format($name$_p10,$multiplier$,$round_digits$)` + \",\" + \"\\\"p20\\\":\"+`instrumentation_number_format($name$_p20,$multiplier$,$round_digits$)` + \",\" + \"\\\"p30\\\":\"+`instrumentation_number_format($name$_p30,$multiplier$,$round_digits$)` + \",\" + \"\\\"p40\\\":\"+`instrumentation_number_format($name$_p40,$multiplier$,$round_digits$)` + \",\" + \"\\\"p50\\\":\"+`instrumentation_number_format($name$_p50,$multiplier$,$round_digits$)` + \",\" + \"\\\"p60\\\":\"+`instrumentation_number_format($name$_p60,$multiplier$,$round_digits$)` + \",\" + \"\\\"p70\\\":\"+`instrumentation_number_format($name$_p70,$multiplier$,$round_digits$)` + \",\" + \"\\\"p80\\\":\"+`instrumentation_number_format($name$_p80,$multiplier$,$round_digits$)` + \",\" + \"\\\"p90\\\":\"+`instrumentation_number_format($name$_p90,$multiplier$,$round_digits$)`",
+   "disabled": false,
+   "iseval": false
+  },
+  "name": "instrumentation_distribution_strings(3)"
+ },
+ {
+  "acl": {
+   "app": "splunk_instrumentation",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "args": "name",
+   "definition": "avg($name$) as $name$_avg min($name$) as $name$_min max($name$) as $name$_max perc10($name$) as $name$_p10 perc20($name$) as $name$_p20 perc30($name$) as $name$_p30 perc40($name$) as $name$_p40 perc50($name$) as $name$_p50 perc60($name$) as $name$_p60 perc70($name$) as $name$_p70 perc80($name$) as $name$_p80 perc90($name$) as $name$_p90",
+   "disabled": false,
+   "iseval": false
+  },
+  "name": "instrumentation_distribution_values(1)"
+ },
+ {
+  "acl": {
+   "app": "splunk_instrumentation",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "args": "name,multiplier,round_digits",
+   "definition": "tostring(coalesce(round($name$*$multiplier$,$round_digits$), \"null\"))",
+   "disabled": false,
+   "iseval": false
+  },
+  "name": "instrumentation_number_format(3)"
+ },
+ {
+  "acl": {
+   "app": "search",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "definition": "rest splunk_server=local /services/server/info | return host",
+   "disabled": false
+  },
+  "name": "set_local_host"
+ },
+ {
+  "acl": {
+   "app": "search",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "definition": "eval search=if(length(search) > 150, substr(search, 0, 150) + \"...\", search)",
+   "disabled": false
+  },
+  "name": "truncate_search"
+ }
+]

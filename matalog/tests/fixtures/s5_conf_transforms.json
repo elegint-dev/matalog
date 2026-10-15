@@ -1,0 +1,3153 @@
+[
+ {
+  "name": "_ruleset:global_settings",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "splunk_ingest_actions",
+   "eai:userName": "nobody",
+   "metrics.disabled": "0"
+  },
+  "acl": {
+   "app": "splunk_ingest_actions",
+   "owner": "splunk-system-user",
+   "sharing": "app"
+  }
+ },
+ {
+  "name": "access-extractions",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "^[[nspaces:clientip]]\\s++[[nspaces:ident]]\\s++[[nspaces:user]]\\s++[[sbstring:req_time]]\\s++[[access-request]]\\s++[[nspaces:status]]\\s++[[nspaces:bytes]](?:\\s++\"(?<referer>[[bc_domain:referer_]]?+[^\"]*+)\"(?:\\s++[[qstring:useragent]](?:\\s++[[qstring:cookie]])?+)?+)?[[all:other]]",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "access-request",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "\"\\s*+[[reqstr:method]]?(?:\\s++[[bc_uri]](?:\\s++[[reqstr:version]])*)?\\s*+\"",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "ad-kv",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "1",
+   "REGEX": "(?<_KEY_1>[\\w-]+)=(?<_VAL_1>[^\\r\\n]*)",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "all",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": ".*",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "all_lazy",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": ".*?",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "alnums",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "[a-zA-Z0-9]+",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "alphas",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "[a-zA-Z]+",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "bc_domain",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?<domain>\\w++://[^/\\s\"]++)",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "bc_uri",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?<uri>[[bc_domain:uri_]]?+(?<uri_path>[[uri_root]]?[[uri_seg]]*(?<file>[^\\s\\?/]+)?)(?:\\?(?<uri_query>[^\\s]*))?)",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "bracket-space",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "$1::$2",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "\\[(\\S+) (.*?)\\]",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "browser",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?i:(?<![a-z])(netscape|mozilla|firefox|ie)(?![a-z]))",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "cisco-codes",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "product::$1 code::$2 severity::$3",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": ": (?i)%([a-z0-9_]+)-(?:[a-z0-9_]+-)?([0-7])-([a-z0-9_]+):",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "colon-kv",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "$1::$2",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?<= )([A-Za-z]+): ?((0x[A-F\\d]+)|\\d+)(?= |\\n|$)",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "colon-line",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "$1::$2",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "^(\\w+)\\s*:[ \\t]*(.*?)$",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "db2",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "$1::$2",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "([A-Z]+) *: (.*?)(?=\\n|$| +[A-Z]+ *:)",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "digits",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "\\d+",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "dnslookup",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody",
+   "external_cmd": "external_lookup.py clienthost clientip",
+   "fields_list": "clienthost,clientip",
+   "python.required": "latest"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "email",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?:(?<!\\w)(\\w[\\w\\-\\.]+@\\w[\\w\\-\\.]+\\.[a-z]{1,4}))",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "exceptionclass",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "\\sat ([\\w\\.$_-]+)\\(",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "extract_spent",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "\\s(?P<spent>\\d+(\\.\\d+)?)ms$",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "field_extraction",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "$1::$2",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "([a-zA-Z0-9_\\.]+)=\\\"?([a-zA-Z0-9_\\.-]+)",
+   "REPEAT_MATCH": "1",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "1",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "filetype",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?:[\\w_]\\.([A-Za-z]{2}\\w)(?!\\w))",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "float",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "\\d*\\.\\d+|[[int]]",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "geo_attr_countries",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "search",
+   "eai:userName": "nobody",
+   "filename": "geo_attr_countries.csv"
+  },
+  "acl": {
+   "app": "search",
+   "owner": "nobody",
+   "sharing": "global"
+  }
+ },
+ {
+  "name": "geo_attr_us_states",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "search",
+   "eai:userName": "nobody",
+   "filename": "geo_attr_us_states.csv"
+  },
+  "acl": {
+   "app": "search",
+   "owner": "nobody",
+   "sharing": "global"
+  }
+ },
+ {
+  "name": "geo_countries",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "search",
+   "eai:userName": "nobody",
+   "external_type": "geo",
+   "filename": "geo_countries.kmz"
+  },
+  "acl": {
+   "app": "search",
+   "owner": "nobody",
+   "sharing": "global"
+  }
+ },
+ {
+  "name": "geo_hex",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "search",
+   "eai:userName": "nobody",
+   "external_type": "geo_hex"
+  },
+  "acl": {
+   "app": "search",
+   "owner": "nobody",
+   "sharing": "global"
+  }
+ },
+ {
+  "name": "geo_us_states",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "search",
+   "eai:userName": "nobody",
+   "external_type": "geo",
+   "filename": "geo_us_states.kmz"
+  },
+  "acl": {
+   "app": "search",
+   "owner": "nobody",
+   "sharing": "global"
+  }
+ },
+ {
+  "name": "guid-to-translate",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "1",
+   "REGEX": "(?<guid_to_trans>\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12})",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "int",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "0x[a-fA-F0-9]+|\\d+",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "introspection_disk_objects_log_clone",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "CLONE_SOURCETYPE": "splunk_intro_disk_objects",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(.)",
+   "SOURCE_KEY": "MetaData:Source",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "splunk_internal_metrics",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "splunk_internal_metrics",
+   "owner": "nobody",
+   "sharing": "app"
+  }
+ },
+ {
+  "name": "introspection_disk_objects_metric_name",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "INGEST_EVAL": "metric_name = \"spl.intr.disk_objects\"\n.case(\n        isnotnull( component ), \".\".component\n        , 1==1, \"\"\n)",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "splunk_internal_metrics",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "splunk_internal_metrics",
+   "owner": "nobody",
+   "sharing": "app"
+  }
+ },
+ {
+  "name": "introspection_resource_usage_log_clone",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "CLONE_SOURCETYPE": "splunk_intro_resource_usage",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(.)",
+   "SOURCE_KEY": "MetaData:Source",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "splunk_internal_metrics",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "splunk_internal_metrics",
+   "owner": "nobody",
+   "sharing": "app"
+  }
+ },
+ {
+  "name": "introspection_resource_usage_metric_name",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "INGEST_EVAL": "metric_name = \"spl.intr.resource_usage\"\n.case(\n        isnotnull( component ), \".\".component,\n        1==1, \"\"\n)",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "splunk_internal_metrics",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "splunk_internal_metrics",
+   "owner": "nobody",
+   "sharing": "app"
+  }
+ },
+ {
+  "name": "ip",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?:(?<!\\d)(\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})(?!\\d))",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "ipv4",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?<ip>[[octet]](?:\\.[[octet]]){3})(?::[[int:port]])?",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "language",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?i:(?<![a-z])(php|java|python|c\\+\\+|perl)(?![a-z]))",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "log4-severity",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "severity::$1",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": ".*?([A-Z]+) [\\w\\.]+ \\-",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "loglevel",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(FATAL|ERROR|WARN|INFO|DEBUG|TRACE)",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "loglevel-weblogic",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "loglevel::$1",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "#+<\\w+ \\d+, \\d+ \\d+:\\d+:\\d+ \\w+ \\w+> <(\\w+)>",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "matalog_cim_coverage",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "matalog_cim_coverage",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "matalog",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "_key, cim_dataset, cim_field, src_index, src_sourcetype, source_key, mapped, field_name, field_key, cim_via, via_decl_key, coverage, derived_run"
+  },
+  "acl": {
+   "app": "matalog",
+   "owner": "nobody",
+   "sharing": "app"
+  }
+ },
+ {
+  "name": "matalog_declarations",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "matalog_declarations",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "matalog",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "_key, decl_key, app, app_version, owner, sharing, conf_file, stanza, stanza_kind, src_sourcetype, attribute, origin_class, raw_value, fields_declared, parse_status, applies_to_source_keys, first_seen_run, last_seen_run"
+  },
+  "acl": {
+   "app": "matalog",
+   "owner": "nobody",
+   "sharing": "app"
+  }
+ },
+ {
+  "name": "matalog_field_types",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "matalog_field_types",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "matalog",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "_key, field_key, type_id, src_index, src_sourcetype, stratum_value, field_name, level, cur_run_id, cur_type_version, cur_profile_id, cur_tested, cur_matched, cur_match_rate, base_run_id, base_type_version, base_profile_id, base_tested, base_matched, base_match_rate, is_match, is_best, source, first_match_run"
+  },
+  "acl": {
+   "app": "matalog",
+   "owner": "nobody",
+   "sharing": "app"
+  }
+ },
+ {
+  "name": "matalog_fields",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "matalog_fields",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "matalog",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "_key, field_key, source_key, stratum_key, src_index, src_sourcetype, stratum_field, stratum_value, stratum_label, field_name, level, is_rollup, rollup_strata, is_stratum_field, presence, observed, declared, first_seen_run, last_seen_run, last_seen_time, consecutive_unseen, retired_run, origin, origin_app, origin_stanza, origin_decl_key, origin_candidates, origin_conflict, origin_changed_run, cur_disc_run_id, cur_disc_count, cur_disc_events, cur_disc_coverage, cur_disc_distinct, base_disc_run_id, base_disc_count, base_disc_events, base_disc_coverage, base_disc_distinct, cur_prof_run_id, cur_prof_count, cur_prof_events, cur_prof_coverage, cur_prof_distinct, cur_prof_distinct_exact, cur_prof_sample_ratio, base_prof_run_id, base_prof_count, base_prof_events, base_prof_coverage, base_prof_distinct, base_prof_distinct_exact, base_prof_sample_ratio, week_prof_run_id, week_prof_count, week_prof_events, week_prof_coverage, week_prof_distinct, week_prof_distinct_exact, week_prof_sample_ratio, profile_id, type_guess, identifier, numeric_count, num_min, num_max, num_mean, top_values, top_counts, sample_values, samples_truncated, values_hash, best_type_id, best_type_rate, types, cim_fields, cim_via, meaning_human, meaning_human_author, meaning_human_time, meaning_human_revision, usage_count, usage_alert_count, usage_objects, usage_last_run_time, usage_unscoped_count, open_finding_count, open_finding_types, updated_run_id"
+  },
+  "acl": {
+   "app": "matalog",
+   "owner": "nobody",
+   "sharing": "app"
+  }
+ },
+ {
+  "name": "matalog_findings",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "matalog_findings",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "matalog",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "_key, finding_key, finding_type, severity, status, subject_kind, subject_key, source_key, stratum_key, field_key, src_index, src_sourcetype, stratum_field, stratum_value, field_name, type_id, opened_run_id, detected_time, last_triggered_run, last_seen_time, occurrences, clear_runs, baseline_kind, metric, before_run_id, after_run_id, before_profile_id, after_profile_id, before_count, after_count, before_events, after_events, before_coverage, after_coverage, before_distinct, after_distinct, before_sample_ratio, after_sample_ratio, before_match_rate, after_match_rate, type_version, before_value, after_value, delta, statistic, threshold, likely_cause, cause_detail, status_by, status_at, note"
+  },
+  "acl": {
+   "app": "matalog",
+   "owner": "nobody",
+   "sharing": "app"
+  }
+ },
+ {
+  "name": "matalog_meanings",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "matalog_meanings",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "matalog",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "_key, field_key, src_index, src_sourcetype, field_name, revision, is_current, text, author, created_at, note, status"
+  },
+  "acl": {
+   "app": "matalog",
+   "owner": "nobody",
+   "sharing": "app"
+  }
+ },
+ {
+  "name": "matalog_objects",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "matalog_objects",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "matalog",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "_key, object_key, ko_type, app, owner, name, sharing, is_scheduled, is_alert, disabled, is_matalog_own, spl_hash, parse_status, parse_gaps, last_run_time, run_count_30d, last_parsed_run, last_seen_run"
+  },
+  "acl": {
+   "app": "matalog",
+   "owner": "nobody",
+   "sharing": "app"
+  }
+ },
+ {
+  "name": "matalog_runs",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "matalog_runs",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "matalog",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "_key, run_id, attempt, committed, committed_attempt, run_mode, status, profiled_as, app_context, started_at, finished_at, budget, config_hash, type_versions, type_versions_hash, reclassified_types, searches_issued, searches_failed, write_searches, write_reserve, write_bytes, events_scanned, events_matched, search_seconds, wall_seconds, peak_concurrency, per_step, sources_total, sources_due, sources_profiled, sources_deferred, strata_total, strata_due, strata_discovered, strata_deferred, strata_over_cap, fields_present, fields_new, budget_exhausted, rows_written, pairs_skipped, findings_opened, findings_resolved, findings_suppressed, objects_total, objects_parsed, objects_partial, objects_failed, scan_ratio_max, errors"
+  },
+  "acl": {
+   "app": "matalog",
+   "owner": "nobody",
+   "sharing": "app"
+  }
+ },
+ {
+  "name": "matalog_semantic_types",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "matalog_semantic_types",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "matalog",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "_key, type_id, name, label, description, origin, enabled, matcher_kind, pattern, enum_values, enum_source, lookup_name, lookup_field, case_sensitive, match_threshold, min_distinct, specificity, parent_type_id, type_version, author, updated_at"
+  },
+  "acl": {
+   "app": "matalog",
+   "owner": "nobody",
+   "sharing": "app"
+  }
+ },
+ {
+  "name": "matalog_sources",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "matalog_sources",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "matalog",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "_key, source_key, src_index, src_sourcetype, search_sourcetype, profiled_as, stratum_field, version_field, state, first_seen_run, last_seen_run, first_event_time, last_event_time, events_last_cycle, daily_events, daily_bytes, daily_bytes_status, base_rate_per_hour, profile_mode, sample_ratio, priority, last_discovered_run, last_profiled_run, next_profile_due, strata_count, strata_deferred, field_count, last_human_search_time, last_human_search_user, usage_count, usage_alert_count, config_apps, config_apps_changed_run, version_top, version_top_counts, version_changed_run, stratum_candidates, open_finding_count, updated_run_id"
+  },
+  "acl": {
+   "app": "matalog",
+   "owner": "nobody",
+   "sharing": "app"
+  }
+ },
+ {
+  "name": "matalog_strata",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "matalog_strata",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "matalog",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "_key, stratum_key, source_key, src_index, src_sourcetype, stratum_field, stratum_value, stratum_label, value_kind, level, prunable, state, listed_events, listed_sample_ratio, rate_per_hour, share_of_source, first_seen_run, last_seen_run, retired_run, last_discovered_run, discovery_due_run, cur_run_id, cur_earliest, cur_latest, cur_events_seen, cur_events_scanned, cur_scan_ratio, cur_fields_found, cur_truncated, cur_fields_truncated, base_run_id, base_events_seen, base_events_scanned, base_scan_ratio, base_fields_found, last_profiled_run, field_count, version_top, version_top_counts, version_changed_run, open_finding_count, updated_run_id"
+  },
+  "acl": {
+   "app": "matalog",
+   "owner": "nobody",
+   "sharing": "app"
+  }
+ },
+ {
+  "name": "matalog_stratum_config",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "matalog_stratum_config",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "matalog",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "_key, index_pattern, src_sourcetype, stratum_field, version_field, origin, enabled, set_by, set_at"
+  },
+  "acl": {
+   "app": "matalog",
+   "owner": "nobody",
+   "sharing": "app"
+  }
+ },
+ {
+  "name": "matalog_usage",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "matalog_usage",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "matalog",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "_key, object_key, ko_type, app, name, is_alert, field_name, ref_kind, resolution, scope, scope_text, resolved_field_keys, confidence, last_seen_run"
+  },
+  "acl": {
+   "app": "matalog",
+   "owner": "nobody",
+   "sharing": "app"
+  }
+ },
+ {
+  "name": "matalog_write_buffer",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "matalog_write_buffer",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "matalog",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "_key,run_id,attempt,seq,kind,r"
+  },
+  "acl": {
+   "app": "matalog",
+   "owner": "nobody",
+   "sharing": "app"
+  }
+ },
+ {
+  "name": "metric-schema:introspection_disk_objects",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "METRIC-SCHEMA-BLACKLIST-DIMS": "datetime, *data.top_*, *data.args",
+   "METRIC-SCHEMA-MEASURES": "_NUMS_EXCEPT_ *data.top_*",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "splunk_internal_metrics",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "splunk_internal_metrics",
+   "owner": "nobody",
+   "sharing": "app"
+  }
+ },
+ {
+  "name": "metric-schema:introspection_resource_usage",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "METRIC-SCHEMA-BLACKLIST-DIMS": "datetime",
+   "METRIC-SCHEMA-MEASURES": "_NUMS_EXCEPT_ *data.splunk_version, *data.pid, *data.ppid, *data.interval",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "splunk_internal_metrics",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "splunk_internal_metrics",
+   "owner": "nobody",
+   "sharing": "app"
+  }
+ },
+ {
+  "name": "metric-schema:log2metrics_default_csv",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "METRIC-SCHEMA-MEASURES": "_ALLNUMS_",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "splunk_internal_metrics",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "splunk_internal_metrics",
+   "owner": "nobody",
+   "sharing": "app"
+  }
+ },
+ {
+  "name": "metric-schema:log2metrics_default_json",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "METRIC-SCHEMA-MEASURES": "_ALLNUMS_",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "splunk_internal_metrics",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "splunk_internal_metrics",
+   "owner": "nobody",
+   "sharing": "app"
+  }
+ },
+ {
+  "name": "metric-schema:log2metrics_default_keyvalue",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "METRIC-SCHEMA-MEASURES": "_ALLNUMS_",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "splunk_internal_metrics",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "splunk_internal_metrics",
+   "owner": "nobody",
+   "sharing": "app"
+  }
+ },
+ {
+  "name": "metric-schema:metrics_dot_log",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "METRIC-SCHEMA-MEASURES": "_NUMS_EXCEPT_ destPort,sourcePort",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "splunk_internal_metrics",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "splunk_internal_metrics",
+   "owner": "nobody",
+   "sharing": "app"
+  }
+ },
+ {
+  "name": "metrics_field_extraction",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "$1::$2",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "([a-zA-Z0-9_\\.]+)=\\\"?([a-zA-Z0-9_\\.:-]+)",
+   "REPEAT_MATCH": "1",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "1",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "splunk_internal_metrics",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "splunk_internal_metrics",
+   "owner": "nobody",
+   "sharing": "app"
+  }
+ },
+ {
+  "name": "metrics_index_redirect",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "_MetaData:Index",
+   "FORMAT": "_metrics",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": ".",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "splunk_internal_metrics",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "splunk_internal_metrics",
+   "owner": "nobody",
+   "sharing": "app"
+  }
+ },
+ {
+  "name": "metrics_log_clone",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "CLONE_SOURCETYPE": "splunk_metrics_log",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(.)",
+   "SOURCE_KEY": "MetaData:Source",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "splunk_internal_metrics",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "splunk_internal_metrics",
+   "owner": "nobody",
+   "sharing": "app"
+  }
+ },
+ {
+  "name": "metrics_log_metric_name",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "INGEST_EVAL": "metric_name=\"spl.mlog.\".case(\n    group IN ( \"subtask_seconds\",\n               \"subtask_counts\",\n               \"search_concurrency\",\n               \"deploy-server\",\n               \"thruput\",\n               \"jobs\",\n               \"search_health_metrics\",\n               \"tailingprocessor\" ) AND isnotnull(name),\n            group.\".\".name,\n    group == \"pipeline\" AND name == \"indexerpipe\" AND processor == \"indexer\",\n            group.\".\".processor,\n    group == \"pipeline\" AND processor == \"regexreplacement\",\n            group.\".\".processor.\".\".name,\n    group == \"dutycycle\" AND name == \"misc\",\n            group.\".\".name,\n    group == \"search_concurrency\" AND isnotnull(user),\n            group.\".per_user\",\n    group == \"bundles_downloads\" AND isnotnull(baseline_count),\n            group.\".baseline\",\n    group == \"bundles_downloads\" AND isnotnull(delta_count),\n            group.\".delta\",\n    isnotnull(group), group,\n    1 == 1, \"nullgroup\"\n)",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "splunk_internal_metrics",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "splunk_internal_metrics",
+   "owner": "nobody",
+   "sharing": "app"
+  }
+ },
+ {
+  "name": "novell-groupwise-arrival",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "_meta",
+   "FORMAT": "$0 msgtype::$1 originuserid::$2 messageid::$3 filename::$4 originidomain::$5 origindomain::$6 originpostoffice::$7  previoushop::$8 size::$9 priority::$10 targapp::$11 reportstatus::$12 reportdestination::$13 destination::$14",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "ARR ([^,]*),([^,]*),([^,]*),([^,]*),([^,]*),([^,]*),([^,]*),([^,]*),([^,]*),([^,]*),([^,]*),([^,]*),([^,]*),(.*)$",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "novell-groupwise-queue",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "_meta",
+   "FORMAT": "$0 filename::$1 nexthoptype::$2 nexthopname::$3 destnum::$4",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "QUE ([^,]*),([^,]*),([^,]*),(.*)$",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "novell-groupwise-transfer",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "_meta",
+   "FORMAT": "$0 peername::$1 filename::$2 size::$3 sendtime::$4",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "QUE ([^,]*),([^,]*),([^,]*),([^,]*)$",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "nspaces",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "\\S+",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "num-kv",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "$1::$2",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "([A-Za-z_][\\w_]*)[=:\\s]+((0x[A-F\\d]+)|[+-]?[\\d.]+)",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "octet",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?:2(?:5[0-5]|[0-4][0-9])|[0-1][0-9][0-9]|[0-9][0-9]?)",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "os",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?i:(?<![a-z])(mac|windows|linux)(?![a-z]))",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "perfmon-kv",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DELIMS": "\"\\n\",\"=\"",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "qstring",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "\"(?<>[^\"]*+)\"",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "registry",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DELIMS": "\"\\n\",\"=:\"",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "remote_searches_extractions_starting",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "^[^=\\n]*starting: search_id=(?<search_id>[^,]+), server=(?<server>[^,]+), active_searches=(?<active_searches>[^,]+), search='(?<search>.+)', remote_ttl=(?<remote_ttl>.+), apiStartTime='(?<apiStartTime>.+)', apiEndTime='(?<apiEndTime>.+)', savedsearch_name=\"(?<savedsearch_name>[^\"]*)\", isClusterPeer=(?<isCMSlave>[^,]+), bucketMapId=(?<bucketMapId>[^,]+), sidType=(?<sidType>[^,]+)$",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "remote_searches_extractions_starting_fallback",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "^[^=\\n]*starting: search_id=(?<search_id>[^,]+), server=(?<server>[^,]+), active_searches=(?<active_searches>[^,]+), search='(?<search>.+)', remote_ttl=(?<remote_ttl>.+), apiStartTime='(?<apiStartTime>.+)', apiEndTime='(?<apiEndTime>.+)', savedsearch_name=\"(?<savedsearch_name>[^\"]*)\"",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "remote_searches_extractions_terminated",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "^[^=\\n]*(closed|terminated): search_id=(?<search_id>[^,]+), server=(?<server>[^,]+), active_searches=(?<active_searches>[^,]+), elapsedTime=(?<elapsedTime>[^,]+)(?:, cpuTime=(?<cpuTime>[^,]+))?(?:, app=(?<app>[^,]+))?(?:, user=(?<user>[^,]+))?(?:, origin_sid=(?<origin_sid>[^,]+))?(?:, mode=(?<mode>[^,]+))?(?:, provenance=(?<provenance>[^,]*))?(?:, search_type=(?<search_type>[^,]+))?(?:, scenarios=(?<scenarios>[^,]+))?, search='(?<search>.+)', savedsearch_name=\"(?<savedsearch_name>[^\"]*)\", (drop_count=(?<drop_count>[^,]+), scan_count=(?<scan_count>[^,]+), eliminated_buckets=(?<eliminated_buckets>[^,]+), considered_events=(?<considered_events>[^,]+), decompressed_slices=(?<decompressed_slices>[^,]+), events_count=(?<events_count>[^,]+), total_slices=(?<total_slices>[^,]+), considered_buckets=(?<considered_buckets>[^,]+), search_rawdata_bucketcache_error=(?<rawdata_bucketcache_error>[^,]+), search_rawdata_bucketcache_miss=(?<rawdata_bucketcache_miss>[^,]+), search_index_bucketcache_error=(?<index_bucketcache_error>[^,]+), search_index_bucketcache_hit=(?<index_bucketcache_hit>[^,]+), search_index_bucketcache_miss=(?<index_bucketcache_miss>[^,]+), search_rawdata_bucketcache_hit=(?<rawdata_bucketcache_hit>[^,]+), search_rawdata_bucketcache_miss_wait=(?<rawdata_bucketcache_miss_wait>[^,]+), search_index_bucketcache_miss_wait=(?<index_bucketcache_miss_wait>.+))?$",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "reqstr",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "[^\\s\"]++",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "sbstring",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "\\[(?<>[^\\]]*+)\\]",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "send_to_nullqueue",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "queue",
+   "FORMAT": "nullQueue",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": ".",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "sendmail-extractions",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "process::sendmail pid::$1 qid::$2",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "sendmail\\[(\\d+)\\]: (\\w+):",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "sendmail-pid",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "pid::$1",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "\\[(\\d+)\\]",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "sendmail-qid",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "qid::$1",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "sendmail\\[\\d+\\]: (\\w+):",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "sendToTCP",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "queue",
+   "FORMAT": "tcpOutQueue",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": ".",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "set_sourcetype_to_stash",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "MetaData:Sourcetype",
+   "FORMAT": "sourcetype::stash",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": ".",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "simple_uri",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?<uri>(?<uri_path>[^\\s\\?\"]++)(?:\\\\?(?<uri_query>[^\\s\"]+))?)",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "simple_url",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?<url>\\w++://(?<domain>[a-zA-Z0-9\\-.:]++)(?:/[^\\s\"]*)?)",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "splunk-access-extractions",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "^[[nspaces:clientip]]\\s++[[nspaces:ident]]\\s++[[nspaces:user]]\\s++[[sbstring:req_time]]\\s++[[access-request]]\\s++[[nspaces:status]]\\s++[[nspaces:bytes]](?:\\s++\"(?<referer>[[bc_domain:referer_]]?+[^\"]*+)\"(?:\\s++[[qstring:useragent]](?:\\s++[[nspaces:vhost]])?(?:\\s++[[nspaces:requestid]])?)?)?[[all:other]]",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "splunk-service-extractions",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?i)^(?:[^ ]* ){2}(?P<log_level>[^\\s]*)\\s+\\[(?P<requestid>\\w+)]\\s+(?P<component>[^ ]+):(?P<line>\\d+) - (?P<message>.+)",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "splunk_help",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "_MetaData:Index",
+   "FORMAT": "help",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": ".",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "splunk_index_history",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "_MetaData:Index",
+   "FORMAT": "history",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": ".",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "splunkd-disassembler",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "_meta",
+   "FORMAT": "$0 level::$1 component::$2",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "^\\S+\\s\\S+\\s+(\\S+)\\s+(\\S+)",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "stash_extract",
+  "content": {
+   "CAN_OPTIMIZE": "0",
+   "CLEAN_KEYS": "0",
+   "DEFAULT_VALUE": "",
+   "DELIMS": "\",\", \"=\"",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "1",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "strip-winevt-linebreaker",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "_raw",
+   "FORMAT": "$1",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?s)^(.*)---splunk-wevt-end-of-event---",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "syslog-extractions",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "process::$1 pid::$2",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "\\s([^\\s\\[]+)(?:\\[(\\d+)\\])?:\\s",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "syslog-header-stripper-ts",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "_raw",
+   "FORMAT": "$1",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "^[A-Z][a-z]+\\s+\\d+\\s\\d+:\\d+:\\d+\\s(.*)$",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "syslog-header-stripper-ts-host",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "_raw",
+   "FORMAT": "$1",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "^[A-Z][a-z]+\\s+\\d+\\s\\d+:\\d+:\\d+\\s[^\\s]*\\s(.*)$",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "syslog-header-stripper-ts-host-proc",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "_raw",
+   "FORMAT": "$1",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "^[A-Z][a-z]+\\s+\\d+\\s\\d+:\\d+:\\d+\\s.*?:\\s(.*)$",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "syslog-host",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "MetaData:Host",
+   "FORMAT": "host::$1",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": ":\\d\\d\\s+(?:\\d+\\s+|(?:user|daemon|local.?)\\.\\w+\\s+)*\\[?(\\w[\\w\\.\\-]{2,})\\]?\\s",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "syslog-host-full",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "MetaData:Host",
+   "FORMAT": "host::$1",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "^[^\\:]*\\d\\d\\:\\d\\d\\:\\d\\d[^\\:]*?\\s((\\d+\\.\\d+\\.\\d+\\.\\d+)|(\\w[\\w\\.\\-]{2,})(?=\\s+[^\\s\\:]+\\:))",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "syslog-process",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "process::$1",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "\\(([a-zA-Z0-9_]+)\\)\\[\\d+\\]:",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "tcpdump-endpoints",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "src_ip::$1 src_port::$2 dest_ip::$3 dest_port::$4",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(\\d+\\.\\d+\\.\\d+\\.\\d+):(\\d+) -> (\\d+\\.\\d+\\.\\d+\\.\\d+):(\\d+)",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "uri",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?<uri>(?:\\w++://(?<uri_domain>[^/\\s]++))?(?<uri_path>(?<uri_root>/+(?:[^\\s\\?;=/]*+/+)*)(?<uri_file>[^\\s\\?;=?/]*+))(?:\\?(?<uri_query>[^\\s\"]+))?)",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "uri_root",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "/++(?<root>(?:\\\\\"|[^\\s\\?/\"])++)/++",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "uri_seg",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?:\\\\\"|[^\\s\\?/\"])*+/++",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "url",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?<url>[[alphas:proto]]://(?<domain>[a-zA-Z0-9\\-.:]++)(?<uri>/[^\\s\"]*)?)",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "was-trlog-code",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "code::$1",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "] ([a-fA-F0-9]{8})",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "weblogic-code",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "code::$1",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "<BEA-([0-9]+)>",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "wel-col-kv",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "$1::$2",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "1",
+   "REGEX": "\\n([^:\\n\\r]+):[ \\t]++([^\\n]*)",
+   "SOURCE_KEY": "Message",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "wel-eq-kv",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DELIMS": "\"\\n\",\"=\"",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "1",
+   "REGEX": "",
+   "SOURCE_KEY": "_pre_msg",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "wel-message",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "0",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?sm)^(?<_pre_msg>.+)\\nMessage=(?<Message>.+)$",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "wmi-host",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "MetaData:Host",
+   "FORMAT": "host::$1",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?m)ComputerName=(.+)",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "wmi-override-host",
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "MetaData:Host",
+   "FORMAT": "host::$1",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?m)wmi_hostname=(.+)",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ }
+]

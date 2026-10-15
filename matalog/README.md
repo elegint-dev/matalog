@@ -1,0 +1,71 @@
+# matalog
+
+matalog catalogs every field Splunk can see. A scheduled modular input, the profiler, enumerates every index and sourcetype, lists the strata of sources whose schema depends on one field (CrowdStrike by event type, CloudTrail by event name), discovers fields on a bounded window per stratum, profiles coverage, cardinality, values and type on a sampled daily window, reads the extraction config to name each field's origin, and parses knowledge objects and `_audit` for usage. Every run's profiles go to the `matalog_profiles` summary index as `sourcetype=stash` rows; current state, human meanings and run records live in the `matalog_*` KV store collections, each readable through a lookup of the same name. The profiler runs as a dedicated service account in this app's context and records its own cost (searches, scanned events, seconds) in every run record so the budget in `matalog.conf` is visible.
+
+## Layout
+
+- `default/matalog.conf`: every budget setting at its default plus the `[stratum:<sourcetype>]` seed stanzas; override in `local/matalog.conf`.
+- `default/collections.conf`, `default/transforms.conf`: the KV collections and their lookups, one per entity in `docs/data-model.md`, plus `matalog_write_buffer`, where summary rows wait between a KV `batch_save` and the `| inputlookup matalog_write_buffer ... | collect index=matalog_profiles sourcetype=stash` job that copies them to the index.
+- `default/indexes.conf`: `matalog_profiles`.
+- `lookups/matalog_semantic_types_shipped.csv`: the shipped semantic type list; S7 upserts it into `matalog_semantic_types` on every run, and user types go in the same collection with `origin=user`.
+- `default/inputs.conf`: the `matalog_profiler` modular input, disabled until the service account exists; `README/inputs.conf.spec` registers its scheme.
+- `default/savedsearches.conf`: one saved search per job query in `docs/data-model.md` (jobs 1, 2, 5, the drift chart and cost per run) and the four agent surface searches; pass tokens as `| savedsearch "matalog job 1 look up a field" field_name="user"`.
+- `default/restmap.conf`, `default/authorize.conf`, `metadata/default.meta`, `bin/matalog_access.py`, `bin/matalog_catalog.py`, `bin/matalog_summary.py`, `bin/matalog_meanings.py`: the app's endpoints (the catalog the pages read, the agent surface summary, the meanings export and import), the roles and capabilities, and the index filter they share.
+- `default/server.conf`: replicates `matalog.conf` across a search head cluster; `app.conf` `[triggers]` reloads it without a restart.
+- `default/macros.conf`: the `comment(1)` macro every profiler search carries, so the run id and step reach `_audit`, and the window macros the agent surface searches use to turn a run id into window bounds.
+- `bin/matalog_profiler.py`: the modular input and command line entry point.
+- `bin/matalog/`: the core package (`keys`, `settings`, `client`, `budget`, `rows`, `writer`, `runner`, `spl` for the SPL reader behind the usage graph) and `steps/` with one module per profiler step.
+- `tests/`: unit tests and the fake client with recorded fixtures.
+- `local/`: not committed; holds the password files of a test install (`svc_matalog.password`, `test_reader.password`).
+
+## Install on Splunk Cloud
+
+The app needs Splunk 10.4 or later, Cloud or Enterprise: its pages are views on the built-in `pages/splunk_ui_app.html` template that 10.4 ships, and `app.manifest` states the requirement.
+
+1. Package: `python3 tools/package.py` writes `dist/matalog-<version>.tar.gz` with the app directory as the top level and without `local/`, `tests/` and the `ui/` source (the built bundles under `appserver/static` ship). The version is `[launcher] version` in `default/app.conf`; keep `[id] version` and `app.manifest` on the same number.
+2. AppInspect: `splunk-appinspect inspect dist/matalog-<version>.tar.gz --mode precert --included-tags cloud --output-file report.json` must report 0 errors, 0 failures and 0 future failures. The remaining warnings are the informational ones (modular input, collections.conf, Python files present, SplunkJS telemetry).
+3. Upload through ACS (Victoria experience): `acs apps install private --acs-legal-ack=Y --app-package=dist/matalog-<version>.tar.gz`; ACS runs AppInspect again and installs the app on every search head. `acs apps list private` shows it once it is in place.
+4. Service account: create the role `matalog_profiler` (search on every index, `*` and `_*`; capabilities `search`, `rest_properties_get`, `run_collect`, `list_inputs`, `rest_apps_view`, `edit_own_objects`, `list_search_scheduler`, `list_all_objects`, `license_read`, `get_metadata`; the `matalog_*` capabilities come with the app) and the user `svc_matalog` in that role. `default/metadata/default.meta` gives the role write access to the collections, and `usage.service_account` names the account in `matalog.conf`.
+5. Index: `default/indexes.conf` defines `matalog_profiles` with 180 days of retention. If the stack does not create indexes from an app, create it under Settings > Indexes before the first run.
+6. Enable the input in `local/inputs.conf` (through the Inputs page, or an ACS conf upload):
+
+        [matalog_profiler://default]
+        disabled = 0
+        interval = 0 * * * *
+
+7. Review the budget before the first cycle, in `local/matalog.conf`: `budget.max_concurrent_searches` (against the stack's concurrency limit), `budget.max_searches_per_cycle`, `budget.max_events_scanned_per_cycle`, `budget.max_search_seconds_per_cycle` and `budget.cycle_seconds`; every setting and its default are in [docs/budget-settings.md](../docs/budget-settings.md). The first run on a large stack is best started with `profile.sample_ratio` and `discovery.max_strata_per_source` left at their defaults and `budget.max_searches_per_cycle` lowered, then raised once `matalog cost per run` shows the cost.
+
+## Roles
+
+Two roles ship in `default/authorize.conf`. `matalog_reader` (capabilities `matalog_summary_read`, `matalog_catalog_read`) reads the catalog through the app's endpoints, which the pages and the agent surface use; every read is narrowed to the indexes the reader's roles can search (`srchIndexesAllowed`, with inheritance). `matalog_writer` imports `matalog_reader` and adds `matalog_meanings_write` and `matalog_types_write`: meanings on the field page and through the import, user semantic types and user stratum configuration, all written by the handlers after the capability check. `admin`, `sc_admin` and `matalog_profiler` carry all four capabilities directly and are the only roles with direct read and write on the collections and their lookups (`metadata/default.meta`); the saved searches are readable by `admin` and `sc_admin`. Give a person `matalog_reader` or `matalog_writer`, never the collection ACL. A reader who addresses `storage/collections/data` or `| inputlookup matalog_*` directly is refused. A reader who cannot search every catalog index sees the usage graph through its own fields only (edges that resolve to a readable field, the objects those edges name, the declarations that apply to a readable source), and the status page shows it the run records cut to their counts and budget, without errors or per-step text; `matalog.conf` is shown where the role can read it. The data model layer (S8, `matalog_cim_coverage`, `cim_fields`) is tested against Splunk's internal data models only, not yet against CIM or vendor add-ons.
+
+## Agent surface
+
+A model asked for a search reads the catalog as compact JSON from `GET /services/matalog/summary` with `source=<index>:<sourcetype>` (the source essentials and every source-level field), `field=<name>` (one card per source carrying the name, the other name matches and the data model fields of that name), `type=<name>` (one card per field whose best semantic type is that bare name: `sha256`, `ipv4`, `email`, a user type) or `q=<word>` (`srcs`, the sources whose sourcetype, search sourcetype, source path or config app name contains the word, so `okta`, `cloudtrail` and `crowdstrike` find their sources without an alias list, then the field name matches), capped by `limit` (default 200) with top values capped at 10; `values_stored` is 0 when the profiler runs with `profile.store_sample_values` off. Every count states its window: `ws` and `we` next to `run` and `ev` on a field, a match, a stratum entry and a source (its trailing day), computed from the run record the way the pages do, and every response carries `window`, the newest committed run's day, profile, discovery and cycle windows with the events the readable sources saw in the day, so an empty answer reads as "not seen in this window" rather than "not in the data". The handler needs the capability `matalog_summary_read` (`matalog_reader` and the roles above), reads the collections with the system session and returns the rows of the indexes the caller's roles can search; a source of another index is a 404. The pages read the raw rows the same way from `GET /services/matalog/catalog?collection=<name>` (`matalog_catalog_read`). Splunk default fields (`host`, `source`, `date_*` and the like, `dflt=1`) are left out of `fields`, `other` and `matches` unless `defaults=1`. A caller with only a run-search tool gets the same columns, one row per field or source, from `| savedsearch "matalog agent source summary" source="matalog_json:OktaIM2:log"`, `| savedsearch "matalog agent field summary" field_name="user"`, `| savedsearch "matalog agent type summary" type="sha256"` and `| savedsearch "matalog agent name matches" q="okta"` (source rows first, `kind=source`, then `kind=field`); every row carries its windows and an empty answer is one `kind=window` row with the newest run's windows; the saved searches are in the app namespace, so run them through it, as a search job (`/servicesNS/<user>/matalog/search/jobs/export` with `search=| savedsearch "matalog agent name matches" q="user"`) or the saved search's dispatch endpoint (`/servicesNS/<user>/matalog/saved/searches/matalog%20agent%20name%20matches/dispatch` with `args.q=user`), with a role that can read the app's lookups (`admin`, `sc_admin`, `matalog_profiler`). Every key and the column mapping between the endpoint and the searches is in `docs/data-model.md`, "Agent surface"; each field row carries a search fragment built from the row, and the source carries its first and last event time so the search gets an explicit time range.
+
+    curl -sk -u svc_matalog:$SVC_PW "https://<search-head>:8089/servicesNS/svc_matalog/matalog/search/jobs/export" --data-urlencode 'search=| savedsearch "matalog agent name matches" q="user"' -d output_mode=json
+
+## Export and import meanings
+
+`GET /services/matalog/meanings` downloads every source-level field with its meaning as CSV (`format=json` for JSON, `level=all` for stratum rows too, `index=` and `sourcetype=` to filter); fill the `meaning` column (and `meaning_note` if wanted) in a spreadsheet or hand the file to a model, then `POST` it back. Each changed row becomes a new `matalog_meanings` revision by the posting user, mirrored onto the field rows; a `meaning` of `-` (one hyphen) removes the field's meaning (a revision with empty text, the history kept); unchanged, empty and rejected rows (stratum keys, unknown keys) are counted in the response. Splunk default fields are left out of the export unless `defaults=1`. On the field page, "remove" beside "edit" does the same as `-`. `POST` needs the capability `matalog_meanings_write` (`matalog_writer` and the admin roles); the export holds the caller's readable indexes only and an import row of another index is rejected with `index not readable`. The sources page carries the same export link and an import control.
+
+    curl -sk -u admin:$PW "https://<search-head>:8089/services/matalog/meanings?format=csv" -o matalog-meanings.csv
+    curl -sk -u admin:$PW -X POST -H "Content-Type: text/csv" --data-binary @matalog-meanings.csv "https://<search-head>:8089/services/matalog/meanings"
+
+## Service account
+
+The profiler runs as `usage.service_account` (`svc_matalog`) in the `matalog` app context, with the role `matalog_profiler`: search on every index (`*` and `_*`), capabilities `search`, `rest_properties_get`, `run_collect`, `list_inputs`, `rest_apps_view`, `edit_own_objects`, `list_search_scheduler`, `list_all_objects`, `license_read` and `get_metadata` (without it `| metadata` returns no rows and only a permission warning, which the client reports as a failed job), and write access to this app's collections through `metadata/default.meta`. The command line below reads its password from a file (`--password-file`); `local/svc_matalog.password` is not committed and `tools/package.py` leaves `local/` out of the package.
+
+## Running the profiler by hand
+
+    python3 bin/matalog_profiler.py --url https://<search-head>:8089 --user svc_matalog --password-file local/svc_matalog.password --now 1791900000 --run-mode normal
+
+`--now` pins the run slot so a rerun searches the same window; `--run-mode rebuild` rewrites the collections from the summary index without searching data; `--set budget.max_searches_per_cycle=50` overrides one setting; `--conf default/matalog.conf` reads settings from a file instead of the configs endpoint.
+
+## Tests
+
+On the host (Python 3.9 or newer): `python3 -m unittest discover -s matalog/tests` from the repository root.
+
+Under Splunk's own interpreter, from the directory that holds the app: `$SPLUNK_HOME/bin/splunk cmd python3 -m unittest discover -s matalog/tests`.
+
+Tests never contact Splunk; `tests/fake_client.py` serves the fixtures in `tests/fixtures/`, captured from a test Splunk instance with read-only searches by `matalog/tests/fixtures/capture.py`, `s3_capture.py` and `s4_capture.py`. Each takes `--url` (default `https://localhost:8089`); the admin password comes from `$SPLUNK_PASSWORD` and the service account's from `$MATALOG_SVC_PASSWORD` or `--password-file`, else from a prompt.

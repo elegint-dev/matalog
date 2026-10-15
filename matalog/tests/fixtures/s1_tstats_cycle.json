@@ -1,0 +1,188 @@
+{
+ "captured_slot": 1791928800,
+ "earliest": 1791924900,
+ "job": {
+  "eventCount": 28915,
+  "resultCount": 28,
+  "runDuration": 0.042,
+  "scanCount": 28915,
+  "sid": "1791941952.95"
+ },
+ "latest": 1791928500,
+ "match": [
+  "^\\| tstats count max\\(_time\\) as last_time where \\(index=\\* OR index=_\\*\\) by index sourcetype$"
+ ],
+ "note": "source_cycle window of the captured slot.",
+ "results": [
+  {
+   "count": "2042",
+   "index": "_audit",
+   "last_time": "1791928497",
+   "sourcetype": "audittrail"
+  },
+  {
+   "count": "734",
+   "index": "_audit",
+   "last_time": "1791928497",
+   "sourcetype": "audittrailv2"
+  },
+  {
+   "count": "1",
+   "index": "_configtracker",
+   "last_time": "1791925534",
+   "sourcetype": "splunk_configuration_change"
+  },
+  {
+   "count": "84",
+   "index": "_internal",
+   "last_time": "1791928481",
+   "sourcetype": "mongod"
+  },
+  {
+   "count": "13",
+   "index": "_internal",
+   "last_time": "1791928339",
+   "sourcetype": "node:sidecar:agent_manager:stdout"
+  },
+  {
+   "count": "468",
+   "index": "_internal",
+   "last_time": "1791928488",
+   "sourcetype": "node:sidecar:cmp_orchestrator"
+  },
+  {
+   "count": "54",
+   "index": "_internal",
+   "last_time": "1791928375",
+   "sourcetype": "node:sidecar:cmp_orchestrator:stderr"
+  },
+  {
+   "count": "120",
+   "index": "_internal",
+   "last_time": "1791928488",
+   "sourcetype": "node:sidecar:identity:stdout"
+  },
+  {
+   "count": "48",
+   "index": "_internal",
+   "last_time": "1791928461",
+   "sourcetype": "node:sidecar:ipc_broker:stdout"
+  },
+  {
+   "count": "178",
+   "index": "_internal",
+   "last_time": "1791928483",
+   "sourcetype": "node:sidecar:postgres:pgbouncer"
+  },
+  {
+   "count": "2",
+   "index": "_internal",
+   "last_time": "1791925243",
+   "sourcetype": "node:sidecar:postgres:pgbouncer:stderr"
+  },
+  {
+   "count": "1122",
+   "index": "_internal",
+   "last_time": "1791928498",
+   "sourcetype": "node:sidecar:postgres:stdout"
+  },
+  {
+   "count": "24",
+   "index": "_internal",
+   "last_time": "1791928461",
+   "sourcetype": "node:supervisor"
+  },
+  {
+   "count": "4",
+   "index": "_internal",
+   "last_time": "1791928486",
+   "sourcetype": "splunk_search_messages"
+  },
+  {
+   "count": "15112",
+   "index": "_internal",
+   "last_time": "1791928496",
+   "sourcetype": "splunkd"
+  },
+  {
+   "count": "1125",
+   "index": "_internal",
+   "last_time": "1791928497",
+   "sourcetype": "splunkd_access"
+  },
+  {
+   "count": "60",
+   "index": "_introspection",
+   "last_time": "1791928468",
+   "sourcetype": "http_event_collector_metrics"
+  },
+  {
+   "count": "559",
+   "index": "_introspection",
+   "last_time": "1791928490",
+   "sourcetype": "kvstore"
+  },
+  {
+   "count": "131",
+   "index": "_introspection",
+   "last_time": "1791928497",
+   "sourcetype": "search_telemetry"
+  },
+  {
+   "count": "137",
+   "index": "_introspection",
+   "last_time": "1791928036",
+   "sourcetype": "splunk_disk_objects"
+  },
+  {
+   "count": "3180",
+   "index": "_introspection",
+   "last_time": "1791928493",
+   "sourcetype": "splunk_resource_usage"
+  },
+  {
+   "count": "234",
+   "index": "matalog_json",
+   "last_time": "1791925170",
+   "sourcetype": "OktaIM2:log"
+  },
+  {
+   "count": "1118",
+   "index": "matalog_json",
+   "last_time": "1791925170",
+   "sourcetype": "aws:cloudtrail"
+  },
+  {
+   "count": "2136",
+   "index": "matalog_json",
+   "last_time": "1791925170",
+   "sourcetype": "crowdstrike:events:sensor"
+  },
+  {
+   "count": "70",
+   "index": "matalog_json",
+   "last_time": "1791925168",
+   "sourcetype": "gws:reports:admin"
+  },
+  {
+   "count": "96",
+   "index": "matalog_json",
+   "last_time": "1791925169",
+   "sourcetype": "gws:reports:drive"
+  },
+  {
+   "count": "61",
+   "index": "matalog_json",
+   "last_time": "1791925165",
+   "sourcetype": "gws:reports:login"
+  },
+  {
+   "count": "2",
+   "index": "summary",
+   "last_time": "1791928459",
+   "sourcetype": "stash"
+  }
+ ],
+ "sample_ratio": 1,
+ "spl": "| tstats count max(_time) as last_time where (index=* OR index=_*) by index sourcetype"
+}

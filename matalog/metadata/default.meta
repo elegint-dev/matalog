@@ -1,0 +1,22 @@
+# Pages, nav and conf are readable by every role. The collections and their lookups are read and written by the
+# admin roles and the profiler's role only; every other reader goes through the app's REST handlers, which read
+# with the system session and filter by the caller's index access, so matalog_reader and matalog_writer never
+# touch the collections directly.
+[]
+access = read : [ * ], write : [ admin, sc_admin, matalog_profiler ]
+export = none
+
+[collections]
+access = read : [ admin, sc_admin, matalog_profiler ], write : [ admin, sc_admin, matalog_profiler ]
+export = none
+
+[transforms]
+access = read : [ admin, sc_admin, matalog_profiler ], write : [ admin, sc_admin, matalog_profiler ]
+export = none
+
+[savedsearches]
+access = read : [ admin, sc_admin, matalog_profiler ], write : [ admin, sc_admin ]
+export = none
+
+[indexes]
+export = system

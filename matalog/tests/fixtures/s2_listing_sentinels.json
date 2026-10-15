@@ -1,0 +1,37 @@
+{
+ "earliest": "0",
+ "job": {
+  "eventCount": 0,
+  "resultCount": 4,
+  "runDuration": 0.017,
+  "scanCount": 0,
+  "sid": "1791941581.47"
+ },
+ "latest": "now",
+ "match": [
+  "index=\"s2_sentinels\" sourcetype=\"s2:sentinels\"",
+  "eval matalog_sv=case\\(isnull\\('f'\\)",
+  "stats count by matalog_sv"
+ ],
+ "note": "makeresults events carrying f as a multivalue, an empty string, a plain value and no value; served for the listing of index s2_sentinels sourcetype s2:sentinels on field f",
+ "results": [
+  {
+   "count": "2",
+   "matalog_sv": "__multi__\u001fa\u001fb"
+  },
+  {
+   "count": "1",
+   "matalog_sv": "__empty__"
+  },
+  {
+   "count": "1",
+   "matalog_sv": "__missing__"
+  },
+  {
+   "count": "1",
+   "matalog_sv": "x"
+  }
+ ],
+ "sample_ratio": 1,
+ "spl": "| makeresults count=5 | streamstats count as n | eval f=case(n=1, split(\"b,a,b\", \",\"), n=2, \"\", n=3, \"x\", n=4, split(\"a,b\",\",\")) | eval matalog_sv=case(isnull('f'), \"__missing__\", mvcount('f')>1, \"__multi__\".urldecode(\"%1F\").mvjoin(mvsort(mvdedup('f')), urldecode(\"%1F\")), 'f'==\"\", \"__empty__\", true(), 'f') | stats count by matalog_sv | sort 0 -count"
+}

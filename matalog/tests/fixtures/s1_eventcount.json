@@ -1,0 +1,92 @@
+{
+ "captured_slot": 1791928800,
+ "earliest": null,
+ "job": {
+  "eventCount": 0,
+  "resultCount": 18,
+  "runDuration": 0.034,
+  "scanCount": 0,
+  "sid": "1791941950.86"
+ },
+ "latest": null,
+ "match": [
+  "^\\| eventcount summarize=false index=\\* index=_\\* \\| stats sum\\(count\\) as count by index$"
+ ],
+ "note": "Indexes the service account can search, with event counts.",
+ "results": [
+  {
+   "count": "114174",
+   "index": "_audit"
+  },
+  {
+   "count": "3234",
+   "index": "_configtracker"
+  },
+  {
+   "count": "0",
+   "index": "_dm_summary"
+  },
+  {
+   "count": "0",
+   "index": "_dsappevent"
+  },
+  {
+   "count": "0",
+   "index": "_dsclient"
+  },
+  {
+   "count": "0",
+   "index": "_dsphonehome"
+  },
+  {
+   "count": "964349",
+   "index": "_internal"
+  },
+  {
+   "count": "186362",
+   "index": "_introspection"
+  },
+  {
+   "count": "648769",
+   "index": "_metrics"
+  },
+  {
+   "count": "0",
+   "index": "_metrics_rollup"
+  },
+  {
+   "count": "32",
+   "index": "_telemetry"
+  },
+  {
+   "count": "0",
+   "index": "_thefishbucket"
+  },
+  {
+   "count": "0",
+   "index": "history"
+  },
+  {
+   "count": "0",
+   "index": "main"
+  },
+  {
+   "count": "240000",
+   "index": "matalog_json"
+  },
+  {
+   "count": "4619",
+   "index": "matalog_profiles"
+  },
+  {
+   "count": "73",
+   "index": "reach"
+  },
+  {
+   "count": "453",
+   "index": "summary"
+  }
+ ],
+ "sample_ratio": 1,
+ "spl": "| eventcount summarize=false index=* index=_* | stats sum(count) as count by index"
+}

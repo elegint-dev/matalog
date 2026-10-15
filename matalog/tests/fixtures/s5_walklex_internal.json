@@ -1,0 +1,183 @@
+{
+ "spl": "| walklex index=\"_internal\" type=field | eval field=ltrim(field) | stats count by field",
+ "match": [
+  "^\\| walklex index=\\\"?_internal\\\"? type=field"
+ ],
+ "job": {
+  "sid": "1791942041.101",
+  "scanCount": 0,
+  "eventCount": 128,
+  "resultCount": 42,
+  "runDuration": 0.032
+ },
+ "results": [
+  {
+   "field": "_indextime",
+   "count": "3"
+  },
+  {
+   "field": "_subsecond",
+   "count": "3"
+  },
+  {
+   "field": "alertnotifier",
+   "count": "3"
+  },
+  {
+   "field": "component",
+   "count": "4"
+  },
+  {
+   "field": "confkey=source",
+   "count": "2"
+  },
+  {
+   "field": "data.dst_staging_area",
+   "count": "4"
+  },
+  {
+   "field": "data.source_area",
+   "count": "4"
+  },
+  {
+   "field": "data.task",
+   "count": "4"
+  },
+  {
+   "field": "data.tmp_staging_area",
+   "count": "4"
+  },
+  {
+   "field": "date_hour",
+   "count": "3"
+  },
+  {
+   "field": "date_mday",
+   "count": "3"
+  },
+  {
+   "field": "date_minute",
+   "count": "3"
+  },
+  {
+   "field": "date_month",
+   "count": "3"
+  },
+  {
+   "field": "date_second",
+   "count": "3"
+  },
+  {
+   "field": "date_wday",
+   "count": "3"
+  },
+  {
+   "field": "date_year",
+   "count": "3"
+  },
+  {
+   "field": "date_zone",
+   "count": "3"
+  },
+  {
+   "field": "datetime",
+   "count": "4"
+  },
+  {
+   "field": "datname",
+   "count": "2"
+  },
+  {
+   "field": "dispatch",
+   "count": "3"
+  },
+  {
+   "field": "dispatchmanager",
+   "count": "2"
+  },
+  {
+   "field": "host",
+   "count": "6"
+  },
+  {
+   "field": "indexbuildscoordinator",
+   "count": "2"
+  },
+  {
+   "field": "linecount",
+   "count": "3"
+  },
+  {
+   "field": "log_level",
+   "count": "4"
+  },
+  {
+   "field": "m.autovacuum_freeze_max_age",
+   "count": "2"
+  },
+  {
+   "field": "m.max_old_xid",
+   "count": "2"
+  },
+  {
+   "field": "oldest_current_xid/autovacuum_freeze_max_age",
+   "count": "2"
+  },
+  {
+   "field": "oldest_current_xid/max_old_xid",
+   "count": "2"
+  },
+  {
+   "field": "p_username",
+   "count": "2"
+  },
+  {
+   "field": "punct",
+   "count": "3"
+  },
+  {
+   "field": "replicasetawareserviceregistry",
+   "count": "2"
+  },
+  {
+   "field": "rolname",
+   "count": "2"
+  },
+  {
+   "field": "rolpassword",
+   "count": "2"
+  },
+  {
+   "field": "setting",
+   "count": "3"
+  },
+  {
+   "field": "source",
+   "count": "6"
+  },
+  {
+   "field": "sourcetype",
+   "count": "6"
+  },
+  {
+   "field": "step=kvstoremigrationprechecks",
+   "count": "2"
+  },
+  {
+   "field": "step=statestoreconfigurationthread",
+   "count": "2"
+  },
+  {
+   "field": "timeendpos",
+   "count": "3"
+  },
+  {
+   "field": "timestamp",
+   "count": "3"
+  },
+  {
+   "field": "timestartpos",
+   "count": "3"
+  }
+ ]
+}

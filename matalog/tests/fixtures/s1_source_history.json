@@ -1,0 +1,20 @@
+{
+ "captured_slot": 1791928800,
+ "earliest": 1791324000,
+ "job": {
+  "eventCount": 0,
+  "resultCount": 0,
+  "runDuration": 0.068,
+  "scanCount": 0,
+  "sid": "1791941953.97"
+ },
+ "latest": 1791928800,
+ "match": [
+  "^search index=matalog_profiles kind=source ",
+  "dedup 7 source_key"
+ ],
+ "note": "Committed kind=source rows before the slot; the sandbox has none.",
+ "results": [],
+ "sample_ratio": 1,
+ "spl": "search index=matalog_profiles kind=source  [search index=matalog_profiles kind=commit | stats max(attempt) as attempt by run_id | fields run_id attempt] | where run_id<\"20261013T2200Z\" | dedup 7 source_key | table source_key run_id events_last_cycle"
+}

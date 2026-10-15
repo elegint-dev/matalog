@@ -1,0 +1,201 @@
+{
+ "earliest": 1789332900,
+ "job": {
+  "eventCount": 221,
+  "resultCount": 26,
+  "runDuration": 0.27,
+  "scanCount": 9020,
+  "sid": "1791955146.6527"
+ },
+ "latest": 1791924900,
+ "match": [
+  "index=_audit",
+  "matalog_kind"
+ ],
+ "results": [
+  {
+   "app": "splunk-rolling-upgrade",
+   "last_time": "1791865164.035905",
+   "matalog_kind": "savedsearch",
+   "matalog_name": "IDXC Upgrade Telemetry: Execution statistics",
+   "runs": "16"
+  },
+  {
+   "app": "splunk-rolling-upgrade",
+   "last_time": "1791865164.037181",
+   "matalog_kind": "savedsearch",
+   "matalog_name": "SHC Upgrade Telemetry: Execution statistics",
+   "runs": "16"
+  },
+  {
+   "app": "splunk-rolling-upgrade",
+   "last_time": "1791862446.017",
+   "matalog_kind": "scheduler",
+   "matalog_name": "IDXC Upgrade Telemetry: Execution statistics",
+   "runs": "16"
+  },
+  {
+   "app": "splunk-rolling-upgrade",
+   "last_time": "1791862446.506",
+   "matalog_kind": "scheduler",
+   "matalog_name": "SHC Upgrade Telemetry: Execution statistics",
+   "runs": "16"
+  },
+  {
+   "app": "splunk_instrumentation",
+   "last_time": "1791171256.395450",
+   "matalog_kind": "savedsearch",
+   "matalog_name": "instrumentation.usage.admissionRules.report",
+   "runs": "2"
+  },
+  {
+   "app": "splunk_instrumentation",
+   "last_time": "1791172165.411544",
+   "matalog_kind": "savedsearch",
+   "matalog_name": "instrumentation.usage.authMethod.config",
+   "runs": "2"
+  },
+  {
+   "app": "splunk_instrumentation",
+   "last_time": "1791172165.595833",
+   "matalog_kind": "savedsearch",
+   "matalog_name": "instrumentation.usage.healthMonitor.report",
+   "runs": "2"
+  },
+  {
+   "app": "splunk_instrumentation",
+   "last_time": "1791172165.590195",
+   "matalog_kind": "savedsearch",
+   "matalog_name": "instrumentation.usage.passwordPolicy.config",
+   "runs": "2"
+  },
+  {
+   "app": "splunk_instrumentation",
+   "last_time": "1791172180.873824",
+   "matalog_kind": "savedsearch",
+   "matalog_name": "instrumentation.usage.smartStore.config",
+   "runs": "2"
+  },
+  {
+   "app": "splunk_instrumentation",
+   "last_time": "1791865164.032211",
+   "matalog_kind": "savedsearch",
+   "matalog_name": "instrumentation.usage.versionControl.report",
+   "runs": "16"
+  },
+  {
+   "app": "splunk_instrumentation",
+   "last_time": "1791171257.043446",
+   "matalog_kind": "savedsearch",
+   "matalog_name": "instrumentation.usage.workloadManagement.report",
+   "runs": "2"
+  },
+  {
+   "app": "splunk_instrumentation",
+   "last_time": "1791171245.934",
+   "matalog_kind": "scheduler",
+   "matalog_name": "instrumentation.usage.admissionRules.report",
+   "runs": "2"
+  },
+  {
+   "app": "splunk_instrumentation",
+   "last_time": "1791171245.842",
+   "matalog_kind": "scheduler",
+   "matalog_name": "instrumentation.usage.authMethod.config",
+   "runs": "2"
+  },
+  {
+   "app": "splunk_instrumentation",
+   "last_time": "1791171245.062",
+   "matalog_kind": "scheduler",
+   "matalog_name": "instrumentation.usage.healthMonitor.report",
+   "runs": "2"
+  },
+  {
+   "app": "splunk_instrumentation",
+   "last_time": "1791171242.946",
+   "matalog_kind": "scheduler",
+   "matalog_name": "instrumentation.usage.passwordPolicy.config",
+   "runs": "2"
+  },
+  {
+   "app": "splunk_instrumentation",
+   "last_time": "1791172166.509",
+   "matalog_kind": "scheduler",
+   "matalog_name": "instrumentation.usage.smartStore.config",
+   "runs": "2"
+  },
+  {
+   "app": "splunk_instrumentation",
+   "last_time": "1791862446.290",
+   "matalog_kind": "scheduler",
+   "matalog_name": "instrumentation.usage.versionControl.report",
+   "runs": "16"
+  },
+  {
+   "app": "splunk_instrumentation",
+   "last_time": "1791171246.432",
+   "matalog_kind": "scheduler",
+   "matalog_name": "instrumentation.usage.workloadManagement.report",
+   "runs": "2"
+  },
+  {
+   "app": "splunk_monitoring_console",
+   "last_time": "1791781003.529005",
+   "matalog_kind": "savedsearch",
+   "matalog_name": "DMC Asset - Build Standalone Asset Table",
+   "runs": "3"
+  },
+  {
+   "app": "splunk_monitoring_console",
+   "last_time": "1791780974.219",
+   "matalog_kind": "scheduler",
+   "matalog_name": "DMC Asset - Build Standalone Asset Table",
+   "runs": "2"
+  },
+  {
+   "app": "splunk_rapid_diag",
+   "last_time": "1791865164.030066",
+   "matalog_kind": "savedsearch",
+   "matalog_name": "RapidDiag Telemetry: CLI access statistics",
+   "runs": "16"
+  },
+  {
+   "app": "splunk_rapid_diag",
+   "last_time": "1791865164.033397",
+   "matalog_kind": "savedsearch",
+   "matalog_name": "RapidDiag Telemetry: Execution statistics",
+   "runs": "16"
+  },
+  {
+   "app": "splunk_rapid_diag",
+   "last_time": "1791865164.031237",
+   "matalog_kind": "savedsearch",
+   "matalog_name": "RapidDiag Telemetry: UI access statistics",
+   "runs": "16"
+  },
+  {
+   "app": "splunk_rapid_diag",
+   "last_time": "1791862446.782",
+   "matalog_kind": "scheduler",
+   "matalog_name": "RapidDiag Telemetry: CLI access statistics",
+   "runs": "16"
+  },
+  {
+   "app": "splunk_rapid_diag",
+   "last_time": "1791862446.161",
+   "matalog_kind": "scheduler",
+   "matalog_name": "RapidDiag Telemetry: Execution statistics",
+   "runs": "16"
+  },
+  {
+   "app": "splunk_rapid_diag",
+   "last_time": "1791862446.467",
+   "matalog_kind": "scheduler",
+   "matalog_name": "RapidDiag Telemetry: UI access statistics",
+   "runs": "16"
+  }
+ ],
+ "sample_ratio": 1,
+ "spl": "search (index=_audit action=search info=completed (savedsearch_name=* OR provenance=UI:Dashboard:*)) OR (index=_internal sourcetype=scheduler status=success savedsearch_name=*) | eval matalog_kind=case(index=\"_internal\", \"scheduler\", savedsearch_name!=\"\", \"savedsearch\", like(provenance, \"UI:Dashboard:%\"), \"dashboard\") | where isnotnull(matalog_kind) | eval matalog_name=if(matalog_kind=\"dashboard\", replace(provenance, \"^UI:Dashboard:\", \"\"), savedsearch_name) | stats count as runs max(_time) as last_time by app matalog_kind matalog_name | head 200000"
+}

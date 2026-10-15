@@ -1,0 +1,40 @@
+{
+ "earliest": "0",
+ "job": {
+  "eventCount": 1430,
+  "resultCount": 5,
+  "runDuration": 0.078,
+  "scanCount": 1430,
+  "sid": "1791941580.45"
+ },
+ "latest": "now",
+ "match": [
+  "sourcetype=\"crowdstrike:events:sensor\"",
+  "eval matalog_sv=case\\(isnull\\('event_simpleName'\\)",
+  "stats count by matalog_sv"
+ ],
+ "results": [
+  {
+   "count": "755",
+   "matalog_sv": "ProcessRollup2"
+  },
+  {
+   "count": "298",
+   "matalog_sv": "ProcessHandleOpDetectInfo"
+  },
+  {
+   "count": "180",
+   "matalog_sv": "DmpFileWritten"
+  },
+  {
+   "count": "164",
+   "matalog_sv": "FileDeleteInfo"
+  },
+  {
+   "count": "33",
+   "matalog_sv": "SyntheticProcessRollup2"
+  }
+ ],
+ "sample_ratio": 100,
+ "spl": "search index=\"matalog_json\" sourcetype=\"crowdstrike:events:sensor\" | eval matalog_sv=case(isnull('event_simpleName'), \"__missing__\", mvcount('event_simpleName')>1, \"__multi__\".urldecode(\"%1F\").mvjoin(mvsort(mvdedup('event_simpleName')), urldecode(\"%1F\")), 'event_simpleName'==\"\", \"__empty__\", true(), 'event_simpleName') | stats count by matalog_sv | sort 0 -count"
+}

@@ -1,0 +1,33 @@
+{
+  "name": "matalog-ui",
+  "version": "0.1.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "author": "elegint-dev",
+  "description": "React pages of the matalog app, built into appserver/static/pages",
+  "scripts": {
+    "build": "NODE_ENV=production webpack --mode=production",
+    "watch": "webpack --mode=development --watch"
+  },
+  "dependencies": {
+    "@splunk/react-page": "^8.3.2",
+    "@splunk/react-ui": "5.17.0",
+    "@splunk/splunk-utils": "4.1.0",
+    "@splunk/themes": "^1.13.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "^5.3.10"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.0",
+    "@splunk/babel-preset": "^4.0.0",
+    "@splunk/webpack-configs": "7.0.3",
+    "babel-loader": "^8.3.0",
+    "webpack": "^5.106.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-merge": "^5.9.0"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

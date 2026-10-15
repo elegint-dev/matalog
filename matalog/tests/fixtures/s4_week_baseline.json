@@ -1,0 +1,18 @@
+{
+ "earliest": 1791208800,
+ "job": {
+  "eventCount": 0,
+  "resultCount": 0,
+  "runDuration": 0.076,
+  "scanCount": 0,
+  "sid": "1791942327.112"
+ },
+ "latest": 1791381600,
+ "match": [
+  "index=matalog_profiles kind=field mode=profile",
+  "matalog_d=abs"
+ ],
+ "results": [],
+ "sample_ratio": 1,
+ "spl": "search index=matalog_profiles kind=field mode=profile source_key IN (\"6d6774332b865d9baa604a7f0bb8639a\", \"57bd47605d0e36695b21e8a3590afa9a\") NOT run_id=\"20261013T1400Z\" [search index=matalog_profiles kind=commit | stats max(attempt) as attempt by run_id | fields run_id attempt] | eval matalog_d=abs(_time-1791295200) | sort 0 matalog_d run_id | dedup field_key | head 5000000 | table field_key run_id count events_in_stratum coverage distinct distinct_exact sample_ratio"
+}

@@ -1,0 +1,79 @@
+{
+ "earliest": "0",
+ "job": {
+  "eventCount": 37,
+  "resultCount": 12,
+  "runDuration": 0.05,
+  "scanCount": 37,
+  "sid": "1791929525.953"
+ },
+ "latest": "now",
+ "match": [
+  "license_usage\\.log",
+  "stats sum\\(b\\) as b by idx st"
+ ],
+ "results": [
+  {
+   "b": "38130908",
+   "idx": "matalog_json",
+   "st": "OktaIM2:log"
+  },
+  {
+   "b": "31434510",
+   "idx": "matalog_json",
+   "st": "aws:cloudtrail"
+  },
+  {
+   "b": "253718738",
+   "idx": "matalog_json",
+   "st": "crowdstrike:events:sensor"
+  },
+  {
+   "b": "1698134",
+   "idx": "matalog_json",
+   "st": "gws:reports:admin"
+  },
+  {
+   "b": "4843848",
+   "idx": "matalog_json",
+   "st": "gws:reports:drive"
+  },
+  {
+   "b": "1972410",
+   "idx": "matalog_json",
+   "st": "gws:reports:login"
+  },
+  {
+   "b": "11712",
+   "idx": "reach",
+   "st": "OktaIM2:log"
+  },
+  {
+   "b": "9506",
+   "idx": "reach",
+   "st": "aws:cloudtrail"
+  },
+  {
+   "b": "76961",
+   "idx": "reach",
+   "st": "crowdstrike:events:sensor"
+  },
+  {
+   "b": "535",
+   "idx": "reach",
+   "st": "gws:reports:admin"
+  },
+  {
+   "b": "1481",
+   "idx": "reach",
+   "st": "gws:reports:drive"
+  },
+  {
+   "b": "610",
+   "idx": "reach",
+   "st": "gws:reports:login"
+  }
+ ],
+ "sample_ratio": 1,
+ "spl": "search index=_internal source=*license_usage.log* type=Usage | stats sum(b) as b by idx st"
+}

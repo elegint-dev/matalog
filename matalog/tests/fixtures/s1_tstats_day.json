@@ -1,0 +1,224 @@
+{
+ "captured_slot": 1791928800,
+ "earliest": 1791842100,
+ "job": {
+  "eventCount": 125571,
+  "resultCount": 34,
+  "runDuration": 0.068,
+  "scanCount": 125571,
+  "sid": "1791941952.94"
+ },
+ "latest": 1791928500,
+ "match": [
+  "^\\| tstats count max\\(_time\\) as last_time where \\(index=\\* OR index=_\\*\\) by index sourcetype$"
+ ],
+ "note": "source_day window of the captured slot.",
+ "results": [
+  {
+   "count": "3250",
+   "index": "_audit",
+   "last_time": "1791928497",
+   "sourcetype": "audittrail"
+  },
+  {
+   "count": "1028",
+   "index": "_audit",
+   "last_time": "1791928497",
+   "sourcetype": "audittrailv2"
+  },
+  {
+   "count": "1",
+   "index": "_configtracker",
+   "last_time": "1791925534",
+   "sourcetype": "splunk_configuration_change"
+  },
+  {
+   "count": "1002",
+   "index": "_internal",
+   "last_time": "1791928481",
+   "sourcetype": "mongod"
+  },
+  {
+   "count": "26",
+   "index": "_internal",
+   "last_time": "1791928339",
+   "sourcetype": "node:sidecar:agent_manager:stdout"
+  },
+  {
+   "count": "938",
+   "index": "_internal",
+   "last_time": "1791928488",
+   "sourcetype": "node:sidecar:cmp_orchestrator"
+  },
+  {
+   "count": "111",
+   "index": "_internal",
+   "last_time": "1791928375",
+   "sourcetype": "node:sidecar:cmp_orchestrator:stderr"
+  },
+  {
+   "count": "12",
+   "index": "_internal",
+   "last_time": "1791874282",
+   "sourcetype": "node:sidecar:edge_processor_config:stdout"
+  },
+  {
+   "count": "238",
+   "index": "_internal",
+   "last_time": "1791928488",
+   "sourcetype": "node:sidecar:identity:stdout"
+  },
+  {
+   "count": "100",
+   "index": "_internal",
+   "last_time": "1791928461",
+   "sourcetype": "node:sidecar:ipc_broker:stdout"
+  },
+  {
+   "count": "16",
+   "index": "_internal",
+   "last_time": "1791874270",
+   "sourcetype": "node:sidecar:opamp_svc:stdout"
+  },
+  {
+   "count": "354",
+   "index": "_internal",
+   "last_time": "1791928483",
+   "sourcetype": "node:sidecar:postgres:pgbouncer"
+  },
+  {
+   "count": "3",
+   "index": "_internal",
+   "last_time": "1791925243",
+   "sourcetype": "node:sidecar:postgres:pgbouncer:stderr"
+  },
+  {
+   "count": "2226",
+   "index": "_internal",
+   "last_time": "1791928498",
+   "sourcetype": "node:sidecar:postgres:stdout"
+  },
+  {
+   "count": "112",
+   "index": "_internal",
+   "last_time": "1791928461",
+   "sourcetype": "node:supervisor"
+  },
+  {
+   "count": "12",
+   "index": "_internal",
+   "last_time": "1791862446",
+   "sourcetype": "scheduler"
+  },
+  {
+   "count": "4",
+   "index": "_internal",
+   "last_time": "1791928486",
+   "sourcetype": "splunk_search_messages"
+  },
+  {
+   "count": "29953",
+   "index": "_internal",
+   "last_time": "1791928496",
+   "sourcetype": "splunkd"
+  },
+  {
+   "count": "2087",
+   "index": "_internal",
+   "last_time": "1791928497",
+   "sourcetype": "splunkd_access"
+  },
+  {
+   "count": "119",
+   "index": "_introspection",
+   "last_time": "1791928468",
+   "sourcetype": "http_event_collector_metrics"
+  },
+  {
+   "count": "1114",
+   "index": "_introspection",
+   "last_time": "1791928490",
+   "sourcetype": "kvstore"
+  },
+  {
+   "count": "201",
+   "index": "_introspection",
+   "last_time": "1791928497",
+   "sourcetype": "search_telemetry"
+  },
+  {
+   "count": "269",
+   "index": "_introspection",
+   "last_time": "1791928036",
+   "sourcetype": "splunk_disk_objects"
+  },
+  {
+   "count": "6303",
+   "index": "_introspection",
+   "last_time": "1791928493",
+   "sourcetype": "splunk_resource_usage"
+  },
+  {
+   "count": "2",
+   "index": "_introspection",
+   "last_time": "1791893742",
+   "sourcetype": "splunk_telemetry"
+  },
+  {
+   "count": "1",
+   "index": "_telemetry",
+   "last_time": "1791851475",
+   "sourcetype": "splunkd"
+  },
+  {
+   "count": "5093",
+   "index": "matalog_json",
+   "last_time": "1791925170",
+   "sourcetype": "OktaIM2:log"
+  },
+  {
+   "count": "21715",
+   "index": "matalog_json",
+   "last_time": "1791925170",
+   "sourcetype": "aws:cloudtrail"
+  },
+  {
+   "count": "44721",
+   "index": "matalog_json",
+   "last_time": "1791925170",
+   "sourcetype": "crowdstrike:events:sensor"
+  },
+  {
+   "count": "1053",
+   "index": "matalog_json",
+   "last_time": "1791925168",
+   "sourcetype": "gws:reports:admin"
+  },
+  {
+   "count": "2030",
+   "index": "matalog_json",
+   "last_time": "1791925169",
+   "sourcetype": "gws:reports:drive"
+  },
+  {
+   "count": "1024",
+   "index": "matalog_json",
+   "last_time": "1791925165",
+   "sourcetype": "gws:reports:login"
+  },
+  {
+   "count": "5",
+   "index": "summary",
+   "last_time": "1791900000",
+   "sourcetype": "matalog_probe"
+  },
+  {
+   "count": "448",
+   "index": "summary",
+   "last_time": "1791928459",
+   "sourcetype": "stash"
+  }
+ ],
+ "sample_ratio": 1,
+ "spl": "| tstats count max(_time) as last_time where (index=* OR index=_*) by index sourcetype"
+}

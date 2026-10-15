@@ -1,0 +1,68 @@
+{
+ "captured_slot": 1791928800,
+ "earliest": null,
+ "job": {
+  "eventCount": 0,
+  "resultCount": 6,
+  "runDuration": 0.018000000000000002,
+  "scanCount": 0,
+  "sid": "md_1791941950.89"
+ },
+ "latest": null,
+ "match": [
+  "^\\| metadata type=sourcetypes index=\"_introspection\"$"
+ ],
+ "note": "metadata type=sourcetypes for index _introspection.",
+ "results": [
+  {
+   "firstTime": "1790222841",
+   "lastTime": "1791941908",
+   "recentTime": "1791941908",
+   "sourcetype": "http_event_collector_metrics",
+   "totalCount": "2548",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790222769",
+   "lastTime": "1791941937",
+   "recentTime": "1791941937",
+   "sourcetype": "kvstore",
+   "totalCount": "24374",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790222745",
+   "lastTime": "1791941865",
+   "recentTime": "1791941865",
+   "sourcetype": "search_telemetry",
+   "totalCount": "4630",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790222767",
+   "lastTime": "1791941429",
+   "recentTime": "1791941431",
+   "sourcetype": "splunk_disk_objects",
+   "totalCount": "5750",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790222778",
+   "lastTime": "1791941940",
+   "recentTime": "1791941940",
+   "sourcetype": "splunk_resource_usage",
+   "totalCount": "148486",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790223362",
+   "lastTime": "1791941429",
+   "recentTime": "1791941429",
+   "sourcetype": "splunk_telemetry",
+   "totalCount": "574",
+   "type": "sourcetypes"
+  }
+ ],
+ "sample_ratio": 1,
+ "spl": "| metadata type=sourcetypes index=\"_introspection\""
+}

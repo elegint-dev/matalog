@@ -1,0 +1,63 @@
+{
+ "captured_from": "reach-sandbox Splunk 10.4.3, svc_matalog, index=matalog_json",
+ "sources": {
+  "crowdstrike:events:sensor": {
+   "earliest": 1791813300,
+   "job": {
+    "eventCount": 154,
+    "resultCount": 5,
+    "runDuration": 0.055,
+    "scanCount": 154,
+    "sid": "1791941570.42"
+   },
+   "latest": 1791899700,
+   "listing": [
+    {
+     "count": "78",
+     "matalog_sv": "ProcessRollup2"
+    },
+    {
+     "count": "32",
+     "matalog_sv": "ProcessHandleOpDetectInfo"
+    },
+    {
+     "count": "27",
+     "matalog_sv": "DmpFileWritten"
+    },
+    {
+     "count": "13",
+     "matalog_sv": "FileDeleteInfo"
+    },
+    {
+     "count": "4",
+     "matalog_sv": "SyntheticProcessRollup2"
+    }
+   ],
+   "sample_ratio": 100,
+   "spl": "search index=matalog_json sourcetype=\"crowdstrike:events:sensor\" | eval matalog_sv=case(isnull('event_simpleName'), \"__missing__\", mvcount('event_simpleName')>1, \"__multi__\", 'event_simpleName'==\"\", \"__empty__\", true(), 'event_simpleName') | stats count by matalog_sv | sort -count",
+   "src_index": "matalog_json",
+   "stratum_field": "event_simpleName"
+  },
+  "gws:reports:admin": {
+   "earliest": 1791813300,
+   "job": {
+    "eventCount": 6,
+    "resultCount": 1,
+    "runDuration": 0.038,
+    "scanCount": 6,
+    "sid": "1791941570.43"
+   },
+   "latest": 1791899700,
+   "listing": [
+    {
+     "count": "6",
+     "matalog_sv": "UNENROLL_USER_FROM_STRONG_AUTH"
+    }
+   ],
+   "sample_ratio": 100,
+   "spl": "search index=matalog_json sourcetype=\"gws:reports:admin\" | eval matalog_sv=case(isnull('event.name'), \"__missing__\", mvcount('event.name')>1, \"__multi__\", 'event.name'==\"\", \"__empty__\", true(), 'event.name') | stats count by matalog_sv | sort -count",
+   "src_index": "matalog_json",
+   "stratum_field": "event.name"
+  }
+ }
+}

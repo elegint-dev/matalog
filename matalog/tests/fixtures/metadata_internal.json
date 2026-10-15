@@ -1,0 +1,314 @@
+{
+ "earliest": null,
+ "job": {
+  "eventCount": 0,
+  "resultCount": 37,
+  "runDuration": 0.017,
+  "scanCount": 0,
+  "sid": "md_1791929523.945"
+ },
+ "latest": null,
+ "match": [
+  "^\\| metadata type=sourcetypes index=\\\"?_internal\\\"?"
+ ],
+ "results": [
+  {
+   "firstTime": "1790222710",
+   "lastTime": "1791929501",
+   "recentTime": "1791929501",
+   "sourcetype": "mongod",
+   "totalCount": "44631",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790222712",
+   "lastTime": "1791929239",
+   "recentTime": "1791929239",
+   "sourcetype": "node:sidecar:agent_manager:stdout",
+   "totalCount": "919",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790222712",
+   "lastTime": "1791929478",
+   "recentTime": "1791929481",
+   "sourcetype": "node:sidecar:cmp_orchestrator",
+   "totalCount": "20758",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1791294560",
+   "lastTime": "1791294607",
+   "recentTime": "1791295739",
+   "sourcetype": "node:sidecar:cmp_orchestrator:spl2_language_server:stderr",
+   "totalCount": "2",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790222712",
+   "lastTime": "1791929275",
+   "recentTime": "1791929278",
+   "sourcetype": "node:sidecar:cmp_orchestrator:stderr",
+   "totalCount": "2895",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790222712",
+   "lastTime": "1791780946",
+   "recentTime": "1791780949",
+   "sourcetype": "node:sidecar:cmp_orchestrator:stdout",
+   "totalCount": "234",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790222771",
+   "lastTime": "1791874282",
+   "recentTime": "1791874282",
+   "sourcetype": "node:sidecar:edge_processor_config:stdout",
+   "totalCount": "1405",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790222712",
+   "lastTime": "1791929478",
+   "recentTime": "1791929478",
+   "sourcetype": "node:sidecar:identity:stdout",
+   "totalCount": "8413",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790859085",
+   "lastTime": "1790859085",
+   "recentTime": "1790859086",
+   "sourcetype": "node:sidecar:ipc_broker:stderr",
+   "totalCount": "1",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790222711",
+   "lastTime": "1791929357",
+   "recentTime": "1791929357",
+   "sourcetype": "node:sidecar:ipc_broker:stdout",
+   "totalCount": "6441",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790222713",
+   "lastTime": "1791874270",
+   "recentTime": "1791874270",
+   "sourcetype": "node:sidecar:opamp_svc:stdout",
+   "totalCount": "3477",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790222794",
+   "lastTime": "1791929501",
+   "recentTime": "1791929501",
+   "sourcetype": "node:sidecar:postgres:pgbouncer",
+   "totalCount": "13311",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790223094",
+   "lastTime": "1791928633",
+   "recentTime": "1791928633",
+   "sourcetype": "node:sidecar:postgres:pgbouncer:stderr",
+   "totalCount": "186",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790222713",
+   "lastTime": "1791780946",
+   "recentTime": "1791780946",
+   "sourcetype": "node:sidecar:postgres:postgres:stderr",
+   "totalCount": "82",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790222712",
+   "lastTime": "1791780980",
+   "recentTime": "1791780982",
+   "sourcetype": "node:sidecar:postgres:stderr",
+   "totalCount": "1492",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790222712",
+   "lastTime": "1791929498",
+   "recentTime": "1791929498",
+   "sourcetype": "node:sidecar:postgres:stdout",
+   "totalCount": "51102",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790222795",
+   "lastTime": "1791780969",
+   "recentTime": "1791780972",
+   "sourcetype": "node:sidecar:postgres:traefik",
+   "totalCount": "312",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790222713",
+   "lastTime": "1791780946",
+   "recentTime": "1791780949",
+   "sourcetype": "node:sidecar:spl2_preview:stdout",
+   "totalCount": "77",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790222771",
+   "lastTime": "1791824048",
+   "recentTime": "1791824048",
+   "sourcetype": "node:sidecar:spotlight_collector:stderr",
+   "totalCount": "307",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790222713",
+   "lastTime": "1791780947",
+   "recentTime": "1791780950",
+   "sourcetype": "node:sidecar:spotlight_collector:stdout",
+   "totalCount": "137",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790222712",
+   "lastTime": "1791780946",
+   "recentTime": "1791780949",
+   "sourcetype": "node:sidecar:topology:stdout",
+   "totalCount": "57",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790222710",
+   "lastTime": "1791929357",
+   "recentTime": "1791929357",
+   "sourcetype": "node:supervisor",
+   "totalCount": "43095",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790222713",
+   "lastTime": "1791781248",
+   "recentTime": "1791781250",
+   "sourcetype": "postgres",
+   "totalCount": "1452",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790222710",
+   "lastTime": "1791862446",
+   "recentTime": "1791862448",
+   "sourcetype": "scheduler",
+   "totalCount": "254",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790571823",
+   "lastTime": "1791928563",
+   "recentTime": "1791928563",
+   "sourcetype": "splunk_btool",
+   "totalCount": "896",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790222676",
+   "lastTime": "1790222676",
+   "recentTime": "1790222710",
+   "sourcetype": "splunk_first_install",
+   "totalCount": "1",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1791781233",
+   "lastTime": "1791781515",
+   "recentTime": "1791781515",
+   "sourcetype": "splunk_o11y_app",
+   "totalCount": "12",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790222797",
+   "lastTime": "1791928576",
+   "recentTime": "1791928576",
+   "sourcetype": "splunk_search_messages",
+   "totalCount": "28",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790222711",
+   "lastTime": "1791780945",
+   "recentTime": "1791780945",
+   "sourcetype": "splunk_shc_upgrade_completion_script",
+   "totalCount": "9",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790222710",
+   "lastTime": "1790222710",
+   "recentTime": "1790222710",
+   "sourcetype": "splunk_version",
+   "totalCount": "1",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790222713",
+   "lastTime": "1791781516",
+   "recentTime": "1791781519",
+   "sourcetype": "splunk_web_access",
+   "totalCount": "652",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790222711",
+   "lastTime": "1791781516",
+   "recentTime": "1791781519",
+   "sourcetype": "splunk_web_service",
+   "totalCount": "1549",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790222696",
+   "lastTime": "1791929497",
+   "recentTime": "1791929497",
+   "sourcetype": "splunkd",
+   "totalCount": "648080",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790222710",
+   "lastTime": "1791929480",
+   "recentTime": "1791929481",
+   "sourcetype": "splunkd_access",
+   "totalCount": "55154",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790222710",
+   "lastTime": "1791780943",
+   "recentTime": "1791780944",
+   "sourcetype": "splunkd_conf",
+   "totalCount": "3",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790222701",
+   "lastTime": "1791780935",
+   "recentTime": "1791780944",
+   "sourcetype": "splunkd_stderr",
+   "totalCount": "4",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790222770",
+   "lastTime": "1791781516",
+   "recentTime": "1791781519",
+   "sourcetype": "splunkd_ui_access",
+   "totalCount": "2480",
+   "type": "sourcetypes"
+  }
+ ],
+ "sample_ratio": 1,
+ "spl": "| metadata type=sourcetypes index=_internal"
+}

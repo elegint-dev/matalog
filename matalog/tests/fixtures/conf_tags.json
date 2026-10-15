@@ -1,0 +1,65 @@
+[
+ {
+  "acl": {
+   "app": "audit_trail",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "account": "enabled",
+   "change": "enabled",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "audit_trail",
+   "eai:userName": "nobody"
+  },
+  "name": "eventtype=cim%3Aaudit_account"
+ },
+ {
+  "acl": {
+   "app": "audit_trail",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "audit": "enabled",
+   "change": "enabled",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "audit_trail",
+   "eai:userName": "nobody"
+  },
+  "name": "eventtype=cim%3Aaudit_object"
+ },
+ {
+  "acl": {
+   "app": "audit_trail",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "audit": "enabled",
+   "change": "enabled",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "audit_trail",
+   "eai:userName": "nobody"
+  },
+  "name": "eventtype=cim%3Aaudit_system"
+ },
+ {
+  "acl": {
+   "app": "audit_trail",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "authentication": "enabled",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "audit_trail",
+   "eai:userName": "nobody"
+  },
+  "name": "eventtype=cim%3Aauthentication"
+ }
+]

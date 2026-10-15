@@ -1,0 +1,3685 @@
+[
+ {
+  "acl": {
+   "app": "splunk_ingest_actions",
+   "owner": "splunk-system-user",
+   "sharing": "app"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "splunk_ingest_actions",
+   "eai:userName": "nobody",
+   "metrics.disabled": "0"
+  },
+  "name": "_ruleset:global_settings"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "^[[nspaces:clientip]]\\s++[[nspaces:ident]]\\s++[[nspaces:user]]\\s++[[sbstring:req_time]]\\s++[[access-request]]\\s++[[nspaces:status]]\\s++[[nspaces:bytes]](?:\\s++\"(?<referer>[[bc_domain:referer_]]?+[^\"]*+)\"(?:\\s++[[qstring:useragent]](?:\\s++[[qstring:cookie]])?+)?+)?[[all:other]]",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "access-extractions"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "\"\\s*+[[reqstr:method]]?(?:\\s++[[bc_uri]](?:\\s++[[reqstr:version]])*)?\\s*+\"",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "access-request"
+ },
+ {
+  "acl": {
+   "app": "audit_trail",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "audit_trail",
+   "eai:userName": "nobody",
+   "filename": "action_types.csv"
+  },
+  "name": "action_types_normalization"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "1",
+   "REGEX": "(?<_KEY_1>[\\w-]+)=(?<_VAL_1>[^\\r\\n]*)",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "ad-kv"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": ".*",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "all"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": ".*?",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "all_lazy"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "[a-zA-Z0-9]+",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "alnums"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "[a-zA-Z]+",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "alphas"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?<domain>\\w++://[^/\\s\"]++)",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "bc_domain"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?<uri>[[bc_domain:uri_]]?+(?<uri_path>[[uri_root]]?[[uri_seg]]*(?<file>[^\\s\\?/]+)?)(?:\\?(?<uri_query>[^\\s]*))?)",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "bc_uri"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "$1::$2",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "\\[(\\S+) (.*?)\\]",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "bracket-space"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?i:(?<![a-z])(netscape|mozilla|firefox|ie)(?![a-z]))",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "browser"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "product::$1 code::$2 severity::$3",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": ": (?i)%([a-z0-9_]+)-(?:[a-z0-9_]+-)?([0-7])-([a-z0-9_]+):",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "cisco-codes"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "$1::$2",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?<= )([A-Za-z]+): ?((0x[A-F\\d]+)|\\d+)(?= |\\n|$)",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "colon-kv"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "$1::$2",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "^(\\w+)\\s*:[ \\t]*(.*?)$",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "colon-line"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "$1::$2",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "([A-Z]+) *: (.*?)(?=\\n|$| +[A-Z]+ *:)",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "db2"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "\\d+",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "digits"
+ },
+ {
+  "acl": {
+   "app": "splunk_monitoring_console",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "splunk_monitoring_console",
+   "eai:userName": "nobody",
+   "fields_list": "peerURI serverName host machine search_group",
+   "filename": "assets.csv"
+  },
+  "name": "dmc_assets"
+ },
+ {
+  "acl": {
+   "app": "splunk_monitoring_console",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "splunk_monitoring_console",
+   "eai:userName": "nobody",
+   "fields_list": "guid, hostname, forwarder_type, version, arch, os, status, last_connected, _time, sum_kb, avg_tcp_kbps_sparkline, avg_tcp_kbps, avg_tcp_eps",
+   "filename": "dmc_forwarder_assets.csv"
+  },
+  "name": "dmc_forwarder_assets"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody",
+   "external_cmd": "external_lookup.py clienthost clientip",
+   "fields_list": "clienthost,clientip",
+   "python.required": "latest"
+  },
+  "name": "dnslookup"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?:(?<!\\w)(\\w[\\w\\-\\.]+@\\w[\\w\\-\\.]+\\.[a-z]{1,4}))",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "email"
+ },
+ {
+  "acl": {
+   "app": "python_upgrade_readiness_app",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "era_email_notification_switch",
+   "disabled": true,
+   "eai:acl": null,
+   "eai:appName": "python_upgrade_readiness_app",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "is_era_email_enabled, is_updated"
+  },
+  "name": "era_email_notification_switch"
+ },
+ {
+  "acl": {
+   "app": "python_upgrade_readiness_app",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "era_email_receivers_list",
+   "disabled": true,
+   "eai:acl": null,
+   "eai:appName": "python_upgrade_readiness_app",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "name, email, roles, selected"
+  },
+  "name": "era_email_receivers_list"
+ },
+ {
+  "acl": {
+   "app": "python_upgrade_readiness_app",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "era_page_visits",
+   "disabled": true,
+   "eai:acl": null,
+   "eai:appName": "python_upgrade_readiness_app",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "user, time_stamp"
+  },
+  "name": "era_page_visits"
+ },
+ {
+  "acl": {
+   "app": "python_upgrade_readiness_app",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "era_remote_dismiss_app",
+   "disabled": true,
+   "eai:acl": null,
+   "eai:appName": "python_upgrade_readiness_app",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "app, app_path, dismissed_by, dismiss_app_date"
+  },
+  "name": "era_remote_dismiss_app"
+ },
+ {
+  "acl": {
+   "app": "python_upgrade_readiness_app",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "era_remote_dismiss_file",
+   "disabled": true,
+   "eai:acl": null,
+   "eai:appName": "python_upgrade_readiness_app",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "app, check, file_path, app_path, instance, dismissed_by, dismiss_file_date"
+  },
+  "name": "era_remote_dismiss_file"
+ },
+ {
+  "acl": {
+   "app": "python_upgrade_readiness_app",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "era_remote_dismiss_system_check",
+   "disabled": true,
+   "eai:acl": null,
+   "eai:appName": "python_upgrade_readiness_app",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "check_name, dismiss_check_date"
+  },
+  "name": "era_remote_dismiss_system_check"
+ },
+ {
+  "acl": {
+   "app": "python_upgrade_readiness_app",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "era_remote_export_report",
+   "disabled": true,
+   "eai:acl": null,
+   "eai:appName": "python_upgrade_readiness_app",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "app, exported_by, export_report_date"
+  },
+  "name": "era_remote_export_report"
+ },
+ {
+  "acl": {
+   "app": "python_upgrade_readiness_app",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "era_remote_schedule_scan",
+   "disabled": true,
+   "eai:acl": null,
+   "eai:appName": "python_upgrade_readiness_app",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "disabled, schedule_scan_type, day, hours, minutes, am_pm, time_offset, is_updated"
+  },
+  "name": "era_remote_schedule_scan"
+ },
+ {
+  "acl": {
+   "app": "python_upgrade_readiness_app",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "era_remote_send_email",
+   "disabled": true,
+   "eai:acl": null,
+   "eai:appName": "python_upgrade_readiness_app",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "app, emailed_by, email_date"
+  },
+  "name": "era_remote_send_email"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "\\sat ([\\w\\.$_-]+)\\(",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "exceptionclass"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "\\s(?P<spent>\\d+(\\.\\d+)?)ms$",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "extract_spent"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "$1::$2",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "([a-zA-Z0-9_\\.]+)=\\\"?([a-zA-Z0-9_\\.-]+)",
+   "REPEAT_MATCH": "1",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "1",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "field_extraction"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?:[\\w_]\\.([A-Za-z]{2}\\w)(?!\\w))",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "filetype"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "\\d*\\.\\d+|[[int]]",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "float"
+ },
+ {
+  "acl": {
+   "app": "search",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "search",
+   "eai:userName": "nobody",
+   "filename": "geo_attr_countries.csv"
+  },
+  "name": "geo_attr_countries"
+ },
+ {
+  "acl": {
+   "app": "search",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "search",
+   "eai:userName": "nobody",
+   "filename": "geo_attr_us_states.csv"
+  },
+  "name": "geo_attr_us_states"
+ },
+ {
+  "acl": {
+   "app": "search",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "search",
+   "eai:userName": "nobody",
+   "external_type": "geo",
+   "filename": "geo_countries.kmz"
+  },
+  "name": "geo_countries"
+ },
+ {
+  "acl": {
+   "app": "search",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "search",
+   "eai:userName": "nobody",
+   "external_type": "geo_hex"
+  },
+  "name": "geo_hex"
+ },
+ {
+  "acl": {
+   "app": "search",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "search",
+   "eai:userName": "nobody",
+   "external_type": "geo",
+   "filename": "geo_us_states.kmz"
+  },
+  "name": "geo_us_states"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "1",
+   "REGEX": "(?<guid_to_trans>\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12})",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "guid-to-translate"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "0x[a-fA-F0-9]+|\\d+",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "int"
+ },
+ {
+  "acl": {
+   "app": "splunk_internal_metrics",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "CLONE_SOURCETYPE": "splunk_intro_disk_objects",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(.)",
+   "SOURCE_KEY": "MetaData:Source",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "splunk_internal_metrics",
+   "eai:userName": "nobody"
+  },
+  "name": "introspection_disk_objects_log_clone"
+ },
+ {
+  "acl": {
+   "app": "splunk_internal_metrics",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "INGEST_EVAL": "metric_name = \"spl.intr.disk_objects\"\n.case(\n        isnotnull( component ), \".\".component\n        , 1==1, \"\"\n)",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "splunk_internal_metrics",
+   "eai:userName": "nobody"
+  },
+  "name": "introspection_disk_objects_metric_name"
+ },
+ {
+  "acl": {
+   "app": "splunk_internal_metrics",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "CLONE_SOURCETYPE": "splunk_intro_resource_usage",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(.)",
+   "SOURCE_KEY": "MetaData:Source",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "splunk_internal_metrics",
+   "eai:userName": "nobody"
+  },
+  "name": "introspection_resource_usage_log_clone"
+ },
+ {
+  "acl": {
+   "app": "splunk_internal_metrics",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "INGEST_EVAL": "metric_name = \"spl.intr.resource_usage\"\n.case(\n        isnotnull( component ), \".\".component,\n        1==1, \"\"\n)",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "splunk_internal_metrics",
+   "eai:userName": "nobody"
+  },
+  "name": "introspection_resource_usage_metric_name"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?:(?<!\\d)(\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})(?!\\d))",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "ip"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?<ip>[[octet]](?:\\.[[octet]]){3})(?::[[int:port]])?",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "ipv4"
+ },
+ {
+  "acl": {
+   "app": "python_upgrade_readiness_app",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "jra_email_receivers_list",
+   "disabled": true,
+   "eai:acl": null,
+   "eai:appName": "python_upgrade_readiness_app",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "name, email, roles, selected"
+  },
+  "name": "jra_email_receivers_list"
+ },
+ {
+  "acl": {
+   "app": "python_upgrade_readiness_app",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "jra_page_visits",
+   "disabled": true,
+   "eai:acl": null,
+   "eai:appName": "python_upgrade_readiness_app",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "user, time_stamp"
+  },
+  "name": "jra_page_visits"
+ },
+ {
+  "acl": {
+   "app": "python_upgrade_readiness_app",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "jra_remote_dismiss_app",
+   "disabled": true,
+   "eai:acl": null,
+   "eai:appName": "python_upgrade_readiness_app",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "app, app_path, dismissed_by, dismiss_app_date"
+  },
+  "name": "jra_remote_dismiss_app"
+ },
+ {
+  "acl": {
+   "app": "python_upgrade_readiness_app",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "jra_remote_dismiss_file",
+   "disabled": true,
+   "eai:acl": null,
+   "eai:appName": "python_upgrade_readiness_app",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "app, check, file_path, app_path, instance, dismissed_by, dismiss_file_date"
+  },
+  "name": "jra_remote_dismiss_file"
+ },
+ {
+  "acl": {
+   "app": "python_upgrade_readiness_app",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "jra_remote_export_report",
+   "disabled": true,
+   "eai:acl": null,
+   "eai:appName": "python_upgrade_readiness_app",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "app, exported_by, export_report_date"
+  },
+  "name": "jra_remote_export_report"
+ },
+ {
+  "acl": {
+   "app": "python_upgrade_readiness_app",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "jra_remote_schedule_scan",
+   "disabled": true,
+   "eai:acl": null,
+   "eai:appName": "python_upgrade_readiness_app",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "disabled, schedule_scan_type, day, hours, minutes, am_pm, time_offset, is_updated"
+  },
+  "name": "jra_remote_schedule_scan"
+ },
+ {
+  "acl": {
+   "app": "python_upgrade_readiness_app",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "jra_remote_send_email",
+   "disabled": true,
+   "eai:acl": null,
+   "eai:appName": "python_upgrade_readiness_app",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "app, emailed_by, email_date"
+  },
+  "name": "jra_remote_send_email"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?i:(?<![a-z])(php|java|python|c\\+\\+|perl)(?![a-z]))",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "language"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "severity::$1",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": ".*?([A-Z]+) [\\w\\.]+ \\-",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "log4-severity"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(FATAL|ERROR|WARN|INFO|DEBUG|TRACE)",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "loglevel"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "loglevel::$1",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "#+<\\w+ \\d+, \\d+ \\d+:\\d+:\\d+ \\w+ \\w+> <(\\w+)>",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "loglevel-weblogic"
+ },
+ {
+  "acl": {
+   "app": "splunk_internal_metrics",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "METRIC-SCHEMA-BLACKLIST-DIMS": "datetime, *data.top_*, *data.args",
+   "METRIC-SCHEMA-MEASURES": "_NUMS_EXCEPT_ *data.top_*",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "splunk_internal_metrics",
+   "eai:userName": "nobody"
+  },
+  "name": "metric-schema:introspection_disk_objects"
+ },
+ {
+  "acl": {
+   "app": "splunk_internal_metrics",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "METRIC-SCHEMA-BLACKLIST-DIMS": "datetime",
+   "METRIC-SCHEMA-MEASURES": "_NUMS_EXCEPT_ *data.splunk_version, *data.pid, *data.ppid, *data.interval",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "splunk_internal_metrics",
+   "eai:userName": "nobody"
+  },
+  "name": "metric-schema:introspection_resource_usage"
+ },
+ {
+  "acl": {
+   "app": "splunk_internal_metrics",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "METRIC-SCHEMA-MEASURES": "_ALLNUMS_",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "splunk_internal_metrics",
+   "eai:userName": "nobody"
+  },
+  "name": "metric-schema:log2metrics_default_csv"
+ },
+ {
+  "acl": {
+   "app": "splunk_internal_metrics",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "METRIC-SCHEMA-MEASURES": "_ALLNUMS_",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "splunk_internal_metrics",
+   "eai:userName": "nobody"
+  },
+  "name": "metric-schema:log2metrics_default_json"
+ },
+ {
+  "acl": {
+   "app": "splunk_internal_metrics",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "METRIC-SCHEMA-MEASURES": "_ALLNUMS_",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "splunk_internal_metrics",
+   "eai:userName": "nobody"
+  },
+  "name": "metric-schema:log2metrics_default_keyvalue"
+ },
+ {
+  "acl": {
+   "app": "splunk_internal_metrics",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "METRIC-SCHEMA-MEASURES": "_NUMS_EXCEPT_ destPort,sourcePort",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "splunk_internal_metrics",
+   "eai:userName": "nobody"
+  },
+  "name": "metric-schema:metrics_dot_log"
+ },
+ {
+  "acl": {
+   "app": "splunk_internal_metrics",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "$1::$2",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "([a-zA-Z0-9_\\.]+)=\\\"?([a-zA-Z0-9_\\.:-]+)",
+   "REPEAT_MATCH": "1",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "1",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "splunk_internal_metrics",
+   "eai:userName": "nobody"
+  },
+  "name": "metrics_field_extraction"
+ },
+ {
+  "acl": {
+   "app": "splunk_internal_metrics",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "_MetaData:Index",
+   "FORMAT": "_metrics",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": ".",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "splunk_internal_metrics",
+   "eai:userName": "nobody"
+  },
+  "name": "metrics_index_redirect"
+ },
+ {
+  "acl": {
+   "app": "splunk_internal_metrics",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "CLONE_SOURCETYPE": "splunk_metrics_log",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(.)",
+   "SOURCE_KEY": "MetaData:Source",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "splunk_internal_metrics",
+   "eai:userName": "nobody"
+  },
+  "name": "metrics_log_clone"
+ },
+ {
+  "acl": {
+   "app": "splunk_internal_metrics",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "INGEST_EVAL": "metric_name=\"spl.mlog.\".case(\n    group IN ( \"subtask_seconds\",\n               \"subtask_counts\",\n               \"search_concurrency\",\n               \"deploy-server\",\n               \"thruput\",\n               \"jobs\",\n               \"search_health_metrics\",\n               \"tailingprocessor\" ) AND isnotnull(name),\n            group.\".\".name,\n    group == \"pipeline\" AND name == \"indexerpipe\" AND processor == \"indexer\",\n            group.\".\".processor,\n    group == \"pipeline\" AND processor == \"regexreplacement\",\n            group.\".\".processor.\".\".name,\n    group == \"dutycycle\" AND name == \"misc\",\n            group.\".\".name,\n    group == \"search_concurrency\" AND isnotnull(user),\n            group.\".per_user\",\n    group == \"bundles_downloads\" AND isnotnull(baseline_count),\n            group.\".baseline\",\n    group == \"bundles_downloads\" AND isnotnull(delta_count),\n            group.\".delta\",\n    isnotnull(group), group,\n    1 == 1, \"nullgroup\"\n)",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "splunk_internal_metrics",
+   "eai:userName": "nobody"
+  },
+  "name": "metrics_log_metric_name"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "_meta",
+   "FORMAT": "$0 msgtype::$1 originuserid::$2 messageid::$3 filename::$4 originidomain::$5 origindomain::$6 originpostoffice::$7  previoushop::$8 size::$9 priority::$10 targapp::$11 reportstatus::$12 reportdestination::$13 destination::$14",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "ARR ([^,]*),([^,]*),([^,]*),([^,]*),([^,]*),([^,]*),([^,]*),([^,]*),([^,]*),([^,]*),([^,]*),([^,]*),([^,]*),(.*)$",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "novell-groupwise-arrival"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "_meta",
+   "FORMAT": "$0 filename::$1 nexthoptype::$2 nexthopname::$3 destnum::$4",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "QUE ([^,]*),([^,]*),([^,]*),(.*)$",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "novell-groupwise-queue"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "_meta",
+   "FORMAT": "$0 peername::$1 filename::$2 size::$3 sendtime::$4",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "QUE ([^,]*),([^,]*),([^,]*),([^,]*)$",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "novell-groupwise-transfer"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "\\S+",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "nspaces"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "$1::$2",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "([A-Za-z_][\\w_]*)[=:\\s]+((0x[A-F\\d]+)|[+-]?[\\d.]+)",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "num-kv"
+ },
+ {
+  "acl": {
+   "app": "audit_trail",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "audit_trail",
+   "eai:userName": "nobody",
+   "filename": "object_types.csv"
+  },
+  "name": "object_types_normalization"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?:2(?:5[0-5]|[0-4][0-9])|[0-1][0-9][0-9]|[0-9][0-9]?)",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "octet"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?i:(?<![a-z])(mac|windows|linux)(?![a-z]))",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "os"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DELIMS": "\"\\n\",\"=\"",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "perfmon-kv"
+ },
+ {
+  "acl": {
+   "app": "python_upgrade_readiness_app",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "pra_email_receivers_list",
+   "disabled": true,
+   "eai:acl": null,
+   "eai:appName": "python_upgrade_readiness_app",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "name, email, roles, selected"
+  },
+  "name": "pra_email_receivers_list"
+ },
+ {
+  "acl": {
+   "app": "python_upgrade_readiness_app",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "pra_jra_email_notification_switch",
+   "disabled": true,
+   "eai:acl": null,
+   "eai:appName": "python_upgrade_readiness_app",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "is_pra_email_enabled, is_jra_email_enabled, is_updated"
+  },
+  "name": "pra_jra_email_notification_switch"
+ },
+ {
+  "acl": {
+   "app": "python_upgrade_readiness_app",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "pra_page_visits",
+   "disabled": true,
+   "eai:acl": null,
+   "eai:appName": "python_upgrade_readiness_app",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "user, time_stamp"
+  },
+  "name": "pra_page_visits"
+ },
+ {
+  "acl": {
+   "app": "python_upgrade_readiness_app",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "pra_remote_dismiss_app",
+   "disabled": true,
+   "eai:acl": null,
+   "eai:appName": "python_upgrade_readiness_app",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "app, app_path, dismissed_by, dismiss_app_date"
+  },
+  "name": "pra_remote_dismiss_app"
+ },
+ {
+  "acl": {
+   "app": "python_upgrade_readiness_app",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "pra_remote_dismiss_file",
+   "disabled": true,
+   "eai:acl": null,
+   "eai:appName": "python_upgrade_readiness_app",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "app, check, file_path, app_path, instance, dismissed_by, dismiss_file_date"
+  },
+  "name": "pra_remote_dismiss_file"
+ },
+ {
+  "acl": {
+   "app": "python_upgrade_readiness_app",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "pra_remote_export_report",
+   "disabled": true,
+   "eai:acl": null,
+   "eai:appName": "python_upgrade_readiness_app",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "app, exported_by, export_report_date"
+  },
+  "name": "pra_remote_export_report"
+ },
+ {
+  "acl": {
+   "app": "python_upgrade_readiness_app",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "pra_remote_schedule_scan",
+   "disabled": true,
+   "eai:acl": null,
+   "eai:appName": "python_upgrade_readiness_app",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "disabled, schedule_scan_type, day, hours, minutes, am_pm, time_offset, is_updated"
+  },
+  "name": "pra_remote_schedule_scan"
+ },
+ {
+  "acl": {
+   "app": "python_upgrade_readiness_app",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "pra_remote_send_email",
+   "disabled": true,
+   "eai:acl": null,
+   "eai:appName": "python_upgrade_readiness_app",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "app, emailed_by, email_date"
+  },
+  "name": "pra_remote_send_email"
+ },
+ {
+  "acl": {
+   "app": "python_upgrade_readiness_app",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "pra_user_records",
+   "disabled": true,
+   "eai:acl": null,
+   "eai:appName": "python_upgrade_readiness_app",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "host_name, user_name, user_role, action, request_timestamp, description, stack_id"
+  },
+  "name": "pra_user_records"
+ },
+ {
+  "acl": {
+   "app": "python_upgrade_readiness_app",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": true,
+   "eai:acl": null,
+   "eai:appName": "python_upgrade_readiness_app",
+   "eai:userName": "nobody",
+   "filename": "pura_mark_public_as_private.csv"
+  },
+  "name": "pura_mark_public_as_private"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "\"(?<>[^\"]*+)\"",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "qstring"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DELIMS": "\"\\n\",\"=:\"",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "registry"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "^[^=\\n]*starting: search_id=(?<search_id>[^,]+), server=(?<server>[^,]+), active_searches=(?<active_searches>[^,]+), search='(?<search>.+)', remote_ttl=(?<remote_ttl>.+), apiStartTime='(?<apiStartTime>.+)', apiEndTime='(?<apiEndTime>.+)', savedsearch_name=\"(?<savedsearch_name>[^\"]*)\", isClusterPeer=(?<isCMSlave>[^,]+), bucketMapId=(?<bucketMapId>[^,]+), sidType=(?<sidType>[^,]+)$",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "remote_searches_extractions_starting"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "^[^=\\n]*starting: search_id=(?<search_id>[^,]+), server=(?<server>[^,]+), active_searches=(?<active_searches>[^,]+), search='(?<search>.+)', remote_ttl=(?<remote_ttl>.+), apiStartTime='(?<apiStartTime>.+)', apiEndTime='(?<apiEndTime>.+)', savedsearch_name=\"(?<savedsearch_name>[^\"]*)\"",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "remote_searches_extractions_starting_fallback"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "^[^=\\n]*(closed|terminated): search_id=(?<search_id>[^,]+), server=(?<server>[^,]+), active_searches=(?<active_searches>[^,]+), elapsedTime=(?<elapsedTime>[^,]+)(?:, cpuTime=(?<cpuTime>[^,]+))?(?:, app=(?<app>[^,]+))?(?:, user=(?<user>[^,]+))?(?:, origin_sid=(?<origin_sid>[^,]+))?(?:, mode=(?<mode>[^,]+))?(?:, provenance=(?<provenance>[^,]*))?(?:, search_type=(?<search_type>[^,]+))?(?:, scenarios=(?<scenarios>[^,]+))?, search='(?<search>.+)', savedsearch_name=\"(?<savedsearch_name>[^\"]*)\", (drop_count=(?<drop_count>[^,]+), scan_count=(?<scan_count>[^,]+), eliminated_buckets=(?<eliminated_buckets>[^,]+), considered_events=(?<considered_events>[^,]+), decompressed_slices=(?<decompressed_slices>[^,]+), events_count=(?<events_count>[^,]+), total_slices=(?<total_slices>[^,]+), considered_buckets=(?<considered_buckets>[^,]+), search_rawdata_bucketcache_error=(?<rawdata_bucketcache_error>[^,]+), search_rawdata_bucketcache_miss=(?<rawdata_bucketcache_miss>[^,]+), search_index_bucketcache_error=(?<index_bucketcache_error>[^,]+), search_index_bucketcache_hit=(?<index_bucketcache_hit>[^,]+), search_index_bucketcache_miss=(?<index_bucketcache_miss>[^,]+), search_rawdata_bucketcache_hit=(?<rawdata_bucketcache_hit>[^,]+), search_rawdata_bucketcache_miss_wait=(?<rawdata_bucketcache_miss_wait>[^,]+), search_index_bucketcache_miss_wait=(?<index_bucketcache_miss_wait>.+))?$",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "remote_searches_extractions_terminated"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "[^\\s\"]++",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "reqstr"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "\\[(?<>[^\\]]*+)\\]",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "sbstring"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "queue",
+   "FORMAT": "nullQueue",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": ".",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "send_to_nullqueue"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "process::sendmail pid::$1 qid::$2",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "sendmail\\[(\\d+)\\]: (\\w+):",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "sendmail-extractions"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "pid::$1",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "\\[(\\d+)\\]",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "sendmail-pid"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "qid::$1",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "sendmail\\[\\d+\\]: (\\w+):",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "sendmail-qid"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "queue",
+   "FORMAT": "tcpOutQueue",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": ".",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "sendToTCP"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "MetaData:Sourcetype",
+   "FORMAT": "sourcetype::stash",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": ".",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "set_sourcetype_to_stash"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?<uri>(?<uri_path>[^\\s\\?\"]++)(?:\\\\?(?<uri_query>[^\\s\"]+))?)",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "simple_uri"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?<url>\\w++://(?<domain>[a-zA-Z0-9\\-.:]++)(?:/[^\\s\"]*)?)",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "simple_url"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "^[[nspaces:clientip]]\\s++[[nspaces:ident]]\\s++[[nspaces:user]]\\s++[[sbstring:req_time]]\\s++[[access-request]]\\s++[[nspaces:status]]\\s++[[nspaces:bytes]](?:\\s++\"(?<referer>[[bc_domain:referer_]]?+[^\"]*+)\"(?:\\s++[[qstring:useragent]](?:\\s++[[nspaces:vhost]])?(?:\\s++[[nspaces:requestid]])?)?)?[[all:other]]",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "splunk-access-extractions"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?i)^(?:[^ ]* ){2}(?P<log_level>[^\\s]*)\\s+\\[(?P<requestid>\\w+)]\\s+(?P<component>[^ ]+):(?P<line>\\d+) - (?P<message>.+)",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "splunk-service-extractions"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "_MetaData:Index",
+   "FORMAT": "help",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": ".",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "splunk_help"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "_MetaData:Index",
+   "FORMAT": "history",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": ".",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "splunk_index_history"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "_meta",
+   "FORMAT": "$0 level::$1 component::$2",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "^\\S+\\s\\S+\\s+(\\S+)\\s+(\\S+)",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "splunkd-disassembler"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "0",
+   "CLEAN_KEYS": "0",
+   "DEFAULT_VALUE": "",
+   "DELIMS": "\",\", \"=\"",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "1",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "stash_extract"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "_raw",
+   "FORMAT": "$1",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?s)^(.*)---splunk-wevt-end-of-event---",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "strip-winevt-linebreaker"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "process::$1 pid::$2",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "\\s([^\\s\\[]+)(?:\\[(\\d+)\\])?:\\s",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "syslog-extractions"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "_raw",
+   "FORMAT": "$1",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "^[A-Z][a-z]+\\s+\\d+\\s\\d+:\\d+:\\d+\\s(.*)$",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "syslog-header-stripper-ts"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "_raw",
+   "FORMAT": "$1",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "^[A-Z][a-z]+\\s+\\d+\\s\\d+:\\d+:\\d+\\s[^\\s]*\\s(.*)$",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "syslog-header-stripper-ts-host"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "_raw",
+   "FORMAT": "$1",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "^[A-Z][a-z]+\\s+\\d+\\s\\d+:\\d+:\\d+\\s.*?:\\s(.*)$",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "syslog-header-stripper-ts-host-proc"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "MetaData:Host",
+   "FORMAT": "host::$1",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": ":\\d\\d\\s+(?:\\d+\\s+|(?:user|daemon|local.?)\\.\\w+\\s+)*\\[?(\\w[\\w\\.\\-]{2,})\\]?\\s",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "syslog-host"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "MetaData:Host",
+   "FORMAT": "host::$1",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "^[^\\:]*\\d\\d\\:\\d\\d\\:\\d\\d[^\\:]*?\\s((\\d+\\.\\d+\\.\\d+\\.\\d+)|(\\w[\\w\\.\\-]{2,})(?=\\s+[^\\s\\:]+\\:))",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "syslog-host-full"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "process::$1",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "\\(([a-zA-Z0-9_]+)\\)\\[\\d+\\]:",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "syslog-process"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "src_ip::$1 src_port::$2 dest_ip::$3 dest_port::$4",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(\\d+\\.\\d+\\.\\d+\\.\\d+):(\\d+) -> (\\d+\\.\\d+\\.\\d+\\.\\d+):(\\d+)",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "tcpdump-endpoints"
+ },
+ {
+  "acl": {
+   "app": "python_upgrade_readiness_app",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "ura_clear_cache_global",
+   "disabled": true,
+   "eai:acl": null,
+   "eai:appName": "python_upgrade_readiness_app",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "last_clear_time"
+  },
+  "name": "ura_clear_cache_global"
+ },
+ {
+  "acl": {
+   "app": "python_upgrade_readiness_app",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "collection": "ura_clear_cache_local",
+   "disabled": true,
+   "eai:acl": null,
+   "eai:appName": "python_upgrade_readiness_app",
+   "eai:userName": "nobody",
+   "external_type": "kvstore",
+   "fields_list": "last_clear_time, hostname"
+  },
+  "name": "ura_clear_cache_local"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?<uri>(?:\\w++://(?<uri_domain>[^/\\s]++))?(?<uri_path>(?<uri_root>/+(?:[^\\s\\?;=/]*+/+)*)(?<uri_file>[^\\s\\?;=?/]*+))(?:\\?(?<uri_query>[^\\s\"]+))?)",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "uri"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "/++(?<root>(?:\\\\\"|[^\\s\\?/\"])++)/++",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "uri_root"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?:\\\\\"|[^\\s\\?/\"])*+/++",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "uri_seg"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?<url>[[alphas:proto]]://(?<domain>[a-zA-Z0-9\\-.:]++)(?<uri>/[^\\s\"]*)?)",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "url"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "code::$1",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "] ([a-fA-F0-9]{8})",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "was-trlog-code"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "code::$1",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "<BEA-([0-9]+)>",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "weblogic-code"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "$1::$2",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "1",
+   "REGEX": "\\n([^:\\n\\r]+):[ \\t]++([^\\n]*)",
+   "SOURCE_KEY": "Message",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "wel-col-kv"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DELIMS": "\"\\n\",\"=\"",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "1",
+   "REGEX": "",
+   "SOURCE_KEY": "_pre_msg",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "wel-eq-kv"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "0",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "",
+   "FORMAT": "",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?sm)^(?<_pre_msg>.+)\\nMessage=(?<Message>.+)$",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "wel-message"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "MetaData:Host",
+   "FORMAT": "host::$1",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?m)ComputerName=(.+)",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "wmi-host"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "CAN_OPTIMIZE": "1",
+   "CLEAN_KEYS": "1",
+   "DEFAULT_VALUE": "",
+   "DEPTH_LIMIT": "1000",
+   "DEST_KEY": "MetaData:Host",
+   "FORMAT": "host::$1",
+   "KEEP_EMPTY_VALS": "0",
+   "LOOKAHEAD": "4096",
+   "MATCH_LIMIT": "100000",
+   "MV_ADD": "0",
+   "REGEX": "(?m)wmi_hostname=(.+)",
+   "SOURCE_KEY": "_raw",
+   "WRITE_META": "0",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "name": "wmi-override-host"
+ }
+]

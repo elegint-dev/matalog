@@ -1,0 +1,135 @@
+[
+ {
+  "acl": {
+   "app": "audit_trail",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "color": "",
+   "description": "",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "audit_trail",
+   "eai:userName": "nobody",
+   "priority": "1",
+   "search": "index=_audit sourcetype=audittrailv2* category=system data.type=account",
+   "tags": ""
+  },
+  "name": "cim:audit_account"
+ },
+ {
+  "acl": {
+   "app": "audit_trail",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "color": "",
+   "description": "",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "audit_trail",
+   "eai:userName": "nobody",
+   "priority": "1",
+   "search": "index=_audit sourcetype=audittrailv2* category=object",
+   "tags": ""
+  },
+  "name": "cim:audit_object"
+ },
+ {
+  "acl": {
+   "app": "audit_trail",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "color": "",
+   "description": "",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "audit_trail",
+   "eai:userName": "nobody",
+   "priority": "1",
+   "search": "index=_audit sourcetype=audittrailv2* category=system NOT data.type=account",
+   "tags": ""
+  },
+  "name": "cim:audit_system"
+ },
+ {
+  "acl": {
+   "app": "audit_trail",
+   "owner": "nobody",
+   "sharing": "global"
+  },
+  "content": {
+   "color": "",
+   "description": "",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "audit_trail",
+   "eai:userName": "nobody",
+   "priority": "1",
+   "search": "index=_audit sourcetype=audittrailv2* category=authn",
+   "tags": ""
+  },
+  "name": "cim:authentication"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "color": "",
+   "description": "",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody",
+   "priority": "1",
+   "search": "( \"After evaluating args\" OR \"Before evaluating args\" OR \"context dispatched for search=\" OR \"SearchParser - PARSING\" OR \"got search\" OR \"_dispatchNewSearch - search\" OR \"search:* - q\" OR ( decomposition fullsearch ) OR \"PAAAAAARSER! - search\" OR \"view:* - DECOMPOSITION\" OR \"Splunk.Module.SearchBar .setInputField\" OR ( typeahead prefix ) OR \"DEBUG HTTPServer - Deleting request=GET\" OR /en-US/api/search/typeahead )",
+   "tags": ""
+  },
+  "name": "internal_search_terms"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "color": "",
+   "description": "",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody",
+   "priority": "1",
+   "search": "index=_internal source=*/splunkd_access.log OR source=*\\\\splunkd_access.log",
+   "tags": ""
+  },
+  "name": "splunkd-access"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  },
+  "content": {
+   "color": "",
+   "description": "",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody",
+   "priority": "1",
+   "search": "index=_internal source=*/splunkd.log OR source=*\\\\splunkd.log",
+   "tags": ""
+  },
+  "name": "splunkd-log"
+ }
+]

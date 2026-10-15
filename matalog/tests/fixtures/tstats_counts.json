@@ -1,0 +1,96 @@
+{
+ "earliest": "0",
+ "job": {
+  "eventCount": 240141,
+  "resultCount": 13,
+  "runDuration": 0.05,
+  "scanCount": 240141,
+  "sid": "1791929523.946"
+ },
+ "latest": "now",
+ "match": [
+  "^\\| tstats count max\\(_time\\)"
+ ],
+ "results": [
+  {
+   "count": "16168",
+   "index": "matalog_json",
+   "last_time": "1791925170",
+   "sourcetype": "OktaIM2:log"
+  },
+  {
+   "count": "69344",
+   "index": "matalog_json",
+   "last_time": "1791925170",
+   "sourcetype": "aws:cloudtrail"
+  },
+  {
+   "count": "141435",
+   "index": "matalog_json",
+   "last_time": "1791925170",
+   "sourcetype": "crowdstrike:events:sensor"
+  },
+  {
+   "count": "3265",
+   "index": "matalog_json",
+   "last_time": "1791925168",
+   "sourcetype": "gws:reports:admin"
+  },
+  {
+   "count": "6541",
+   "index": "matalog_json",
+   "last_time": "1791925169",
+   "sourcetype": "gws:reports:drive"
+  },
+  {
+   "count": "3247",
+   "index": "matalog_json",
+   "last_time": "1791925165",
+   "sourcetype": "gws:reports:login"
+  },
+  {
+   "count": "5",
+   "index": "reach",
+   "last_time": "1790222493",
+   "sourcetype": "OktaIM2:log"
+  },
+  {
+   "count": "21",
+   "index": "reach",
+   "last_time": "1790281255",
+   "sourcetype": "aws:cloudtrail"
+  },
+  {
+   "count": "43",
+   "index": "reach",
+   "last_time": "1790222476",
+   "sourcetype": "crowdstrike:events:sensor"
+  },
+  {
+   "count": "1",
+   "index": "reach",
+   "last_time": "1790222480",
+   "sourcetype": "gws:reports:admin"
+  },
+  {
+   "count": "2",
+   "index": "reach",
+   "last_time": "1790222484",
+   "sourcetype": "gws:reports:drive"
+  },
+  {
+   "count": "1",
+   "index": "reach",
+   "last_time": "1790222488",
+   "sourcetype": "gws:reports:login"
+  },
+  {
+   "count": "68",
+   "index": "summary",
+   "last_time": "1791928459",
+   "sourcetype": "stash"
+  }
+ ],
+ "sample_ratio": 1,
+ "spl": "| tstats count max(_time) as last_time where index=* by index sourcetype"
+}

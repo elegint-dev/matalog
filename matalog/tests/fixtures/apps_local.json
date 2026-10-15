@@ -1,0 +1,749 @@
+[
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "author": "Splunk",
+   "check_for_updates": true,
+   "configured": true,
+   "core": true,
+   "description": "Log Event Alert Action",
+   "disabled": false,
+   "eai:acl": null,
+   "label": "Log Event Alert Action",
+   "managed_by_deployment_client": false,
+   "show_in_nav": true,
+   "state_change_requires_restart": false,
+   "version": "10.4.3",
+   "visible": false
+  },
+  "name": "alert_logevent"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "author": "Splunk",
+   "check_for_updates": true,
+   "configured": true,
+   "core": true,
+   "description": "Webhook Alert Action",
+   "disabled": false,
+   "eai:acl": null,
+   "label": "Webhook Alert Action",
+   "managed_by_deployment_client": false,
+   "show_in_nav": true,
+   "state_change_requires_restart": false,
+   "version": "10.4.3",
+   "visible": false
+  },
+  "name": "alert_webhook"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "author": "Splunk",
+   "check_for_updates": true,
+   "configured": true,
+   "core": true,
+   "description": "Browse apps available to install.",
+   "disabled": false,
+   "eai:acl": null,
+   "label": "Apps Browser",
+   "managed_by_deployment_client": false,
+   "show_in_nav": false,
+   "state_change_requires_restart": false,
+   "version": "10.4.3",
+   "visible": false
+  },
+  "name": "appsbrowser"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "author": "Splunk",
+   "check_for_updates": true,
+   "configured": true,
+   "core": true,
+   "description": "App for Audit Trail dashboards",
+   "disabled": false,
+   "eai:acl": null,
+   "label": "Audit Trail",
+   "managed_by_deployment_client": false,
+   "show_in_nav": true,
+   "state_change_requires_restart": false,
+   "version": "1.0.0",
+   "visible": true
+  },
+  "name": "audit_trail"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "author": "Splunk",
+   "check_for_updates": true,
+   "configured": true,
+   "core": true,
+   "description": "Affords and supports the Platform Instrumentation initiative.",
+   "disabled": false,
+   "eai:acl": null,
+   "label": "introspection_generator_addon",
+   "managed_by_deployment_client": false,
+   "show_in_nav": true,
+   "state_change_requires_restart": false,
+   "version": "10.4.3",
+   "visible": false
+  },
+  "name": "introspection_generator_addon"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "check_for_updates": true,
+   "configured": false,
+   "core": true,
+   "disabled": false,
+   "eai:acl": null,
+   "label": "journald_input",
+   "managed_by_deployment_client": false,
+   "show_in_nav": true,
+   "state_change_requires_restart": false,
+   "visible": false
+  },
+  "name": "journald_input"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "check_for_updates": true,
+   "configured": true,
+   "core": true,
+   "disabled": false,
+   "eai:acl": null,
+   "label": "Home",
+   "managed_by_deployment_client": false,
+   "show_in_nav": true,
+   "state_change_requires_restart": false,
+   "supported_themes": "light,dark",
+   "visible": true
+  },
+  "name": "launcher"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "check_for_updates": true,
+   "configured": false,
+   "core": true,
+   "disabled": false,
+   "eai:acl": null,
+   "label": "learned",
+   "managed_by_deployment_client": false,
+   "show_in_nav": true,
+   "state_change_requires_restart": false,
+   "visible": false
+  },
+  "name": "learned"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "check_for_updates": true,
+   "configured": false,
+   "core": true,
+   "disabled": true,
+   "eai:acl": null,
+   "label": "legacy",
+   "managed_by_deployment_client": false,
+   "show_in_nav": true,
+   "state_change_requires_restart": false,
+   "visible": false
+  },
+  "name": "legacy"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "author": "Splunk Inc.",
+   "build": 125,
+   "check_for_updates": true,
+   "configured": false,
+   "core": true,
+   "description": "Use this app to prepare your Splunk platform instance for upgrade to the version that includes the Python 3.7 runtime and jQuery 3.5 and above.",
+   "details": "https://apps.splunk.com/apps/id/python_upgrade_readiness_app",
+   "disabled": false,
+   "eai:acl": null,
+   "label": "Upgrade Readiness App",
+   "managed_by_deployment_client": false,
+   "show_in_nav": true,
+   "state_change_requires_restart": false,
+   "version": "4.7.0",
+   "visible": true
+  },
+  "name": "python_upgrade_readiness_app"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "check_for_updates": true,
+   "configured": false,
+   "core": true,
+   "disabled": true,
+   "eai:acl": null,
+   "label": "sample data",
+   "managed_by_deployment_client": false,
+   "show_in_nav": true,
+   "state_change_requires_restart": false,
+   "visible": false
+  },
+  "name": "sample_app"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "author": "Splunk",
+   "check_for_updates": true,
+   "configured": true,
+   "core": true,
+   "description": "The Search app is Splunk's default interface for searching and analyzing IT data. It allows you to index data into Splunk, add knowledge, build reports, and create alerts. The Search app can be used across many areas of IT including application management, operations management, security, and compliance.",
+   "disabled": false,
+   "eai:acl": null,
+   "label": "Search & Reporting",
+   "managed_by_deployment_client": false,
+   "show_in_nav": true,
+   "state_change_requires_restart": false,
+   "supported_themes": "light,dark",
+   "version": "10.4.3",
+   "visible": true
+  },
+  "name": "search"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "author": "Splunk",
+   "check_for_updates": true,
+   "configured": false,
+   "core": false,
+   "description": "Splunk AI Canvas",
+   "disabled": true,
+   "eai:acl": null,
+   "label": "Splunk AI Canvas",
+   "managed_by_deployment_client": false,
+   "show_in_nav": false,
+   "state_change_requires_restart": false,
+   "supported_themes": "light,dark",
+   "version": "1.4.1",
+   "visible": false
+  },
+  "name": "splunk-ai-canvas"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "author": "Splunk",
+   "build": 41937236539,
+   "check_for_updates": true,
+   "configured": true,
+   "core": true,
+   "description": "Splunk dashboard studio",
+   "disabled": false,
+   "eai:acl": null,
+   "label": "Splunk Dashboard Studio",
+   "managed_by_deployment_client": false,
+   "show_in_nav": false,
+   "state_change_requires_restart": false,
+   "version": "1.26.5",
+   "visible": true
+  },
+  "name": "splunk-dashboard-studio"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "author": "Splunk",
+   "build": 1,
+   "check_for_updates": false,
+   "configured": true,
+   "core": true,
+   "disabled": false,
+   "eai:acl": null,
+   "label": "Data Management",
+   "managed_by_deployment_client": false,
+   "show_in_nav": true,
+   "state_change_requires_restart": false,
+   "supported_themes": "light, dark",
+   "version": "1.4.2",
+   "visible": true
+  },
+  "name": "splunk-data-management"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "author": "Splunk",
+   "build": 1,
+   "check_for_updates": true,
+   "configured": false,
+   "core": true,
+   "description": "SplunkRollingUpgrade",
+   "disabled": false,
+   "eai:acl": null,
+   "label": "Splunk Rolling Upgrade",
+   "managed_by_deployment_client": false,
+   "show_in_nav": false,
+   "state_change_requires_restart": false,
+   "version": "2.2.2",
+   "visible": false
+  },
+  "name": "splunk-rolling-upgrade"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "author": "Splunk",
+   "build": 41937236539,
+   "check_for_updates": true,
+   "configured": true,
+   "core": true,
+   "description": "Splunk Visual Exporter",
+   "disabled": false,
+   "eai:acl": null,
+   "label": "Splunk Visual Exporter",
+   "managed_by_deployment_client": false,
+   "show_in_nav": false,
+   "state_change_requires_restart": false,
+   "version": "1.26.5",
+   "visible": false
+  },
+  "name": "splunk-visual-exporter"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "author": "Splunk",
+   "build": 0,
+   "check_for_updates": false,
+   "configured": false,
+   "core": true,
+   "description": "Demo and configuration of integration with the Splunk Observability suite.",
+   "disabled": false,
+   "eai:acl": null,
+   "label": "Discover Splunk Observability Cloud",
+   "managed_by_deployment_client": false,
+   "show_in_nav": true,
+   "state_change_requires_restart": false,
+   "supported_themes": "light,dark",
+   "version": "1.5.2",
+   "visible": true
+  },
+  "name": "splunk_app_for_splunk_o11y_cloud"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "author": "Splunk Inc",
+   "check_for_updates": true,
+   "configured": true,
+   "core": true,
+   "description": "App for providing Splunk bucket archiving functionality to Hadoop compatible filesystems",
+   "disabled": true,
+   "eai:acl": null,
+   "label": "Splunk Archiver App",
+   "managed_by_deployment_client": false,
+   "show_in_nav": true,
+   "state_change_requires_restart": false,
+   "version": "1.0",
+   "visible": false
+  },
+  "name": "splunk_archiver"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "author": "Splunk",
+   "check_for_updates": true,
+   "configured": true,
+   "core": false,
+   "description": "When telemetry is enabled, this app is used to help Splunk understand how many customers are running our products within Docker containers.",
+   "disabled": false,
+   "eai:acl": null,
+   "label": "Splunk Enterprise On Docker",
+   "managed_by_deployment_client": false,
+   "show_in_nav": true,
+   "state_change_requires_restart": false,
+   "version": "1.0.0",
+   "visible": false
+  },
+  "name": "splunk_enterprise_on_docker"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "author": "Splunk",
+   "build": 0,
+   "check_for_updates": true,
+   "configured": false,
+   "core": true,
+   "description": "Splunk Get Data In",
+   "disabled": false,
+   "eai:acl": null,
+   "label": "Splunk Get Data In",
+   "managed_by_deployment_client": false,
+   "show_in_nav": false,
+   "state_change_requires_restart": false,
+   "version": "1.0.14",
+   "visible": false
+  },
+  "name": "splunk_gdi"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "check_for_updates": true,
+   "configured": false,
+   "core": true,
+   "disabled": false,
+   "eai:acl": null,
+   "label": "splunk_httpinput",
+   "managed_by_deployment_client": false,
+   "show_in_nav": true,
+   "state_change_requires_restart": false,
+   "visible": false
+  },
+  "name": "splunk_httpinput"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "check_for_updates": true,
+   "configured": false,
+   "core": false,
+   "disabled": false,
+   "eai:acl": null,
+   "label": "splunk_ingest_actions",
+   "managed_by_deployment_client": false,
+   "show_in_nav": true,
+   "state_change_requires_restart": false,
+   "visible": false
+  },
+  "name": "splunk_ingest_actions"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "author": "Splunk",
+   "check_for_updates": true,
+   "configured": false,
+   "core": true,
+   "description": "This application connects the hosting Splunk instance to Splunk's usage data collection services.",
+   "disabled": false,
+   "eai:acl": null,
+   "label": "Instrumentation",
+   "managed_by_deployment_client": false,
+   "show_in_nav": false,
+   "state_change_requires_restart": false,
+   "version": "9.4.6",
+   "visible": true
+  },
+  "name": "splunk_instrumentation"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "check_for_updates": true,
+   "configured": false,
+   "core": true,
+   "description": "Clones, converts and stores various internal splunk logs into _metrics index",
+   "disabled": false,
+   "eai:acl": null,
+   "label": "Clones Internal Metrics into Metrics Index",
+   "managed_by_deployment_client": false,
+   "show_in_nav": true,
+   "state_change_requires_restart": false,
+   "visible": false
+  },
+  "name": "splunk_internal_metrics"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "author": "Splunk",
+   "build": 257818277,
+   "check_for_updates": true,
+   "configured": false,
+   "core": true,
+   "description": "Compare trends in time series",
+   "disabled": false,
+   "eai:acl": null,
+   "label": "Splunk Analytics Workspace",
+   "managed_by_deployment_client": false,
+   "show_in_nav": false,
+   "state_change_requires_restart": false,
+   "supported_themes": "light,dark",
+   "version": "2.56.2",
+   "visible": true
+  },
+  "name": "splunk_metrics_workspace"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "author": "Splunk",
+   "build": 1785456086,
+   "check_for_updates": true,
+   "configured": false,
+   "core": true,
+   "description": "The Splunk Monitoring Console application gives you insight into your Splunk deployment.",
+   "disabled": false,
+   "eai:acl": null,
+   "label": "Monitoring Console",
+   "managed_by_deployment_client": false,
+   "show_in_nav": false,
+   "state_change_requires_restart": false,
+   "version": "10.5.2",
+   "visible": true
+  },
+  "name": "splunk_monitoring_console"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "author": "Splunk",
+   "build": 1,
+   "check_for_updates": false,
+   "configured": true,
+   "core": true,
+   "disabled": false,
+   "eai:acl": null,
+   "label": "Splunk Pipeline Builders",
+   "managed_by_deployment_client": false,
+   "setup_view": "setup",
+   "show_in_nav": false,
+   "state_change_requires_restart": true,
+   "supported_themes": "light, dark",
+   "version": "1.4.6",
+   "visible": true
+  },
+  "name": "splunk_pipeline_builders"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "author": "Splunk, Inc.",
+   "build": 39547192,
+   "check_for_updates": true,
+   "configured": false,
+   "core": true,
+   "description": "Splunk RapidDiag",
+   "disabled": false,
+   "docs_section_override": "SplunkRapidDiag:1.9.7",
+   "eai:acl": null,
+   "label": "Splunk RapidDiag",
+   "managed_by_deployment_client": false,
+   "show_in_nav": false,
+   "state_change_requires_restart": false,
+   "version": "1.9.7",
+   "visible": true
+  },
+  "name": "splunk_rapid_diag"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "author": "Splunk Inc.",
+   "build": 252053444,
+   "check_for_updates": false,
+   "configured": false,
+   "core": true,
+   "description": "Splunk Secure Gateway",
+   "disabled": false,
+   "eai:acl": null,
+   "label": "Splunk Secure Gateway",
+   "managed_by_deployment_client": false,
+   "show_in_nav": true,
+   "state_change_requires_restart": false,
+   "version": "3.10.12",
+   "visible": true
+  },
+  "name": "splunk_secure_gateway"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "check_for_updates": true,
+   "configured": false,
+   "core": true,
+   "disabled": false,
+   "eai:acl": null,
+   "label": "SplunkDeploymentServerConfig",
+   "managed_by_deployment_client": false,
+   "show_in_nav": true,
+   "state_change_requires_restart": false,
+   "visible": false
+  },
+  "name": "SplunkDeploymentServerConfig"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "check_for_updates": true,
+   "configured": false,
+   "core": true,
+   "disabled": true,
+   "eai:acl": null,
+   "label": "SplunkForwarder",
+   "managed_by_deployment_client": false,
+   "show_in_nav": true,
+   "state_change_requires_restart": false,
+   "visible": false
+  },
+  "name": "SplunkForwarder"
+ },
+ {
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "app"
+  },
+  "content": {
+   "check_for_updates": true,
+   "configured": false,
+   "core": true,
+   "disabled": true,
+   "eai:acl": null,
+   "label": "SplunkLightForwarder",
+   "managed_by_deployment_client": false,
+   "show_in_nav": true,
+   "state_change_requires_restart": false,
+   "visible": false
+  },
+  "name": "SplunkLightForwarder"
+ }
+]

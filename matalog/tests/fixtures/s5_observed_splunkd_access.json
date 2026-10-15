@@ -1,0 +1,229 @@
+{
+ "spl": "search index=_internal sourcetype=splunkd_access | head 500 | fieldsummary maxvals=1 | fields field count",
+ "rows": [
+  {
+   "field": "actual_only",
+   "count": "69"
+  },
+  {
+   "field": "arch",
+   "count": "70"
+  },
+  {
+   "field": "bytes",
+   "count": "500"
+  },
+  {
+   "field": "clientip",
+   "count": "500"
+  },
+  {
+   "field": "cookie",
+   "count": "4"
+  },
+  {
+   "field": "count",
+   "count": "69"
+  },
+  {
+   "field": "datatype",
+   "count": "1"
+  },
+  {
+   "field": "date_hour",
+   "count": "500"
+  },
+  {
+   "field": "date_mday",
+   "count": "500"
+  },
+  {
+   "field": "date_minute",
+   "count": "500"
+  },
+  {
+   "field": "date_month",
+   "count": "500"
+  },
+  {
+   "field": "date_second",
+   "count": "500"
+  },
+  {
+   "field": "date_wday",
+   "count": "500"
+  },
+  {
+   "field": "date_year",
+   "count": "500"
+  },
+  {
+   "field": "date_zone",
+   "count": "500"
+  },
+  {
+   "field": "eventtype",
+   "count": "500"
+  },
+  {
+   "field": "f",
+   "count": "0"
+  },
+  {
+   "field": "file",
+   "count": "482"
+  },
+  {
+   "field": "host",
+   "count": "500"
+  },
+  {
+   "field": "ident",
+   "count": "500"
+  },
+  {
+   "field": "index",
+   "count": "500"
+  },
+  {
+   "field": "limit",
+   "count": "14"
+  },
+  {
+   "field": "linecount",
+   "count": "500"
+  },
+  {
+   "field": "method",
+   "count": "500"
+  },
+  {
+   "field": "noProxy",
+   "count": "69"
+  },
+  {
+   "field": "nodetails",
+   "count": "69"
+  },
+  {
+   "field": "nop_sid",
+   "count": "69"
+  },
+  {
+   "field": "offset",
+   "count": "60"
+  },
+  {
+   "field": "other",
+   "count": "500"
+  },
+  {
+   "field": "output_mode",
+   "count": "366"
+  },
+  {
+   "field": "punct",
+   "count": "500"
+  },
+  {
+   "field": "referer",
+   "count": "500"
+  },
+  {
+   "field": "referer_domain",
+   "count": "0"
+  },
+  {
+   "field": "req_time",
+   "count": "500"
+  },
+  {
+   "field": "root",
+   "count": "482"
+  },
+  {
+   "field": "search",
+   "count": "69"
+  },
+  {
+   "field": "sort_dir",
+   "count": "69"
+  },
+  {
+   "field": "sort_key",
+   "count": "69"
+  },
+  {
+   "field": "sort_mode",
+   "count": "69"
+  },
+  {
+   "field": "source",
+   "count": "500"
+  },
+  {
+   "field": "sourcetype",
+   "count": "500"
+  },
+  {
+   "field": "spent",
+   "count": "500"
+  },
+  {
+   "field": "splunk_server",
+   "count": "500"
+  },
+  {
+   "field": "splunk_server_group",
+   "count": "0"
+  },
+  {
+   "field": "status",
+   "count": "500"
+  },
+  {
+   "field": "timeendpos",
+   "count": "500"
+  },
+  {
+   "field": "timestartpos",
+   "count": "500"
+  },
+  {
+   "field": "uri",
+   "count": "500"
+  },
+  {
+   "field": "uri_domain",
+   "count": "0"
+  },
+  {
+   "field": "uri_path",
+   "count": "500"
+  },
+  {
+   "field": "uri_query",
+   "count": "436"
+  },
+  {
+   "field": "use_normalized",
+   "count": "69"
+  },
+  {
+   "field": "user",
+   "count": "500"
+  },
+  {
+   "field": "user_indexes",
+   "count": "1"
+  },
+  {
+   "field": "useragent",
+   "count": "500"
+  },
+  {
+   "field": "version",
+   "count": "500"
+  }
+ ]
+}

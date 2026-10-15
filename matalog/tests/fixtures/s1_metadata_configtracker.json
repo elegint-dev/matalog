@@ -1,0 +1,28 @@
+{
+ "captured_slot": 1791928800,
+ "earliest": null,
+ "job": {
+  "eventCount": 0,
+  "resultCount": 1,
+  "runDuration": 0.018000000000000002,
+  "scanCount": 0,
+  "sid": "md_1791941950.88"
+ },
+ "latest": null,
+ "match": [
+  "^\\| metadata type=sourcetypes index=\"_configtracker\"$"
+ ],
+ "note": "metadata type=sourcetypes for index _configtracker.",
+ "results": [
+  {
+   "firstTime": "1790222710",
+   "lastTime": "1791934766",
+   "recentTime": "1791934769",
+   "sourcetype": "splunk_configuration_change",
+   "totalCount": "3234",
+   "type": "sourcetypes"
+  }
+ ],
+ "sample_ratio": 1,
+ "spl": "| metadata type=sourcetypes index=\"_configtracker\""
+}

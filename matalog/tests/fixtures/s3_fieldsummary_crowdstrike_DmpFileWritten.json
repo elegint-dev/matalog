@@ -1,0 +1,557 @@
+{
+ "earliest": 1791898800,
+ "job": {
+  "eventCount": 45,
+  "resultCount": 52,
+  "runDuration": 0.05,
+  "scanCount": 45,
+  "sid": "1791941864.82"
+ },
+ "latest": 1791899700,
+ "match": [
+  "crowdstrike:events:sensor",
+  "event_simpleName=\"DmpFileWritten\"",
+  "head 2000",
+  "fieldsummary"
+ ],
+ "results": [
+  {
+   "count": "45",
+   "distinct_count": "45",
+   "field": "AuthenticationId",
+   "is_exact": "1",
+   "max": "9913369",
+   "mean": "6010818.044444445",
+   "min": "1416006",
+   "numeric_count": "45",
+   "stdev": "2452448.2377440794",
+   "values": "[{\"value\":\"1416006\",\"count\":1},{\"value\":\"1720023\",\"count\":1},{\"value\":\"2037668\",\"count\":1},{\"value\":\"2133692\",\"count\":1},{\"value\":\"2242564\",\"count\":1},{\"value\":\"2568920\",\"count\":1},{\"value\":\"3126374\",\"count\":1},{\"value\":\"3163848\",\"count\":1},{\"value\":\"3246885\",\"count\":1},{\"value\":\"3777072\",\"count\":1},{\"value\":\"3916938\",\"count\":1},{\"value\":\"4164591\",\"count\":1},{\"value\":\"4175004\",\"count\":1},{\"value\":\"4459358\",\"count\":1},{\"value\":\"4869741\",\"count\":1},{\"value\":\"4991379\",\"count\":1},{\"value\":\"5253144\",\"count\":1},{\"value\":\"5387791\",\"count\":1},{\"value\":\"5557975\",\"count\":1},{\"value\":\"5885138\",\"count\":1},{\"value\":\"5975415\",\"count\":1},{\"value\":\"6123532\",\"count\":1},{\"value\":\"6501078\",\"count\":1},{\"value\":\"6753523\",\"count\":1},{\"value\":\"6755977\",\"count\":1},{\"value\":\"6882835\",\"count\":1},{\"value\":\"6919821\",\"count\":1},{\"value\":\"7133543\",\"count\":1},{\"value\":\"7146772\",\"count\":1},{\"value\":\"7176755\",\"count\":1},{\"value\":\"7311548\",\"count\":1},{\"value\":\"7413753\",\"count\":1},{\"value\":\"7432819\",\"count\":1},{\"value\":\"7582149\",\"count\":1},{\"value\":\"7652092\",\"count\":1},{\"value\":\"8127484\",\"count\":1},{\"value\":\"8147667\",\"count\":1},{\"value\":\"8155228\",\"count\":1},{\"value\":\"9081218\",\"count\":1},{\"value\":\"9388698\",\"count\":1},{\"value\":\"9432095\",\"count\":1},{\"value\":\"9720601\",\"count\":1},{\"value\":\"9761089\",\"count\":1},{\"value\":\"9903640\",\"count\":1},{\"value\":\"9913369\",\"count\":1}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "1",
+   "field": "ConfigBuild",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[{\"value\":\"1007.3.0015406.1\",\"count\":45}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "1",
+   "field": "ConfigStateHash",
+   "is_exact": "1",
+   "max": "1172426367",
+   "mean": "1172426367",
+   "min": "1172426367",
+   "numeric_count": "45",
+   "stdev": "0",
+   "values": "[{\"value\":\"1172426367\",\"count\":45}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "45",
+   "field": "ContextProcessId",
+   "is_exact": "1",
+   "max": "978337262",
+   "mean": "537301491.8",
+   "min": "103944334",
+   "numeric_count": "45",
+   "stdev": "253643517.97055128",
+   "values": "[{\"value\":\"103944334\",\"count\":1},{\"value\":\"141005074\",\"count\":1},{\"value\":\"148053833\",\"count\":1},{\"value\":\"149720592\",\"count\":1},{\"value\":\"204494793\",\"count\":1},{\"value\":\"225614672\",\"count\":1},{\"value\":\"266928403\",\"count\":1},{\"value\":\"274636318\",\"count\":1},{\"value\":\"287950184\",\"count\":1},{\"value\":\"315853518\",\"count\":1},{\"value\":\"316172291\",\"count\":1},{\"value\":\"318952287\",\"count\":1},{\"value\":\"351008139\",\"count\":1},{\"value\":\"361722086\",\"count\":1},{\"value\":\"363753149\",\"count\":1},{\"value\":\"387878216\",\"count\":1},{\"value\":\"407436437\",\"count\":1},{\"value\":\"413178088\",\"count\":1},{\"value\":\"424722644\",\"count\":1},{\"value\":\"448340747\",\"count\":1},{\"value\":\"453922352\",\"count\":1},{\"value\":\"480502213\",\"count\":1},{\"value\":\"495226818\",\"count\":1},{\"value\":\"599841892\",\"count\":1},{\"value\":\"611785843\",\"count\":1},{\"value\":\"618387042\",\"count\":1},{\"value\":\"631692628\",\"count\":1},{\"value\":\"655103416\",\"count\":1},{\"value\":\"673780514\",\"count\":1},{\"value\":\"679216542\",\"count\":1},{\"value\":\"689614613\",\"count\":1},{\"value\":\"710148988\",\"count\":1},{\"value\":\"720930465\",\"count\":1},{\"value\":\"724365747\",\"count\":1},{\"value\":\"745222537\",\"count\":1},{\"value\":\"770141633\",\"count\":1},{\"value\":\"827399505\",\"count\":1},{\"value\":\"830015867\",\"count\":1},{\"value\":\"833252251\",\"count\":1},{\"value\":\"851090992\",\"count\":1},{\"value\":\"876490057\",\"count\":1},{\"value\":\"898715852\",\"count\":1},{\"value\":\"950739894\",\"count\":1},{\"value\":\"961276403\",\"count\":1},{\"value\":\"978337262\",\"count\":1}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "45",
+   "field": "ContextThreadId",
+   "is_exact": "1",
+   "max": "9900548235",
+   "mean": "5232585950.644444",
+   "min": "1390778741",
+   "numeric_count": "45",
+   "stdev": "2565056229.5535417",
+   "values": "[{\"value\":\"1390778741\",\"count\":1},{\"value\":\"1546033692\",\"count\":1},{\"value\":\"1583089012\",\"count\":1},{\"value\":\"1711243820\",\"count\":1},{\"value\":\"1735454104\",\"count\":1},{\"value\":\"1948092868\",\"count\":1},{\"value\":\"2084534474\",\"count\":1},{\"value\":\"2206633562\",\"count\":1},{\"value\":\"2295878011\",\"count\":1},{\"value\":\"2475212663\",\"count\":1},{\"value\":\"2581933313\",\"count\":1},{\"value\":\"2736389351\",\"count\":1},{\"value\":\"3139464129\",\"count\":1},{\"value\":\"3183200447\",\"count\":1},{\"value\":\"3721449697\",\"count\":1},{\"value\":\"4036347348\",\"count\":1},{\"value\":\"4172607249\",\"count\":1},{\"value\":\"4355964079\",\"count\":1},{\"value\":\"4453450881\",\"count\":1},{\"value\":\"4585364098\",\"count\":1},{\"value\":\"4737508227\",\"count\":1},{\"value\":\"4779723284\",\"count\":1},{\"value\":\"4867710242\",\"count\":1},{\"value\":\"4964148420\",\"count\":1},{\"value\":\"5518439556\",\"count\":1},{\"value\":\"5970732053\",\"count\":1},{\"value\":\"6529747517\",\"count\":1},{\"value\":\"6533394098\",\"count\":1},{\"value\":\"6746818321\",\"count\":1},{\"value\":\"6847543595\",\"count\":1},{\"value\":\"6968545797\",\"count\":1},{\"value\":\"7009572463\",\"count\":1},{\"value\":\"7373539783\",\"count\":1},{\"value\":\"7454887630\",\"count\":1},{\"value\":\"7479328349\",\"count\":1},{\"value\":\"7590150670\",\"count\":1},{\"value\":\"7824161138\",\"count\":1},{\"value\":\"7856151614\",\"count\":1},{\"value\":\"7994116166\",\"count\":1},{\"value\":\"8150661718\",\"count\":1},{\"value\":\"8274005227\",\"count\":1},{\"value\":\"9060467524\",\"count\":1},{\"value\":\"9270521412\",\"count\":1},{\"value\":\"9820823201\",\"count\":1},{\"value\":\"9900548235\",\"count\":1}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "43",
+   "field": "ContextTimeStamp",
+   "is_exact": "1",
+   "max": "1660595732.075",
+   "mean": "1660595275.7482438",
+   "min": "1660594890.866",
+   "numeric_count": "45",
+   "stdev": "250.11415575510898",
+   "values": "[{\"value\":\"1660594929.741\",\"count\":2},{\"value\":\"1660595331.725\",\"count\":2},{\"value\":\"1660594890.866\",\"count\":1},{\"value\":\"1660594893.772\",\"count\":1},{\"value\":\"1660594915.866\",\"count\":1},{\"value\":\"1660594916.075\",\"count\":1},{\"value\":\"1660594936.772\",\"count\":1},{\"value\":\"1660594960.075\",\"count\":1},{\"value\":\"1660594976.075\",\"count\":1},{\"value\":\"1660594980.075\",\"count\":1},{\"value\":\"1660595054.866\",\"count\":1},{\"value\":\"1660595073.866\",\"count\":1},{\"value\":\"1660595086.741\",\"count\":1},{\"value\":\"1660595086.772\",\"count\":1},{\"value\":\"1660595097.741\",\"count\":1},{\"value\":\"1660595117.725\",\"count\":1},{\"value\":\"1660595149.772\",\"count\":1},{\"value\":\"1660595168.075\",\"count\":1},{\"value\":\"1660595270.075\",\"count\":1},{\"value\":\"1660595279.866\",\"count\":1},{\"value\":\"1660595291.741\",\"count\":1},{\"value\":\"1660595332.772\",\"count\":1},{\"value\":\"1660595333.741\",\"count\":1},{\"value\":\"1660595348.725\",\"count\":1},{\"value\":\"1660595381.741\",\"count\":1},{\"value\":\"1660595407.741\",\"count\":1},{\"value\":\"1660595412.725\",\"count\":1},{\"value\":\"1660595437.866\",\"count\":1},{\"value\":\"1660595448.075\",\"count\":1},{\"value\":\"1660595472.866\",\"count\":1},{\"value\":\"1660595486.725\",\"count\":1},{\"value\":\"1660595494.866\",\"count\":1},{\"value\":\"1660595501.075\",\"count\":1},{\"value\":\"1660595505.772\",\"count\":1},{\"value\":\"1660595512.866\",\"count\":1},{\"value\":\"1660595517.075\",\"count\":1},{\"value\":\"1660595520.772\",\"count\":1},{\"value\":\"1660595536.866\",\"count\":1},{\"value\":\"1660595553.772\",\"count\":1},{\"value\":\"1660595567.075\",\"count\":1},{\"value\":\"1660595577.866\",\"count\":1},{\"value\":\"1660595655.866\",\"count\":1},{\"value\":\"1660595732.075\",\"count\":1}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "1",
+   "field": "DiskParentDeviceInstanceId",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[{\"value\":\"PCI\\\\VEN_1D0F&DEV_8061&SUBSYS_80611D0F&REV_00\\\\3&13c0b0c5&1&20\",\"count\":45}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "1",
+   "field": "EffectiveTransmissionClass",
+   "is_exact": "1",
+   "max": "2",
+   "mean": "2",
+   "min": "2",
+   "numeric_count": "45",
+   "stdev": "0",
+   "values": "[{\"value\":\"2\",\"count\":45}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "1",
+   "field": "Entitlements",
+   "is_exact": "1",
+   "max": "15",
+   "mean": "15",
+   "min": "15",
+   "numeric_count": "45",
+   "stdev": "0",
+   "values": "[{\"value\":\"15\",\"count\":45}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "1",
+   "field": "FileEcpBitmask",
+   "is_exact": "1",
+   "max": "0",
+   "mean": "0",
+   "min": "0",
+   "numeric_count": "45",
+   "stdev": "0",
+   "values": "[{\"value\":\"0\",\"count\":45}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "5",
+   "field": "FileIdentifier",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[{\"value\":\"ac4e1faa0000000000001000000000004f93040000000700\",\"count\":12},{\"value\":\"ac4e1faa0000000000001000000000002993040000000600\",\"count\":11},{\"value\":\"ac4e1faa0000000000001000000000009693040000000500\",\"count\":8},{\"value\":\"ac4e1faa000000000000100000000000d593040000000600\",\"count\":8},{\"value\":\"ac4e1faa000000000000100000000000a293040000000600\",\"count\":6}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "1",
+   "field": "FileObject",
+   "is_exact": "1",
+   "max": "0",
+   "mean": "0",
+   "min": "0",
+   "numeric_count": "45",
+   "stdev": "0",
+   "values": "[{\"value\":\"0\",\"count\":45}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "1",
+   "field": "FileOperatorSid",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[{\"value\":\"S-1-5-21-1164837655-2022969563-267460705-500\",\"count\":45}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "1",
+   "field": "FileWrittenFlags",
+   "is_exact": "1",
+   "max": "0",
+   "mean": "0",
+   "min": "0",
+   "numeric_count": "45",
+   "stdev": "0",
+   "values": "[{\"value\":\"0\",\"count\":45}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "1",
+   "field": "IrpFlags",
+   "is_exact": "1",
+   "max": "0",
+   "mean": "0",
+   "min": "0",
+   "numeric_count": "45",
+   "stdev": "0",
+   "values": "[{\"value\":\"0\",\"count\":45}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "1",
+   "field": "IsOnNetwork",
+   "is_exact": "1",
+   "max": "0",
+   "mean": "0",
+   "min": "0",
+   "numeric_count": "45",
+   "stdev": "0",
+   "values": "[{\"value\":\"0\",\"count\":45}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "1",
+   "field": "IsOnRemovableDisk",
+   "is_exact": "1",
+   "max": "0",
+   "mean": "0",
+   "min": "0",
+   "numeric_count": "45",
+   "stdev": "0",
+   "values": "[{\"value\":\"0\",\"count\":45}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "1",
+   "field": "MajorFunction",
+   "is_exact": "1",
+   "max": "0",
+   "mean": "0",
+   "min": "0",
+   "numeric_count": "45",
+   "stdev": "0",
+   "values": "[{\"value\":\"0\",\"count\":45}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "1",
+   "field": "MinorFunction",
+   "is_exact": "1",
+   "max": "0",
+   "mean": "0",
+   "min": "0",
+   "numeric_count": "45",
+   "stdev": "0",
+   "values": "[{\"value\":\"0\",\"count\":45}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "1",
+   "field": "OperationFlags",
+   "is_exact": "1",
+   "max": "0",
+   "mean": "0",
+   "min": "0",
+   "numeric_count": "45",
+   "stdev": "0",
+   "values": "[{\"value\":\"0\",\"count\":45}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "4",
+   "field": "Size",
+   "is_exact": "1",
+   "max": "40386943",
+   "mean": "33291761.088888887",
+   "min": "890610",
+   "numeric_count": "45",
+   "stdev": "15236535.583901092",
+   "values": "[{\"value\":\"40271869\",\"count\":23},{\"value\":\"40386943\",\"count\":8},{\"value\":\"890610\",\"count\":8},{\"value\":\"40275973\",\"count\":6}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "5",
+   "field": "TargetFileName",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[{\"value\":\"\\\\Device\\\\HarddiskVolume1\\\\Users\\\\Administrator\\\\AppData\\\\Local\\\\Temp\\\\lsass_588.dmp\",\"count\":12},{\"value\":\"\\\\Device\\\\HarddiskVolume1\\\\Windows\\\\Temp\\\\lsass-xordump.t1003.001.dmp\",\"count\":11},{\"value\":\"\\\\Device\\\\HarddiskVolume1\\\\Windows\\\\Temp\\\\lsass_dump-1.dmp\",\"count\":8},{\"value\":\"\\\\Device\\\\HarddiskVolume1\\\\Windows\\\\Temp\\\\lsass_dump.dmp\",\"count\":8},{\"value\":\"\\\\Device\\\\HarddiskVolume1\\\\Users\\\\Administrator\\\\AppData\\\\Local\\\\Temp\\\\lsass-comsvcs.dmp\",\"count\":6}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "1",
+   "field": "TokenType",
+   "is_exact": "1",
+   "max": "1",
+   "mean": "1",
+   "min": "1",
+   "numeric_count": "45",
+   "stdev": "0",
+   "values": "[{\"value\":\"1\",\"count\":45}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "45",
+   "field": "TreeId",
+   "is_exact": "1",
+   "max": "95895682",
+   "mean": "40287844.28888889",
+   "min": "1461912",
+   "numeric_count": "45",
+   "stdev": "31030478.57414973",
+   "values": "[{\"value\":\"11210251\",\"count\":1},{\"value\":\"12672471\",\"count\":1},{\"value\":\"1461912\",\"count\":1},{\"value\":\"19249407\",\"count\":1},{\"value\":\"21438317\",\"count\":1},{\"value\":\"25170958\",\"count\":1},{\"value\":\"2773751\",\"count\":1},{\"value\":\"28469367\",\"count\":1},{\"value\":\"31684342\",\"count\":1},{\"value\":\"3358649\",\"count\":1},{\"value\":\"34015382\",\"count\":1},{\"value\":\"4020601\",\"count\":1},{\"value\":\"4085027\",\"count\":1},{\"value\":\"42318266\",\"count\":1},{\"value\":\"43049001\",\"count\":1},{\"value\":\"45095908\",\"count\":1},{\"value\":\"48023437\",\"count\":1},{\"value\":\"4845413\",\"count\":1},{\"value\":\"48909233\",\"count\":1},{\"value\":\"5016463\",\"count\":1},{\"value\":\"5199809\",\"count\":1},{\"value\":\"59285306\",\"count\":1},{\"value\":\"61203086\",\"count\":1},{\"value\":\"61361787\",\"count\":1},{\"value\":\"61470586\",\"count\":1},{\"value\":\"6164937\",\"count\":1},{\"value\":\"61998529\",\"count\":1},{\"value\":\"6953308\",\"count\":1},{\"value\":\"70496184\",\"count\":1},{\"value\":\"7053950\",\"count\":1},{\"value\":\"71091150\",\"count\":1},{\"value\":\"7122482\",\"count\":1},{\"value\":\"71582061\",\"count\":1},{\"value\":\"72138723\",\"count\":1},{\"value\":\"75092319\",\"count\":1},{\"value\":\"75483290\",\"count\":1},{\"value\":\"76024993\",\"count\":1},{\"value\":\"7604574\",\"count\":1},{\"value\":\"76879623\",\"count\":1},{\"value\":\"7712070\",\"count\":1},{\"value\":\"81133449\",\"count\":1},{\"value\":\"81350813\",\"count\":1},{\"value\":\"86861700\",\"count\":1},{\"value\":\"88924426\",\"count\":1},{\"value\":\"95895682\",\"count\":1}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "43",
+   "field": "aid",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[{\"value\":\"70d8a73c23828d561f45e6d0cf02b0df\",\"count\":2},{\"value\":\"a24ac411a70b7202b44080d180c7fe89\",\"count\":2},{\"value\":\"04b781673c6a7a2310672862e3040917\",\"count\":1},{\"value\":\"16a4ca3290ed5df7b50bbdc6d78b37de\",\"count\":1},{\"value\":\"1ecf809eedbf0bec3f217b49cfeabed3\",\"count\":1},{\"value\":\"2218b83c5423e5bde262531feb53086b\",\"count\":1},{\"value\":\"24a4ef4c287f2c50dfb998472e9d8454\",\"count\":1},{\"value\":\"2ad1950673993d683e367f7486320e99\",\"count\":1},{\"value\":\"310af04b6dcbd3ffb07350b18821fdc9\",\"count\":1},{\"value\":\"36c140f09323527ce337ad0e7658d5ae\",\"count\":1},{\"value\":\"38f7f948d9f8378a990969f5745fe2e7\",\"count\":1},{\"value\":\"39024e3d88e884b0b2da76a6d0a9e754\",\"count\":1},{\"value\":\"3b1ab4e95cc5ec35428c876de4901df3\",\"count\":1},{\"value\":\"4b9787149184e84ac3efc8f7e71d83e7\",\"count\":1},{\"value\":\"572580f8f44e2f0dcec3920229e8800b\",\"count\":1},{\"value\":\"5bcf229c07384f3b956ceb27aad7dd68\",\"count\":1},{\"value\":\"5d03e47b4aae540e6d7458367773d04f\",\"count\":1},{\"value\":\"68190350c7258af3b201a95b515be0be\",\"count\":1},{\"value\":\"6ab85640d4d6538defa7178d8db4414a\",\"count\":1},{\"value\":\"714f33bf648a53009eea6adb5e0f8e4c\",\"count\":1},{\"value\":\"75ae4dd71880be1fe57e57dec26795c7\",\"count\":1},{\"value\":\"799730c57d5be35800b7719f70fa7057\",\"count\":1},{\"value\":\"7da6b7f4e7d0522ebdaed028fb021557\",\"count\":1},{\"value\":\"81deac0e4bb5de20ac6ffe6fcbe13265\",\"count\":1},{\"value\":\"83eca95ee3a48a73df899caca88fe076\",\"count\":1},{\"value\":\"9adec4126020a2ed1dda4a0287a6c796\",\"count\":1},{\"value\":\"a249153e3fa2deb87d3039fe62d94fe4\",\"count\":1},{\"value\":\"a34d6fc569eac51b210449a722c1ce79\",\"count\":1},{\"value\":\"a489a66d6f73c7c98c6210d25010e4a6\",\"count\":1},{\"value\":\"a72f5ecb71b2c4d57c9ed380cb732327\",\"count\":1},{\"value\":\"aa664e51cf11c5505ba54b453a0d00c3\",\"count\":1},{\"value\":\"b77be09157b602ad68533ac35e400e46\",\"count\":1},{\"value\":\"b7aebecda2e79178dba1f53c6e5f7892\",\"count\":1},{\"value\":\"bf9c2b04c56cf24802cab13fa40bcfc5\",\"count\":1},{\"value\":\"c79c6faee19267345b6fad67a119f56d\",\"count\":1},{\"value\":\"c93c835148ffb3b2256b74679b6f8774\",\"count\":1},{\"value\":\"ccdfb8eba9eef38213d1abb3b0a544bc\",\"count\":1},{\"value\":\"ce8e6b0222bbc2f87ddf2cd0d327ebf5\",\"count\":1},{\"value\":\"db87a09464011eae0b863b7128176689\",\"count\":1},{\"value\":\"dcb858282cab6e39f788be5cf59a6398\",\"count\":1},{\"value\":\"e507dd6984c02488cab44b49fcfcd8ea\",\"count\":1},{\"value\":\"ea38aa2d2d0e54181a3ff351bcb0d880\",\"count\":1},{\"value\":\"ebeaf752f9c43f0794ed1fb2efcc6e6e\",\"count\":1}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "43",
+   "field": "aip",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[{\"value\":\"10.36.194.182\",\"count\":3},{\"value\":\"10.10.47.32\",\"count\":1},{\"value\":\"10.127.220.169\",\"count\":1},{\"value\":\"10.127.27.178\",\"count\":1},{\"value\":\"10.129.159.4\",\"count\":1},{\"value\":\"10.134.73.84\",\"count\":1},{\"value\":\"10.156.53.114\",\"count\":1},{\"value\":\"10.159.236.159\",\"count\":1},{\"value\":\"10.159.51.17\",\"count\":1},{\"value\":\"10.181.227.63\",\"count\":1},{\"value\":\"10.189.255.171\",\"count\":1},{\"value\":\"10.205.18.90\",\"count\":1},{\"value\":\"10.217.204.190\",\"count\":1},{\"value\":\"10.221.192.145\",\"count\":1},{\"value\":\"10.231.234.72\",\"count\":1},{\"value\":\"10.236.87.223\",\"count\":1},{\"value\":\"10.244.95.8\",\"count\":1},{\"value\":\"10.255.138.142\",\"count\":1},{\"value\":\"10.36.194.139\",\"count\":1},{\"value\":\"10.47.202.81\",\"count\":1},{\"value\":\"10.60.67.29\",\"count\":1},{\"value\":\"10.72.179.98\",\"count\":1},{\"value\":\"10.89.211.149\",\"count\":1},{\"value\":\"10.93.112.82\",\"count\":1},{\"value\":\"10.99.25.186\",\"count\":1},{\"value\":\"12.118.186.223\",\"count\":1},{\"value\":\"120.252.250.11\",\"count\":1},{\"value\":\"15.13.184.159\",\"count\":1},{\"value\":\"165.135.121.137\",\"count\":1},{\"value\":\"175.181.189.103\",\"count\":1},{\"value\":\"18.232.208.70\",\"count\":1},{\"value\":\"192.235.135.211\",\"count\":1},{\"value\":\"2.161.161.219\",\"count\":1},{\"value\":\"203.77.75.98\",\"count\":1},{\"value\":\"21.217.62.41\",\"count\":1},{\"value\":\"3.18.172.245\",\"count\":1},{\"value\":\"42.103.126.180\",\"count\":1},{\"value\":\"56.51.49.176\",\"count\":1},{\"value\":\"63.214.248.20\",\"count\":1},{\"value\":\"74.17.19.1\",\"count\":1},{\"value\":\"80.159.79.16\",\"count\":1},{\"value\":\"84.105.114.228\",\"count\":1},{\"value\":\"96.157.126.168\",\"count\":1}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "40",
+   "field": "cid",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[{\"value\":\"4ec028388626ff175528d0d89d9907d1\",\"count\":2},{\"value\":\"60308650a61f151e0536286b34f3c166\",\"count\":2},{\"value\":\"799730c57d5be35800b7719f70fa7057\",\"count\":2},{\"value\":\"7f03c319da1d73b57c4d976a52d9151b\",\"count\":2},{\"value\":\"a24ac411a70b7202b44080d180c7fe89\",\"count\":2},{\"value\":\"00ec91c25dff5ac59c0a0f26f9b7cc54\",\"count\":1},{\"value\":\"04f819ec6fe68460c2ab7140ac510a43\",\"count\":1},{\"value\":\"06e478d193842661baa6203d032aad55\",\"count\":1},{\"value\":\"174a01b62c4c209a013835e35d97e019\",\"count\":1},{\"value\":\"21b077bda8485c574920cae09c8fe6b1\",\"count\":1},{\"value\":\"23d362ead0ba2ca153f61ba3ed2d552c\",\"count\":1},{\"value\":\"25a8e82498120a3e3df2b5e0545330d5\",\"count\":1},{\"value\":\"2b283b19dbd7a34b2a163ef6e2676ca1\",\"count\":1},{\"value\":\"329df770a262c84b8e8eb826e440e4a0\",\"count\":1},{\"value\":\"3386df2a24a6d0e926f198929aedb98d\",\"count\":1},{\"value\":\"34fd961c3c0fda85d2b9112f01dcb3b3\",\"count\":1},{\"value\":\"366d8bd0e248c5df8903b96c233e159e\",\"count\":1},{\"value\":\"390895434f44d6a06784440c68dd6c90\",\"count\":1},{\"value\":\"3f92e02c0f19b57b48f9f485f48cd52a\",\"count\":1},{\"value\":\"4050852fc135a55e432a2332feaab619\",\"count\":1},{\"value\":\"49a4e715a977eb46467d8c7e4ca39380\",\"count\":1},{\"value\":\"50bcc52134adfff10985809bea7a16d4\",\"count\":1},{\"value\":\"5ec5ac40b039076a52a9c2e880dd8ff5\",\"count\":1},{\"value\":\"5fc37448c39d8b258268388625a3848a\",\"count\":1},{\"value\":\"65711817dd6521a753f8b2ecd3fa3c39\",\"count\":1},{\"value\":\"6d12ebd2f88672c894b5fcfd1f77daac\",\"count\":1},{\"value\":\"7420ccca214d4cf45386a22cd3a8b3b2\",\"count\":1},{\"value\":\"76b7b7fe9d61fb03b21222856d9ed8c0\",\"count\":1},{\"value\":\"77e7ab8b9f69615c1c2afafd4f8eba1b\",\"count\":1},{\"value\":\"7cb4827c091a439e43a453d85ad8322a\",\"count\":1},{\"value\":\"86290231c2afe84405c4cebc4ef29d16\",\"count\":1},{\"value\":\"8fcbf132be0725add22cf142cfedc6d9\",\"count\":1},{\"value\":\"9d2d134200472f4820abfb08e1145e43\",\"count\":1},{\"value\":\"b52d4802104a826796aeb850b4066d6f\",\"count\":1},{\"value\":\"ba0936f3bce8ca96e8a3d5bda023102a\",\"count\":1},{\"value\":\"d620472d63fb43771b4741d7e4dcdec5\",\"count\":1},{\"value\":\"d871671af47b49111e3a58bce4368e30\",\"count\":1},{\"value\":\"daa448296be18c8bffbf35e9e240c97a\",\"count\":1},{\"value\":\"f42ba247439311cea0acd958003eef99\",\"count\":1},{\"value\":\"f49395e2a3a9a4b05e157d6a92c4ae3f\",\"count\":1}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "1",
+   "field": "date_hour",
+   "is_exact": "1",
+   "max": "13",
+   "mean": "13",
+   "min": "13",
+   "numeric_count": "45",
+   "stdev": "0",
+   "values": "[{\"value\":\"13\",\"count\":45}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "1",
+   "field": "date_mday",
+   "is_exact": "1",
+   "max": "13",
+   "mean": "13",
+   "min": "13",
+   "numeric_count": "45",
+   "stdev": "0",
+   "values": "[{\"value\":\"13\",\"count\":45}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "13",
+   "field": "date_minute",
+   "is_exact": "1",
+   "max": "54",
+   "mean": "46.022222222222226",
+   "min": "40",
+   "numeric_count": "45",
+   "stdev": "4.109240633725197",
+   "values": "[{\"value\":\"50\",\"count\":8},{\"value\":\"40\",\"count\":7},{\"value\":\"43\",\"count\":5},{\"value\":\"47\",\"count\":5},{\"value\":\"41\",\"count\":3},{\"value\":\"46\",\"count\":3},{\"value\":\"48\",\"count\":3},{\"value\":\"49\",\"count\":3},{\"value\":\"51\",\"count\":3},{\"value\":\"44\",\"count\":2},{\"value\":\"42\",\"count\":1},{\"value\":\"52\",\"count\":1},{\"value\":\"54\",\"count\":1}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "1",
+   "field": "date_month",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[{\"value\":\"october\",\"count\":45}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "31",
+   "field": "date_second",
+   "is_exact": "1",
+   "max": "54",
+   "mean": "30.844444444444445",
+   "min": "3",
+   "numeric_count": "45",
+   "stdev": "14.325685063034596",
+   "values": "[{\"value\":\"11\",\"count\":3},{\"value\":\"32\",\"count\":3},{\"value\":\"23\",\"count\":2},{\"value\":\"24\",\"count\":2},{\"value\":\"27\",\"count\":2},{\"value\":\"28\",\"count\":2},{\"value\":\"29\",\"count\":2},{\"value\":\"37\",\"count\":2},{\"value\":\"45\",\"count\":2},{\"value\":\"46\",\"count\":2},{\"value\":\"48\",\"count\":2},{\"value\":\"53\",\"count\":2},{\"value\":\"10\",\"count\":1},{\"value\":\"15\",\"count\":1},{\"value\":\"16\",\"count\":1},{\"value\":\"17\",\"count\":1},{\"value\":\"18\",\"count\":1},{\"value\":\"25\",\"count\":1},{\"value\":\"3\",\"count\":1},{\"value\":\"31\",\"count\":1},{\"value\":\"33\",\"count\":1},{\"value\":\"34\",\"count\":1},{\"value\":\"35\",\"count\":1},{\"value\":\"36\",\"count\":1},{\"value\":\"44\",\"count\":1},{\"value\":\"49\",\"count\":1},{\"value\":\"51\",\"count\":1},{\"value\":\"52\",\"count\":1},{\"value\":\"54\",\"count\":1},{\"value\":\"7\",\"count\":1},{\"value\":\"9\",\"count\":1}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "1",
+   "field": "date_wday",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[{\"value\":\"tuesday\",\"count\":45}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "1",
+   "field": "date_year",
+   "is_exact": "1",
+   "max": "2026",
+   "mean": "2026",
+   "min": "2026",
+   "numeric_count": "45",
+   "stdev": "0",
+   "values": "[{\"value\":\"2026\",\"count\":45}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "1",
+   "field": "date_zone",
+   "is_exact": "1",
+   "max": "0",
+   "mean": "0",
+   "min": "0",
+   "numeric_count": "45",
+   "stdev": "0",
+   "values": "[{\"value\":\"0\",\"count\":45}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "1",
+   "field": "event_platform",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[{\"value\":\"Win\",\"count\":45}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "1",
+   "field": "event_simpleName",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[{\"value\":\"DmpFileWritten\",\"count\":45}]"
+  },
+  {
+   "count": "0",
+   "distinct_count": "0",
+   "field": "eventtype",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "1",
+   "field": "host",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[{\"value\":\"3ccd20e3a547\",\"count\":45}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "45",
+   "field": "id",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[{\"value\":\"04df6a96-5398-6a83-db2b-26aaacfcd21b\",\"count\":1},{\"value\":\"059e2c93-529d-85fc-1709-2e4aad2ea48a\",\"count\":1},{\"value\":\"0717495f-3f2d-f487-bfeb-86ffb1d6bb77\",\"count\":1},{\"value\":\"0b1a7454-821e-b6d1-d8af-81933c73d17c\",\"count\":1},{\"value\":\"0c31a879-ec2f-edcb-76bd-5b1c2e7904d4\",\"count\":1},{\"value\":\"106946cf-766e-747d-fc93-4d269cae1b12\",\"count\":1},{\"value\":\"16858649-7ef4-4cb8-3d35-891c6559818c\",\"count\":1},{\"value\":\"17a77e6b-ee6b-2b72-d035-193eb061c51e\",\"count\":1},{\"value\":\"27023685-2d85-b43a-3c9a-ecfb2ba77120\",\"count\":1},{\"value\":\"35812d2e-d314-0273-bf4f-205dbe09fe06\",\"count\":1},{\"value\":\"3bebf6c5-e071-d557-eabb-207d00bc923e\",\"count\":1},{\"value\":\"4514b50a-9941-3f8f-e2d0-7953ddcb6265\",\"count\":1},{\"value\":\"486c5805-7632-0801-e216-0fe471ad0cb5\",\"count\":1},{\"value\":\"4e144bdd-3e25-c1d2-a907-fe4008590f3a\",\"count\":1},{\"value\":\"5273d93c-80a8-62dc-e041-d0a8e9609b47\",\"count\":1},{\"value\":\"5474a9e4-220d-f69e-2aea-a487b1a78100\",\"count\":1},{\"value\":\"5e618bde-745f-5e80-02db-9bf41c7c3ef4\",\"count\":1},{\"value\":\"667ca5d2-9ac3-28c2-7a94-316c8b8660c4\",\"count\":1},{\"value\":\"6942839e-f84e-59a9-8803-45bac07fbcbd\",\"count\":1},{\"value\":\"714bf3bb-cfb0-1613-0156-e4538232aa64\",\"count\":1},{\"value\":\"77e5d789-499c-f14b-2c4d-465cd26cf3ae\",\"count\":1},{\"value\":\"808dd9ed-4821-9c3c-74d1-590ed155845b\",\"count\":1},{\"value\":\"80fdf8be-6853-eb74-9ea4-ec9df1ac7488\",\"count\":1},{\"value\":\"86e1059c-8fc7-e57d-9332-cf1259909dc4\",\"count\":1},{\"value\":\"87518db6-4f56-4632-e1d9-e191f2945eb1\",\"count\":1},{\"value\":\"8aa24c40-8311-8924-32e0-84d88b52546c\",\"count\":1},{\"value\":\"8ddde389-ac8a-fa49-7f3f-df0ed7878904\",\"count\":1},{\"value\":\"9413cc13-6ec8-1201-4d5e-68cff4e9bbbe\",\"count\":1},{\"value\":\"98fd7be9-c50b-b07e-d90e-1b52534add25\",\"count\":1},{\"value\":\"aa2481a1-9b3b-fa90-1685-954318e6707f\",\"count\":1},{\"value\":\"aa34f12e-164e-6881-410b-13691ea124b2\",\"count\":1},{\"value\":\"b55f8660-e8fd-27c4-da11-1358396460c2\",\"count\":1},{\"value\":\"b60d5e7e-bb15-c484-10bb-f1f1bbd68be0\",\"count\":1},{\"value\":\"bce971c3-40e6-b2f8-bcc3-c2d5041c621f\",\"count\":1},{\"value\":\"c4a27f7f-3c8c-09e1-c3b9-bf6b4163dc4b\",\"count\":1},{\"value\":\"c69e5104-7c9c-5914-6866-6b2721df4b7a\",\"count\":1},{\"value\":\"cc80a81d-36e4-60f2-5b8f-7dcd1685d904\",\"count\":1},{\"value\":\"cf6a81b6-6557-a5f2-21c2-2bb358755290\",\"count\":1},{\"value\":\"daeee64b-e97f-fbb5-2507-4fc395c2628f\",\"count\":1},{\"value\":\"dd9ca643-c9cf-0fc2-19a0-d0a175083373\",\"count\":1},{\"value\":\"ddf43348-3e23-4acd-ce13-81307d317eaa\",\"count\":1},{\"value\":\"e2374c29-3ae3-1331-5fbf-b00bdfdc59ec\",\"count\":1},{\"value\":\"e31ef83a-107a-571a-e34e-d1bc323235bb\",\"count\":1},{\"value\":\"f7e83023-83b3-86f7-ddbb-1a1538501ae7\",\"count\":1},{\"value\":\"fd59c5e9-52cd-95c3-eded-67408a6c91cc\",\"count\":1}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "1",
+   "field": "index",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[{\"value\":\"matalog_json\",\"count\":45}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "1",
+   "field": "linecount",
+   "is_exact": "1",
+   "max": "1",
+   "mean": "1",
+   "min": "1",
+   "numeric_count": "45",
+   "stdev": "0",
+   "values": "[{\"value\":\"1\",\"count\":45}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "1",
+   "field": "matalog_n",
+   "is_exact": "1",
+   "max": "1",
+   "mean": "1",
+   "min": "1",
+   "numeric_count": "45",
+   "stdev": "0",
+   "values": "[{\"value\":\"1\",\"count\":45}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "1",
+   "field": "name",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[{\"value\":\"DmpFileWrittenV14\",\"count\":45}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "1",
+   "field": "punct",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[{\"value\":\"{\\\"\\\":\\\"-------\\\",\\\"\\\":\\\"\\\",\\\"\\\":\\\"\\\",\\\"\\\":\\\"\\\",\\\"\\\":\\\"...\\\",\\\"\\\":\\\"\\\",\\\"\\\":\",\"count\":45}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "1",
+   "field": "source",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[{\"value\":\"/tmp/crowdstrike_events_sensor.jsonl.part003\",\"count\":45}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "1",
+   "field": "sourcetype",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[{\"value\":\"crowdstrike:events:sensor\",\"count\":45}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "1",
+   "field": "splunk_server",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[{\"value\":\"3ccd20e3a547\",\"count\":45}]"
+  },
+  {
+   "count": "0",
+   "distinct_count": "0",
+   "field": "splunk_server_group",
+   "is_exact": "1",
+   "numeric_count": "0",
+   "values": "[]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "6",
+   "field": "timeendpos",
+   "is_exact": "1",
+   "max": "498",
+   "mean": "495.53333333333336",
+   "min": "493",
+   "numeric_count": "45",
+   "stdev": "1.3416407864935633",
+   "values": "[{\"value\":\"496\",\"count\":14},{\"value\":\"495\",\"count\":13},{\"value\":\"497\",\"count\":7},{\"value\":\"493\",\"count\":5},{\"value\":\"494\",\"count\":3},{\"value\":\"498\",\"count\":3}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "45",
+   "field": "timestamp",
+   "is_exact": "1",
+   "max": "1791899649334",
+   "mean": "1791899192630.5112",
+   "min": "1791898807148",
+   "numeric_count": "45",
+   "stdev": "244415.81489673772",
+   "values": "[{\"value\":\"1791898807148\",\"count\":1},{\"value\":\"1791898811287\",\"count\":1},{\"value\":\"1791898832578\",\"count\":1},{\"value\":\"1791898832746\",\"count\":1},{\"value\":\"1791898846521\",\"count\":1},{\"value\":\"1791898846682\",\"count\":1},{\"value\":\"1791898853630\",\"count\":1},{\"value\":\"1791898876713\",\"count\":1},{\"value\":\"1791898892728\",\"count\":1},{\"value\":\"1791898897242\",\"count\":1},{\"value\":\"1791898971463\",\"count\":1},{\"value\":\"1791898990799\",\"count\":1},{\"value\":\"1791899003145\",\"count\":1},{\"value\":\"1791899004079\",\"count\":1},{\"value\":\"1791899014304\",\"count\":1},{\"value\":\"1791899034485\",\"count\":1},{\"value\":\"1791899067171\",\"count\":1},{\"value\":\"1791899085255\",\"count\":1},{\"value\":\"1791899187381\",\"count\":1},{\"value\":\"1791899196887\",\"count\":1},{\"value\":\"1791899208816\",\"count\":1},{\"value\":\"1791899248564\",\"count\":1},{\"value\":\"1791899248649\",\"count\":1},{\"value\":\"1791899249785\",\"count\":1},{\"value\":\"1791899251025\",\"count\":1},{\"value\":\"1791899265090\",\"count\":1},{\"value\":\"1791899298528\",\"count\":1},{\"value\":\"1791899324869\",\"count\":1},{\"value\":\"1791899328978\",\"count\":1},{\"value\":\"1791899355016\",\"count\":1},{\"value\":\"1791899365347\",\"count\":1},{\"value\":\"1791899389603\",\"count\":1},{\"value\":\"1791899403325\",\"count\":1},{\"value\":\"1791899411398\",\"count\":1},{\"value\":\"1791899417536\",\"count\":1},{\"value\":\"1791899423124\",\"count\":1},{\"value\":\"1791899429256\",\"count\":1},{\"value\":\"1791899433604\",\"count\":1},{\"value\":\"1791899437908\",\"count\":1},{\"value\":\"1791899453594\",\"count\":1},{\"value\":\"1791899471077\",\"count\":1},{\"value\":\"1791899484244\",\"count\":1},{\"value\":\"1791899495056\",\"count\":1},{\"value\":\"1791899572403\",\"count\":1},{\"value\":\"1791899649334\",\"count\":1}]"
+  },
+  {
+   "count": "45",
+   "distinct_count": "6",
+   "field": "timestartpos",
+   "is_exact": "1",
+   "max": "485",
+   "mean": "482.53333333333336",
+   "min": "480",
+   "numeric_count": "45",
+   "stdev": "1.3416407864935633",
+   "values": "[{\"value\":\"483\",\"count\":14},{\"value\":\"482\",\"count\":13},{\"value\":\"484\",\"count\":7},{\"value\":\"480\",\"count\":5},{\"value\":\"481\",\"count\":3},{\"value\":\"485\",\"count\":3}]"
+  }
+ ],
+ "sample_ratio": 1,
+ "spl": "search index=\"matalog_json\" sourcetype=\"crowdstrike:events:sensor\" event_simpleName=\"DmpFileWritten\" | where mvcount('event_simpleName')=1 AND 'event_simpleName'==\"DmpFileWritten\" | head 2000 | eval matalog_n=1 | fieldsummary maxvals=100"
+}

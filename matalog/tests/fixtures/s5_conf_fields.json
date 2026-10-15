@@ -1,0 +1,495 @@
+[
+ {
+  "name": "_indextime",
+  "content": {
+   "INDEXED": "1",
+   "INDEXED_VALUE": "0",
+   "TOKENIZER": "",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "_sourcetype",
+  "content": {
+   "INDEXED": "1",
+   "INDEXED_VALUE": "0",
+   "TOKENIZER": "",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "date_hour",
+  "content": {
+   "INDEXED": "1",
+   "INDEXED_VALUE": "0",
+   "TOKENIZER": "",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "date_mday",
+  "content": {
+   "INDEXED": "1",
+   "INDEXED_VALUE": "0",
+   "TOKENIZER": "",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "date_minute",
+  "content": {
+   "INDEXED": "1",
+   "INDEXED_VALUE": "0",
+   "TOKENIZER": "",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "date_month",
+  "content": {
+   "INDEXED": "1",
+   "INDEXED_VALUE": "0",
+   "TOKENIZER": "",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "date_second",
+  "content": {
+   "INDEXED": "1",
+   "INDEXED_VALUE": "0",
+   "TOKENIZER": "",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "date_wday",
+  "content": {
+   "INDEXED": "1",
+   "INDEXED_VALUE": "0",
+   "TOKENIZER": "",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "date_year",
+  "content": {
+   "INDEXED": "1",
+   "INDEXED_VALUE": "0",
+   "TOKENIZER": "",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "date_zone",
+  "content": {
+   "INDEXED": "1",
+   "INDEXED_VALUE": "0",
+   "TOKENIZER": "",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "evtlog_account",
+  "content": {
+   "INDEXED": "1",
+   "INDEXED_VALUE": "0",
+   "TOKENIZER": "",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "evtlog_category",
+  "content": {
+   "INDEXED": "1",
+   "INDEXED_VALUE": "0",
+   "TOKENIZER": "",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "evtlog_domain",
+  "content": {
+   "INDEXED": "1",
+   "INDEXED_VALUE": "0",
+   "TOKENIZER": "",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "evtlog_id",
+  "content": {
+   "INDEXED": "1",
+   "INDEXED_VALUE": "0",
+   "TOKENIZER": "",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "evtlog_severity",
+  "content": {
+   "INDEXED": "1",
+   "INDEXED_VALUE": "0",
+   "TOKENIZER": "",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "evtlog_sid",
+  "content": {
+   "INDEXED": "1",
+   "INDEXED_VALUE": "0",
+   "TOKENIZER": "",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "evtlog_sid_type",
+  "content": {
+   "INDEXED": "1",
+   "INDEXED_VALUE": "0",
+   "TOKENIZER": "",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "host",
+  "content": {
+   "INDEXED": "1",
+   "INDEXED_VALUE": "0",
+   "TOKENIZER": "",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "index",
+  "content": {
+   "INDEXED": "1",
+   "INDEXED_VALUE": "0",
+   "TOKENIZER": "",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "linecount",
+  "content": {
+   "INDEXED": "1",
+   "INDEXED_VALUE": "0",
+   "TOKENIZER": "",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "punct",
+  "content": {
+   "INDEXED": "1",
+   "INDEXED_VALUE": "0",
+   "TOKENIZER": "",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "source",
+  "content": {
+   "INDEXED": "1",
+   "INDEXED_VALUE": "0",
+   "TOKENIZER": "",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "sourcetype",
+  "content": {
+   "INDEXED": "1",
+   "INDEXED_VALUE": "0",
+   "TOKENIZER": "",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "sourcetype::splunk_resource_usage::data*",
+  "content": {
+   "INDEXED": "1",
+   "INDEXED_VALUE": "1",
+   "TOKENIZER": "",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "splunk_federated_provider",
+  "content": {
+   "INDEXED": "1",
+   "INDEXED_VALUE": "0",
+   "TOKENIZER": "",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "splunk_server",
+  "content": {
+   "INDEXED": "1",
+   "INDEXED_VALUE": "0",
+   "TOKENIZER": "",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "splunk_server_group",
+  "content": {
+   "INDEXED": "1",
+   "INDEXED_VALUE": "0",
+   "TOKENIZER": "",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "timeendpos",
+  "content": {
+   "INDEXED": "1",
+   "INDEXED_VALUE": "0",
+   "TOKENIZER": "",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ },
+ {
+  "name": "timestartpos",
+  "content": {
+   "INDEXED": "1",
+   "INDEXED_VALUE": "0",
+   "TOKENIZER": "",
+   "disabled": false,
+   "eai:acl": null,
+   "eai:appName": "system",
+   "eai:userName": "nobody"
+  },
+  "acl": {
+   "app": "system",
+   "owner": "nobody",
+   "sharing": "system"
+  }
+ }
+]

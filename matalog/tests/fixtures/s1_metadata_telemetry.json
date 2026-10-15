@@ -1,0 +1,36 @@
+{
+ "captured_slot": 1791928800,
+ "earliest": null,
+ "job": {
+  "eventCount": 0,
+  "resultCount": 2,
+  "runDuration": 0.017,
+  "scanCount": 0,
+  "sid": "md_1791941951.91"
+ },
+ "latest": null,
+ "match": [
+  "^\\| metadata type=sourcetypes index=\"_telemetry\"$"
+ ],
+ "note": "metadata type=sourcetypes for index _telemetry.",
+ "results": [
+  {
+   "firstTime": "1790223380",
+   "lastTime": "1791517992",
+   "recentTime": "1791517992",
+   "sourcetype": "splunk_telemetry_log",
+   "totalCount": "15",
+   "type": "sourcetypes"
+  },
+  {
+   "firstTime": "1790295226",
+   "lastTime": "1791936288",
+   "recentTime": "1791936288",
+   "sourcetype": "splunkd",
+   "totalCount": "17",
+   "type": "sourcetypes"
+  }
+ ],
+ "sample_ratio": 1,
+ "spl": "| metadata type=sourcetypes index=\"_telemetry\""
+}
