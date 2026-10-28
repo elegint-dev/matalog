@@ -9,7 +9,8 @@ probe facts (ctx.state["index_facts"]: the source and host values seen per
 sourcetype in the trailing day); eventtype and tag terms resolve through
 the eventtypes and tags config S5 read, recursively; earliest and latest
 are time bounds and always hold. Every other term (a test on another
-field, a keyword, a comparison, a subsearch, a macro, a base search) is
+field, a keyword, a comparison, a subsearch, a pipe, a macro the data
+model's app cannot see, a base search) is
 unresolved, and so is a source term for a source whose probe facts are
 missing or capped this run. A source is in the class when the whole
 constraint is true; OR binds tighter than the implicit AND, as in the
@@ -49,8 +50,10 @@ except ImportError:  # Python 2 on older Splunk
 
 from .. import keys
 from .. import rows as rows_mod
+from .. import spl
 from ..runner import Step, StepFailed
 from . import s5_read_config as s5
+from . import s6_parse_usage as s6
 
 STEP = "S8"
 COVERAGE = "matalog_cim_coverage"
@@ -149,10 +152,14 @@ def tokenize(text):
     """Tokens of a constraint search: ("(",), (")",), ("AND",), ("OR",), ("NOT",) and ("term", field, op, value, text).
 
     Raises ValueError for SPL a constraint evaluator cannot read: pipes,
-    subsearches and macros.
+    subsearches and macros left unexpanded.
     """
-    if any(c in text for c in "|[]`"):
-        raise ValueError("pipe, subsearch or macro in constraint")
+    if "|" in text:
+        raise ValueError("pipe in constraint")
+    if "[" in text or "]" in text:
+        raise ValueError("subsearch in constraint")
+    if "`" in text:
+        raise ValueError("macro in constraint")
     out = []
     pos, n = 0, len(text)
     while pos < n:
@@ -228,6 +235,10 @@ class Parser(object):
             raise ValueError("constraint ends inside an expression")
         if token[0] == "(":
             self.pos += 1
+            if self.peek() is not None and self.peek()[0] == ")":
+                # Empty parentheses, what an unset CIM index macro expands to, constrain nothing.
+                self.pos += 1
+                return ("true",)
             node = self.and_expr()
             if self.peek() is None or self.peek()[0] != ")":
                 raise ValueError("missing closing parenthesis")
@@ -239,7 +250,13 @@ class Parser(object):
         raise ValueError("unexpected %s" % token[0])
 
 
-def parse_constraint(text):
+def parse_constraint(text, lookup=None):
+    """Tree of a constraint search. Macros expand first through lookup(name, argc); one the lookup does not know is a ValueError."""
+    if lookup is not None and "`" in text:
+        gaps = []
+        text, _ = spl.expand_macros(text, lookup, gaps)
+        if gaps:
+            raise ValueError("macro not found: %s" % ", ".join(g[len("macro:"):] for g in gaps))
     return Parser(tokenize(text)).parse()
 
 
@@ -254,7 +271,8 @@ class Resolver(object):
     are missing or capped.
     """
 
-    def __init__(self, config):
+    def __init__(self, config, lookup_for=None):
+        self.lookup_for = lookup_for
         self.eventtypes = collections.OrderedDict()
         self.eventtypes_ok = bool(config.get("eventtypes_ok"))
         for entry in config.get("eventtypes") or []:
@@ -287,13 +305,15 @@ class Resolver(object):
         """The parsed tree of a search text, or a ValueError instance when it cannot be parsed."""
         if text not in self.parsed:
             try:
-                self.parsed[text] = parse_constraint(text)
+                self.parsed[text] = parse_constraint(text, self.lookup_for("") if self.lookup_for is not None else None)
             except ValueError as exc:
                 self.parsed[text] = exc
         return self.parsed[text]
 
     def evaluate(self, node, source, depth=0, stack=()):
         kind = node[0]
+        if kind == "true":
+            return True, set()
         if kind == "term":
             value, unresolved = self.term(node[1], source, depth, stack)
             return value, unresolved
@@ -421,7 +441,7 @@ def comment_of(item):
     return "", []
 
 
-def read_datasets(ctx, entries, declarations):
+def read_datasets(ctx, entries, declarations, lookup_for=None):
     """Datasets of every readable model in endpoint order, and the names of models whose definition did not parse."""
     datasets = []
     failed = []
@@ -445,7 +465,7 @@ def read_datasets(ctx, entries, declarations):
             if isinstance(obj, dict) and obj.get("objectName"):
                 objects.setdefault(str(obj["objectName"]), obj)
         for object_name, obj in objects.items():
-            datasets.append(build_dataset(model_name, object_name, objects, acl.get("app") or "", stanza, declarations))
+            datasets.append(build_dataset(model_name, object_name, objects, acl.get("app") or "", stanza, declarations, lookup_for))
     return datasets, failed
 
 
@@ -462,7 +482,7 @@ def lineage_chain(obj, objects):
     return chain, str(parent or "")
 
 
-def build_dataset(model_name, object_name, objects, app, stanza, declarations):
+def build_dataset(model_name, object_name, objects, app, stanza, declarations, lookup_for=None):
     dataset = Dataset(model_name, object_name)
     chain, root_parent = lineage_chain(objects[object_name], objects)
     if root_parent in UNRESOLVED_ROOTS or any(not _empty(o.get("baseSearch")) for o in chain):
@@ -504,7 +524,7 @@ def build_dataset(model_name, object_name, objects, app, stanza, declarations):
         entry["calc_decl_key"] = decl_key
     if dataset.constraints and not dataset.unresolved_root:
         try:
-            dataset.tree = parse_constraint(" ".join("(%s)" % c for c in dataset.constraints))
+            dataset.tree = parse_constraint(" ".join("(%s)" % c for c in dataset.constraints), lookup_for(app) if lookup_for is not None else None)
         except ValueError as exc:
             dataset.parse_error = str(exc)
     return dataset
@@ -593,14 +613,15 @@ class DeriveMeaning(Step):
         if config is None or not config.get("datamodels_ok"):
             raise StepFailed("datamodel definitions were not read this run")
         declarations = ctx.state.get("declarations") or {}
-        datasets, failed_models = read_datasets(ctx, config.get("datamodels") or [], declarations)
+        lookup_for = self.macro_lookup(ctx)
+        datasets, failed_models = read_datasets(ctx, config.get("datamodels") or [], declarations, lookup_for)
         sources = source_facts(ctx)
         field_rows = read_field_rows(ctx)
         by_name = {}
         for doc in field_rows.values():
             if doc.get("source_key") and doc.get("field_name"):
                 by_name[(doc["source_key"], doc["field_name"])] = doc
-        resolver = Resolver(config)
+        resolver = Resolver(config, lookup_for)
         state = collections.OrderedDict([
             ("models", len(set(d.model for d in datasets))), ("datasets", len(datasets)), ("datasets_unresolved", 0),
             ("sources", len(sources)), ("rows", 0), ("mapped", 0), ("field_rows_staged", 0), ("stale_deleted", 0)])
@@ -632,6 +653,14 @@ class DeriveMeaning(Step):
         ctx.counts["cim_datasets"] = len(datasets)
         ctx.counts["cim_datasets_unresolved"] = state["datasets_unresolved"]
         ctx.counts["cim_mapped"] = state["mapped"]
+
+    def macro_lookup(self, ctx):
+        """lookup_for(app) over the macros endpoint, or None when it is unreadable (constraints with macros then stay unresolved)."""
+        try:
+            return s6.macro_lookup(list(ctx.client.macros()))
+        except Exception as exc:
+            ctx.error(STEP, "data/macros", "data/macros unreadable: %s; constraints with macros stay unresolved" % exc)
+            return None
 
     def members(self, dataset, sources, resolver):
         """(sources in the class, unresolved term texts, count of sources without probe facts)."""
