@@ -29,7 +29,7 @@ class Defaults(unittest.TestCase):
         s = settings_mod.Settings.from_conf_text("[budget]\ncycle_seconds = 600\n# comment\n[profile]\nidentifier_distinct_ratio = 0.5\n[other]\nx = 1\n")
         self.assertEqual(s.budget.cycle_seconds, 600)
         self.assertEqual(s.profile.identifier_distinct_ratio, 0.5)
-        self.assertEqual(s.budget.max_searches_per_cycle, 400)
+        self.assertEqual(s.budget.max_searches_per_cycle, 1500)
 
     def test_with_overrides_returns_a_new_object(self):
         base = settings_mod.Settings.defaults()

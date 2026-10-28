@@ -14,10 +14,10 @@ from . import keys
 DEFAULTS = collections.OrderedDict([
     ("budget", collections.OrderedDict([
         ("cycle_seconds", (int, 3600)),
-        ("max_searches_per_cycle", (int, 400)),
-        ("max_concurrent_searches", (int, 3)),
-        ("max_events_scanned_per_cycle", (int, 20000000)),
-        ("max_search_seconds_per_cycle", (int, 1800)),
+        ("max_searches_per_cycle", (int, 1500)),
+        ("max_concurrent_searches", (int, 4)),
+        ("max_events_scanned_per_cycle", (int, 100000000)),
+        ("max_search_seconds_per_cycle", (int, 7200)),
         ("max_wall_seconds_per_cycle", (int, 2700)),
         ("search_timeout_seconds", (int, 120)),
         ("max_staleness_cycles", (int, 24)),

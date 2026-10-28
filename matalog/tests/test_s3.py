@@ -538,7 +538,7 @@ class JobOutcomes(unittest.TestCase):
         fixture = fake_client.load_fixture("s3_fieldsummary_crowdstrike_DmpFileWritten")
 
         def other_jobs(spec):
-            ctx.budget.searches_issued += 1000
+            ctx.budget.searches_issued += 10000
             return client_mod.JobResult(status="ok", results=fixture["results"], scan_count=45, spl=spec["spl"])
         ctx.client.add_search([r'event_simpleName="DmpFileWritten"'], other_jobs)
         store(ctx, "matalog_strata", [{"_key": PHODI, "discovery_due_run": NEXT_RUN_ID}, {"_key": MISSING, "discovery_due_run": NEXT_RUN_ID},
