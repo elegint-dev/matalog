@@ -677,7 +677,7 @@ class DeriveMeaning(Step):
         # A run counts only when its record carries cim_datasets: a rebuild, a config read failure or a crash replay wrote no coverage.
         runs = [r.get("run_id") for r in ctx.client.kv_query(RUNS, query={"committed": 1, "run_id": {"$lt": ctx.run_id}},
                                                             fields=["run_id", "run_mode", "errors", "cim_datasets"])
-                if r.get("run_id") and r.get("run_mode") != "rebuild" and r.get("cim_datasets") is not None
+                if r.get("run_id") and r.get("run_mode") not in rows_mod.REBUILD_MODES and r.get("cim_datasets") is not None
                 and not s5.config_read_failed(r.get("errors"), step=STEP)]
         limit = int(ctx.settings.retention.cim_stale_runs)
         failed = set(failed_models)

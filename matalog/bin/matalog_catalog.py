@@ -18,7 +18,7 @@ import time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from matalog_access import (CAP_CATALOG_READ, CAP_MEANINGS_WRITE, CAP_TYPES_WRITE, IN_CHUNK, READABLE, KvStore,  # noqa: E402
-                            RequestError, ScopedReader, caller_from_request, chunks, request_params, text)
+                            RequestError, ScopedReader, caller_from_request, chunks, request_params, require_primary, text)
 
 try:
     from splunk.persistconn.application import PersistentServerConnectionApplication
@@ -157,6 +157,7 @@ def write_catalog(collection, docs, caller, store, now=None):
     if capability is None:
         raise RequestError(403, "%s is not writable through this endpoint" % (collection or "the collection"))
     caller.require(capability)
+    require_primary(store)
     if collection == "matalog_meanings":
         clean = meaning_docs(docs, caller)
     elif collection == "matalog_fields":

@@ -171,7 +171,7 @@ class Commit(Step):
         if meanings is not None:
             self.guarded(ctx, "retention:fields", lambda: self.unobserved_fields(ctx, meanings))
         self.guarded(ctx, "retention:runs", lambda: self.run_records(ctx))
-        if meanings is not None and ctx.run_mode != "rebuild":
+        if meanings is not None and ctx.run_mode not in rows_mod.REBUILD_MODES:
             self.guarded(ctx, "meanings", lambda: self.meaning_status(ctx, meanings))
         self.mirror_sources = {}
         fresh = self.guarded(ctx, "mirror", lambda: read_meanings(ctx.client))

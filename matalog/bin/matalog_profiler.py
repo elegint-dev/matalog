@@ -24,13 +24,13 @@ SCHEME = """<scheme>
   <title>matalog profiler</title>
   <description>Profiles every field Splunk can see and writes the catalog to matalog_profiles and the matalog_* collections.</description>
   <use_external_validation>true</use_external_validation>
-  <use_single_instance>true</use_single_instance>
+  <use_single_instance>false</use_single_instance>
   <streaming_mode>xml</streaming_mode>
   <endpoint>
     <args>
       <arg name="run_mode">
         <title>Run mode</title>
-        <description>normal or rebuild</description>
+        <description>normal, rebuild, or mirror on a search head that does not run the profiler</description>
         <required_on_create>false</required_on_create>
       </arg>
     </args>
@@ -58,8 +58,8 @@ def validate_arguments(stream):
         sys.stderr.write("input configuration is not valid XML: %s\n" % exc)
         return 1
     mode = data["params"].get("run_mode", "normal") or "normal"
-    if mode not in ("normal", "rebuild"):
-        sys.stderr.write("run_mode must be normal or rebuild\n")
+    if mode not in ("normal", "rebuild", "mirror"):
+        sys.stderr.write("run_mode must be normal, rebuild or mirror\n")
         return 1
     return 0
 
@@ -83,7 +83,7 @@ def run_modular_input(stream, client=None, now=None):
     """One scheduled launch: exits without work when the slot already has a committed run."""
     data = read_input_xml(stream)
     if not data["stanzas"]:
-        # Splunk launches a single-instance input at startup even when every stanza is disabled.
+        # A launch without a stanza carries nothing to run.
         return 0
     if client is None:
         base_url = data["server_uri"] or "https://127.0.0.1:8089"
@@ -111,7 +111,7 @@ def build_parser():
     parser.add_argument("--password", default=os.environ.get("MATALOG_PASSWORD", ""))
     parser.add_argument("--password-file", default="")
     parser.add_argument("--now", type=float, default=None, help="epoch seconds that pin the slot; default is the wall clock")
-    parser.add_argument("--run-mode", choices=("normal", "rebuild"), default="normal")
+    parser.add_argument("--run-mode", choices=("normal", "rebuild", "mirror"), default="normal")
     parser.add_argument("--conf", default="", help="matalog.conf to read instead of the configs endpoint")
     parser.add_argument("--set", action="append", default=[], metavar="STANZA.SETTING=VALUE", help="override one setting")
     parser.add_argument("--log-level", default="INFO")

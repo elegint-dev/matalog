@@ -131,6 +131,9 @@ class RunContext(object):
         rows_mod.validate(row)
         if row["kind"] == "commit":
             raise rows_mod.RowError("the commit row is written by runner.commit only")
+        if self.run_mode == "mirror":
+            self.summary[row["kind"]].append(row)
+            return row
         size = rows_mod.row_bytes(row)
         if size > self.settings.profile.max_row_bytes:
             raise rows_mod.RowError("row of kind %s is %d bytes, over profile.max_row_bytes" % (row["kind"], size))
@@ -268,7 +271,8 @@ def search_cost_sink(ctx):
 
     def sink(row):
         ctx.summary["search_cost"].append(row)
-        ctx.add_unwritten(row)
+        if ctx.run_mode != "mirror":
+            ctx.add_unwritten(row)
     return cost_row, sink
 
 
@@ -526,6 +530,18 @@ def replay_uncommitted(ctx):
     return replayed
 
 
+def close_stale_records(ctx):
+    """A mirror run replays nothing: a record left at status=running is marked failed, and this run rebuilds everything."""
+    for run in replay_candidates(ctx):
+        if run.get("status") != "running":
+            continue
+        errors = list(run.get("errors") or [])
+        errors.append({"step": "S1", "subject": "mirror", "message": "the run did not finish; this mirror run rebuilds every collection"})
+        run.update({"status": "failed", "errors": errors[:MAX_ERRORS]})
+        ctx.client.kv_batch_save("matalog_runs", [writer_mod.kv_encode(run)])
+    return []
+
+
 def replay_one(ctx, run, running, probed):
     """Replay or close one candidate record; True when its KV writes were replayed."""
     run_id = run["run_id"]
@@ -642,8 +658,10 @@ def commit(ctx, type_versions_hash="", before_kv=None):
     then fails. Returns the commit row. Raises WriteError when a write failed;
     KV is then untouched if the failure was before the commit row. before_kv,
     when given, is called with ctx right before the KV batches (the human
-    meaning mirror is read there).
+    meaning mirror is read there). A mirror run takes commit_mirror.
     """
+    if ctx.run_mode == "mirror":
+        return commit_mirror(ctx, before_kv)
     flush_summary(ctx)
     for collection, docs in ctx.kv.items():
         if "updated_run_id" in rows_mod.COLLECTIONS[collection]:
@@ -689,6 +707,31 @@ def commit(ctx, type_versions_hash="", before_kv=None):
     run_doc.update({"committed": 1, "committed_attempt": ctx.attempt})
     ctx.client.kv_batch_save("matalog_runs", [writer_mod.kv_encode(run_doc)])
     return commit_doc
+
+
+def commit_mirror(ctx, before_kv=None):
+    """The commit of a mirror run: the KV batches, then committed=1. Nothing reaches the summary index."""
+    ctx.unwritten, ctx.unwritten_bytes = [], 0
+    for collection, docs in ctx.kv.items():
+        if "updated_run_id" in rows_mod.COLLECTIONS[collection]:
+            for doc in docs.values():
+                doc["updated_run_id"] = ctx.run_id
+    if before_kv is not None:
+        before_kv(ctx)
+    kv_counts = collections.OrderedDict()
+    for collection, docs in ctx.kv.items():
+        if docs:
+            kv_counts[collection] = ctx.kv_writer.write(collection, list(docs.values()))
+            ctx.budget.rows_written("S10", len(docs))
+    for collection, keys_set in ctx.kv_deletes.items():
+        if keys_set:
+            ctx.kv_writer.delete(collection, sorted(keys_set))
+    ctx.rows_written = kv_counts
+    ctx.committed = True
+    run_doc = ctx.run_record
+    run_doc.update({"committed": 1, "committed_attempt": ctx.attempt})
+    ctx.client.kv_batch_save("matalog_runs", [writer_mod.kv_encode(run_doc)])
+    return None
 
 
 # Rebuild mode.
@@ -955,7 +998,7 @@ def default_steps():
 
 def steps_for_mode(run_mode, steps=None):
     steps = list(steps if steps is not None else default_steps())
-    if run_mode == "rebuild":
+    if run_mode in rows_mod.REBUILD_MODES:
         by_name = dict((s.name, s) for s in steps)
         return [RebuildStep()] + [by_name[n] for n in ("S10",) if n in by_name]
     return steps
@@ -1002,7 +1045,7 @@ def run_steps(ctx, steps):
 def run_once(settings, client, now=None, run_mode="normal", steps=None, profiled_as=None, clock=None):
     """One attempt of the run whose slot contains now. Returns the final matalog_runs document."""
     if run_mode not in rows_mod.RUN_MODES:
-        raise ValueError("run_mode must be normal or rebuild")
+        raise ValueError("run_mode must be normal, rebuild or mirror")
     ctx = new_context(settings, client, now=now, run_mode=run_mode, profiled_as=profiled_as, clock=clock)
     ctx.log.info("run %s attempt %d mode %s", ctx.run_id, ctx.attempt, run_mode)
     held = acquire_lock(ctx)
@@ -1015,7 +1058,7 @@ def run_once(settings, client, now=None, run_mode="normal", steps=None, profiled
         try:
             writer_mod.clear_buffer(ctx.client, ctx.run_id, ctx.attempt)
             seed_stratum_config(ctx)
-            ctx.state["replayed"] = replay_uncommitted(ctx)
+            ctx.state["replayed"] = close_stale_records(ctx) if run_mode == "mirror" else replay_uncommitted(ctx)
         except Exception as exc:
             ctx.error("S1", "replay", "%s: %s" % (exc.__class__.__name__, exc))
             ctx.log.debug(traceback.format_exc())

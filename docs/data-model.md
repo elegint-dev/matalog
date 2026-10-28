@@ -49,7 +49,7 @@ Sentinels for `stratum_value`: `__all__` (the whole-source stratum, which exists
 
 Anchored first discovery: a source with no events in the trailing day, a `last_event_time`, and no stratum with `last_discovered_run` (or one set by a rerun of this run) is due once with `window_anchor=last_event`: S2 lists it unsampled and S3 discovers it on a window `discovery.discovery_window_seconds` long ending at `last_event_time` (`latest` one second past its floor, since `latest` is exclusive) instead of the slot window, S4 leaves it alone that run, and the searched stratum rows and field rows record `window_anchor=last_event` (their `earliest` and `latest` are the anchored window). It is planned and budgeted like any discovery. Later runs treat the source as any other: its due rule stays slot-pinned, and a slot-pinned discovery clears `window_anchor`.
 
-`run_mode` is `normal` or `rebuild`.
+`run_mode` is `normal`, `rebuild` or `mirror`.
 
 ### Commit protocol
 
@@ -83,6 +83,8 @@ Read path: rebuild, crash replay and reclassify read summary rows as `_raw` (`| 
 ### Rebuild and reclassify
 
 `run_mode=rebuild` issues no search against data. It reads the latest committed row of every kind per subject from `matalog_profiles` (newest first, at most `rebuild.rebuild_max_rows` rows) and rewrites `matalog_sources`, `matalog_strata` (state, rate and share from the latest `mode=listing` rows), `matalog_fields` (snapshots, rollup rows recomputed from children, whose `cur_prof_distinct` is then the no-probe case of the rollup rule since the probed whole-source figure is not in the index, latest values, human mirror from `matalog_meanings`, usage summary from the stored `matalog_usage` and `matalog_objects`) and `matalog_field_types` (from the latest full `kind=field` rows). `matalog_cim_coverage` and the `cim_fields` and `cim_via` columns are not rebuilt: the next normal run's S8 recomputes them (see the CIM layer). It sets the run's `audit_watermark` `usage.audit_initial_lookback_days` before its audit window end, since no summary row carries `last_human_search_*`, so the next normal run rereads `_audit` over the whole lookback and rebuilds them (see Usage, "Last human search"). The declaration columns of `matalog_fields` (`declared`, `origin_decl_key`, `origin_candidates`, `origin_conflict`, `origin_stanza`), `search_sourcetype` and the `declared_only` rows are not in the index: rebuilt field rows get `declared=0` and `origin_conflict=0`, and the next normal run's S5, which resolves every enumerated source, restores the rest. `consecutive_unseen` is rebuilt from the stratum's two kept discoveries, so it is exact up to 2. `stratum_candidates` needs value counts the full rows do not keep and stays empty until the source's next profile. It then runs S10. It never writes `matalog_meanings`, `matalog_stratum_config` user rows or `matalog_semantic_types` user rows.
+
+`run_mode=mirror` is the rebuild for a search head that does not run the profiler: another search head of the same stack, an Enterprise Security search head, whose KV store is its own. The same reads and the same KV rewrite, but nothing is written to `matalog_profiles`: no summary rows, no `search_cost` rows, no commit row, so the profiling search head's run ids stay the only committed attempts in the index. The run record goes to the mirror head's own `matalog_runs` with `run_mode=mirror`, `rows_written` holds the KV counts only, and a record left at `running` is marked failed by the next mirror run instead of being replayed. The catalog and meanings endpoints refuse a human-layer write with 409 on a search head whose newest run is a mirror run, since `matalog_meanings` written there would never reach the profiling head; the next mirror run rewrites the field rows' human mirror from the mirror head's own `matalog_meanings`, which stays empty.
 
 Reclassify is part of every normal run, not a mode. S7 compares `matalog_semantic_types.type_version` of every enabled type with `matalog_runs.type_versions` of the previous committed run. For each type whose version changed or that is new, S7 reads the latest committed full `kind=field` row per field (at most `rebuild.rebuild_max_rows`) and classifies that type against the stored `sample_values`, writing `matalog_field_types` with `source=reclassify`. Fields classified in the same run from a full row of that run are left to that classification, and a field whose `matalog_fields` row no longer exists is skipped. With no previous committed run, or one without `type_versions`, every enabled type is new.
 
@@ -604,7 +606,7 @@ Key: `_key = run_id`. Rows beyond `retention.run_retention_count` are deleted, o
 | attempt | int | Current attempt. | S1 |
 | committed | bool | Commit flag. | S10 |
 | committed_attempt | int | Attempt whose rows are authoritative. | S10 |
-| run_mode | string | `normal` or `rebuild`. | S1 |
+| run_mode | string | `normal`, `rebuild` or `mirror`. | S1 |
 | status | string | `running`, `ok`, `partial` (a budget ceiling was hit or a step failed), `failed`, `skipped_locked` (another attempt held the run lock; nothing ran). | S1, S10 |
 | profiled_as | string | Service account. | S1 |
 | app_context | string | App the searches ran under. | S1 |

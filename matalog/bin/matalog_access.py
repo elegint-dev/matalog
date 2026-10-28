@@ -151,6 +151,16 @@ class KvStore(object):
             return []
 
 
+MIRROR_MESSAGE = "this search head mirrors the catalog; edit meanings and types on the search head that runs the profiler"
+
+
+def require_primary(store):
+    """Refuse a human-layer write on a search head whose newest run is a mirror run."""
+    rows = store.read("matalog_runs", fields=["run_mode"], limit=1, sort="started_at:-1")
+    if rows and text(rows[0].get("run_mode")) == "mirror":
+        raise RequestError(409, MIRROR_MESSAGE)
+
+
 class Caller(object):
     """The calling user: name, roles, capabilities and the index patterns the roles allow, with inheritance."""
 

@@ -972,7 +972,7 @@ class ReadConfig(Step):
         # A run counts as an S5 read only when it did one: not a rebuild, no S5 failure, and not a crash replay (which restores no declarations).
         runs = [r.get("run_id") for r in ctx.client.kv_query("matalog_runs", query={"committed": 1, "run_id": {"$lt": ctx.run_id}},
                                                             fields=["run_id", "run_mode", "errors"])
-                if r.get("run_id") and r.get("run_mode") != "rebuild" and not config_read_failed(r.get("errors"))
+                if r.get("run_id") and r.get("run_mode") not in rows_mod.REBUILD_MODES and not config_read_failed(r.get("errors"))
                 and not replayed(r.get("errors"))]
         limit = ctx.settings.retention.object_stale_runs
         for doc in unseen:

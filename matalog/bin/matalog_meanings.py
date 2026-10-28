@@ -22,7 +22,8 @@ import time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from matalog.keys import k  # noqa: E402
-from matalog_access import IN_CHUNK, KvStore, RequestError, ScopedReader, caller_from_request, chunks, request_params, text  # noqa: E402
+from matalog_access import (IN_CHUNK, KvStore, RequestError, ScopedReader, caller_from_request, chunks, request_params,  # noqa: E402
+                            require_primary, text)
 from matalog_summary import inum, listing, num, type_name  # noqa: E402
 
 try:
@@ -263,6 +264,7 @@ class MeaningsHandler(PersistentServerConnectionApplication):
             body = text(request.get("payload"))
             if len(body.encode("utf-8")) > MAX_BODY:
                 raise RequestError(413, "body over %d MB; split the file" % (MAX_BODY // (1024 * 1024)))
+            require_primary(store)
             rows = parse_import(body, request_header(request, "Content-Type"))
             payload = import_meanings(rows, caller.user, read, store.write)
         except RequestError as exc:

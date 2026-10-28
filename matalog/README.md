@@ -33,7 +33,8 @@ The app needs Splunk 10.4 or later, Cloud or Enterprise: its pages are views on 
         disabled = 0
         interval = 0 * * * *
 
-7. Review the budget before the first cycle, in `local/matalog.conf`: `budget.max_concurrent_searches` (against the stack's concurrency limit), `budget.max_searches_per_cycle`, `budget.max_events_scanned_per_cycle`, `budget.max_search_seconds_per_cycle` and `budget.cycle_seconds`; every setting and its default are in [docs/budget-settings.md](../docs/budget-settings.md). The first run on a large stack is best started with `profile.sample_ratio` and `discovery.max_strata_per_source` left at their defaults and `budget.max_searches_per_cycle` lowered, then raised once `matalog cost per run` shows the cost.
+7. Other search heads: ACS installs the app on every search head and the KV store is per search head, so the catalog shows on the head whose input runs `run_mode = normal`. Enable that on exactly one head. On each other head (an Enterprise Security search head) enable the same input with `run_mode = mirror`: every cycle it rebuilds the collections from the shared `matalog_profiles` index without searching data and writes nothing to the index. Meaning and type edits are refused on a mirror head; make them on the profiling head.
+8. Review the budget before the first cycle, in `local/matalog.conf`: `budget.max_concurrent_searches` (against the stack's concurrency limit), `budget.max_searches_per_cycle`, `budget.max_events_scanned_per_cycle`, `budget.max_search_seconds_per_cycle` and `budget.cycle_seconds`; every setting and its default are in [docs/budget-settings.md](../docs/budget-settings.md). The first run on a large stack is best started with `profile.sample_ratio` and `discovery.max_strata_per_source` left at their defaults and `budget.max_searches_per_cycle` lowered, then raised once `matalog cost per run` shows the cost.
 
 ## Roles
 
@@ -60,7 +61,7 @@ The profiler runs as `usage.service_account` (`svc_matalog`) in the `matalog` ap
 
     python3 bin/matalog_profiler.py --url https://<search-head>:8089 --user svc_matalog --password-file local/svc_matalog.password --now 1791900000 --run-mode normal
 
-`--now` pins the run slot so a rerun searches the same window; `--run-mode rebuild` rewrites the collections from the summary index without searching data; `--set budget.max_searches_per_cycle=50` overrides one setting; `--conf default/matalog.conf` reads settings from a file instead of the configs endpoint.
+`--now` pins the run slot so a rerun searches the same window; `--run-mode rebuild` rewrites the collections from the summary index without searching data; `--run-mode mirror` does the same and writes nothing to the index, for a search head that does not run the profiler; `--set budget.max_searches_per_cycle=50` overrides one setting; `--conf default/matalog.conf` reads settings from a file instead of the configs endpoint.
 
 ## Tests
 
