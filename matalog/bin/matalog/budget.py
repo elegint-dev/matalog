@@ -13,6 +13,16 @@ import time
 from .client import JobResult
 
 CEILINGS = ("searches", "scanned", "search_seconds", "wall_seconds")
+
+# Generating commands that read the index files, not events; their scanCount is lexicon and bucket work, so it does not
+# count against max_events_scanned_per_cycle. A tstats over every index for a day reports the day's event total.
+INDEX_ONLY_COMMANDS = ("tstats", "metadata", "eventcount", "walklex", "inputlookup")
+
+
+def reads_events(spl):
+    """False when the search starts with a command in INDEX_ONLY_COMMANDS."""
+    head = str(spl or "").lstrip().lstrip("|").strip().split(" ", 1)[0].lower()
+    return head not in INDEX_ONLY_COMMANDS
 WRITE_SUBJECT = "write"
 
 
@@ -186,14 +196,15 @@ class Budget(object):
 
     def record(self, step, subject_key, result):
         """Add a finished job's cost and emit its search_cost row."""
+        scanned = int(result.scan_count or 0) if reads_events(result.spl) else 0
         with self._lock:
-            self.events_scanned += int(result.scan_count or 0)
+            self.events_scanned += scanned
             self.events_matched += int(result.event_count or 0)
             self.search_seconds += float(result.run_duration or 0.0)
             if result.status != "ok":
                 self.searches_failed += 1
             counters = self.per_step.setdefault(step, new_step_counters())
-            counters["scanned"] += int(result.scan_count or 0)
+            counters["scanned"] += scanned
             counters["seconds"] += float(result.run_duration or 0.0)
         result.step = step
         result.subject_key = subject_key

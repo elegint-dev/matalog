@@ -619,7 +619,7 @@ Key: `_key = run_id`. Rows beyond `retention.run_retention_count` are deleted, o
 | write_searches | int | `collect` jobs. | S10 |
 | write_reserve | int | Reserve computed for this run. | S1 |
 | write_bytes | int | JSON bytes sent to the index. | S10 |
-| events_scanned | int | Sum of `scanCount`. | S10 |
+| events_scanned | int | Sum of `scanCount` over the searches that read events (not `tstats`, `metadata`, `eventcount`, `walklex` or `inputlookup` jobs). | S10 |
 | events_matched | int | Sum of `eventCount`. | S10 |
 | search_seconds | float | Sum of `runDuration`. | S10 |
 | wall_seconds | float | `finished_at - started_at`. | S10 |

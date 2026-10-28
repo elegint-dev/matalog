@@ -9,7 +9,7 @@ Settings live in `matalog.conf` in the app, readable at `/servicesNS/nobody/mata
 | budget.cycle_seconds | int | 3600 | Run slot width and modular input interval. `run_id` is the slot start; a launch whose slot already has a committed run exits without work. | status |
 | budget.max_searches_per_cycle | int | 400 | Search jobs per run, write searches included. S3 and S4 plan against this minus the write reserve. | status, run record |
 | budget.max_concurrent_searches | int | 3 | Size of the job pool; must stay under the service account's search quota. | status |
-| budget.max_events_scanned_per_cycle | int | 20000000 | Sum of `scanCount` across the run; no further S3 or S4 job is dispatched once reached, remaining work is deferred. | status, run record |
+| budget.max_events_scanned_per_cycle | int | 20000000 | Sum of `scanCount` over the searches that read events; jobs that start with `tstats`, `metadata`, `eventcount`, `walklex` or `inputlookup` read the index files and are not counted. No further S3 or S4 job is dispatched once reached, remaining work is deferred. | status, run record |
 | budget.max_search_seconds_per_cycle | int | 1800 | Sum of `runDuration`; same deferral. | status, run record |
 | budget.max_wall_seconds_per_cycle | int | 2700 | Wall time of one run; must be below `cycle_seconds`. Work not started by then is deferred. | status, run record |
 | budget.search_timeout_seconds | int | 120 | One job; past it the job is finalized, recorded as `timeout`, and its subject is deferred. | status |
