@@ -120,7 +120,14 @@ def build_parser():
 
 def main(argv=None):
     args = build_parser().parse_args(argv)
-    logging.basicConfig(level=getattr(logging, args.log_level.upper(), logging.INFO), format="%(asctime)s %(levelname)s %(name)s %(message)s", stream=sys.stderr)
+    # splunkd records a modular input's stderr in splunkd.log at the level that opens each line (DEBUG, INFO, WARN,
+    # ERROR), as ERROR when the line opens with anything else, and adds its own timestamp.
+    if args.url:
+        fmt = "%(asctime)s %(levelname)s %(name)s %(message)s"
+    else:
+        fmt = "%(levelname)s %(name)s %(message)s"
+        logging.addLevelName(logging.WARNING, "WARN")
+    logging.basicConfig(level=getattr(logging, args.log_level.upper(), logging.INFO), format=fmt, stream=sys.stderr)
     if args.scheme:
         sys.stdout.write(SCHEME)
         return 0
